@@ -1,0 +1,35 @@
+:root {
+  --bg: white;
+  --text: black;
+  --button-bg: #F7BA00;
+
+  --mono: ui-monospace, Consolas, monospace;
+  --sans: 'TRAFFIC5', system-ui, Roboto, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 145%;
+
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--sans);
+}
+
+h1, h2, p {
+  margin: 0;
+}

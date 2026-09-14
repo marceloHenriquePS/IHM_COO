@@ -1,0 +1,1 @@
+Um projeto web que ensina programação orientada a objetos de forma lúdica, onde o jogador cria objetos de uma cidade ao qual ele gerencia.
