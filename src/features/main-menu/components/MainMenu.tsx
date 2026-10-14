@@ -1,18 +1,24 @@
-import { MenuButton } from "./MenuButton";
+import { Button } from "@/shared";
+import { useModal } from "@/shared/hooks/useModal";
+import { HelpModal } from "@/features/help-modal"
+import { AboutModal } from "@/features/about-modal"
 import logo from "../assets/logo-coo.png";
 import './MainMenu.css';
 
 export function MainMenu() {
+    const help = useModal();
+    const about = useModal();
+
     const handleStartBtn = () => {
         console.log("Apertou botão iniciar.")
     };
 
     const handleOptionsBtn = () => {
-        console.log("Apertou botão Opções.")
+        help.open();
     };
 
     const handleAboutBtn = () => {
-        console.log("Apertou botão Sobre.")
+        about.open();
     };
 
     return (
@@ -35,17 +41,17 @@ export function MainMenu() {
                 <div className="main-menu__buttons">
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <MenuButton label="INICIAR" onClick={handleStartBtn}/>
+                        <Button label="INICIAR" onClick={handleStartBtn}/>
                     </div>
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <MenuButton label="OPÇÕES" onClick={handleOptionsBtn}/>
+                        <Button label="OPÇÕES" onClick={handleOptionsBtn}/>
                     </div>
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <MenuButton label="SOBRE" onClick={handleAboutBtn}/>
+                        <Button label="SOBRE" onClick={handleAboutBtn}/>
                     </div>
                 </div>
                 
@@ -56,6 +62,22 @@ export function MainMenu() {
                 <span className="main-menu__console-method">System.out.println</span>
                 ("Aprenda Orientação a Objetos gerenciando sua cidade!");
             </p>
+
+            {help.isOpen && (
+                <HelpModal
+                    onClose={help.close}
+                    onNext={() => {}}
+                    onPrevious={() => {}}
+                />
+            )}
+
+            {about.isOpen && (
+                <AboutModal
+                    onClose={about.close}
+                    onNext={() => {}}
+                    onPrevious={() => {}}
+                />
+            )}
 
             </div>
 

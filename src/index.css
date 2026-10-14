@@ -1,7 +1,8 @@
 :root {
   --bg: white;
   --text: black;
-  --button-bg: #F7BA00;
+  --button-bg: #FEC602;
+  --modal-bg: #FEC602;
 
   --mono: ui-monospace, Consolas, monospace;
   --sans: 'TRAFFIC5', system-ui, Roboto, sans-serif;
