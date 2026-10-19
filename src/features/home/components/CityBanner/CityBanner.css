@@ -1,0 +1,9 @@
+.city-banner {
+    width: 100%;
+}
+
+.city-banner-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}

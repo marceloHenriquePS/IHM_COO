@@ -1,4 +1,5 @@
 import { Button } from "@/shared";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "@/shared/hooks/useModal";
 import { HelpModal } from "@/features/help-modal"
 import { AboutModal } from "@/features/about-modal"
@@ -6,11 +7,12 @@ import logo from "../assets/logo-coo.png";
 import './MainMenu.css';
 
 export function MainMenu() {
+    const navigate = useNavigate();
     const help = useModal();
     const about = useModal();
 
     const handleStartBtn = () => {
-        console.log("Apertou botão iniciar.")
+        navigate("/home");
     };
 
     const handleOptionsBtn = () => {

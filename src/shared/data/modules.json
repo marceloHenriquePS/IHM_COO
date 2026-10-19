@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1, 
+        "title": "Módulo 1", 
+        "subtitle":"Classes e Atributos", 
+        "phases": [
+            {
+                "id":1,
+                "title": "Dê vida a nossa cidade",
+                "description": "Nossa cidade precisa de vida, dê as características certas a ela selecioanndo os atributos corretos.",
+                "type": "build-object"
+            },
+            {
+                "id":2,
+                "title": "Fase 2",
+                "description": "Descrição da fase 1-2",
+                "type": "build-object"
+            },
+            {
+                "id":3,
+                "title": "Fase 3",
+                "description": "Descrição da fase 1-3",
+                "type": "build-object"
+            },
+            {
+                "id":4,
+                "title": "Fase 4",
+                "description": "Descrição da fase 1-4",
+                "type": "build-object"
+            },
+            {
+                "id":5,
+                "title": "Fase 5",
+                "description": "Descrição da fase 1-5",
+                "type": "build-object"
+            }
+        ]
+    },
+    {
+        "id": 2, 
+        "title": "Módulo 2", 
+        "subtitle":"Métodos",
+        "phases": []
+    },
+    {
+        "id": 3, 
+        "title": "Módulo 3", 
+        "subtitle":"Encapsulamento",
+        "phases": []
+    },
+    {
+        "id": 4, 
+        "title": "Módulo 4", 
+        "subtitle":"Herança",
+        "phases": []
+    },
+    {
+        "id": 5, 
+        "title": "Módulo 5", 
+        "subtitle":"Polimorfismo",
+        "phases": []
+    }
+]

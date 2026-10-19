@@ -1,0 +1,30 @@
+.message-banner {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 14px 24px;
+    box-sizing: border-box;
+
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.message-banner-text {
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+
+    animation: banner-slide-in 0.6s ease;
+}
+
+@keyframes banner-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

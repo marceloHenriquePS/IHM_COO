@@ -1,0 +1,86 @@
+.app-header {
+    top: 0;
+    z-index: 100;
+    position: sticky;
+
+    display: flex;
+    padding: 5px 28px;
+    justify-content: space-between;
+
+    background: linear-gradient(140deg,
+            #ffc400 0%,
+            #ffc400 68%,
+            #ffffff 68%,
+            #ffffff 100%);
+}
+
+.header-brand {
+    gap: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.header-brand h1 {
+    font-size: 26px;
+    margin-top: 20px;
+    color: #080808;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+
+    width: 70px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+.header-logo-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+
+.header-actions {
+    gap: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.header-action {
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+    background: transparent;
+}
+
+.header-action-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+
+    font-size: 35px;
+    font-weight: 800;
+    border-radius: 50%;
+    background: var(--button-bg);
+}
+
+.header-action-image {
+    display: block;
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.header-action:hover .header-action-icon {
+    transform: scale(1.08);
+    border: 2px solid #080808;
+}

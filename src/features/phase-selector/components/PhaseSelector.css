@@ -1,0 +1,49 @@
+.phase-selector {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    box-sizing: border-box;
+    min-height: calc(100vh - 85px);
+}
+
+.phase-selector-title {
+    gap: 4px;
+    display: flex;
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    flex-direction: column;
+}
+
+.phase-selector-phase-title {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.phase-selector-description {
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 35px auto;
+}
+
+.phase-selector-play {
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 8px 56px;
+    border-radius: 8px;
+    background: var(--button-bg);
+}
+
+.phase-selector-play:hover {
+    filter: brightness(0.95);
+}

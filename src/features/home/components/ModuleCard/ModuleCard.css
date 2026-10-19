@@ -1,0 +1,88 @@
+.module-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 140px;
+}
+
+.module-card-box {
+    width: 100%;
+    height: 125px;
+    box-sizing: border-box;
+    padding: 12px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 8px;
+    background: #d9d9d9;
+    border: 2px solid transparent;
+}
+
+.module-card-lock {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.module-card-icon {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #bdbdbd;
+}
+
+.module-card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-family: system-ui;
+}
+
+.module-card-button {
+    width: 100%;
+    padding: 4px 0;
+    border: 0;
+    border-radius: 6px;
+    background: #d9d9d9;
+    color: #111;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: not-allowed;
+}
+
+.module-card.unlocked .module-card-box {
+    background: #fff;
+    border-color: #ffc400;
+
+    .module-card-icon {
+        background: #ffc400;
+    }
+}
+
+.module-card.unlocked .modulehase-card-icon {
+    background: #ffc400;
+}
+
+.module-card.unlocked .module-card-button {
+    background: #ffc400;
+    cursor: pointer;
+}
+
+.module-card.unlocked .module-card-button:hover {
+    filter: brightness(0.95);
+}
+

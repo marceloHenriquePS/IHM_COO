@@ -1,0 +1,98 @@
+.phase-track {
+    position: relative;
+    width: 100%;
+    margin: 40px 0;
+}
+
+.phase-track-road {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 28px;
+    transform: translateY(-50%);
+    background: #000;
+}
+
+.phase-track-road::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 4px dashed #fff;
+    transform: translateY(-50%);
+}
+
+.phase-track-items {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.phase-track-slot {
+    position: relative;
+}
+
+.phase-bubble {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    font: inherit;
+    
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.phase-bubble.unlocked {
+    background: var(--button-bg);
+}
+
+.phase-bubble.locked {
+    background: #9e9e9e;
+    cursor: not-allowed;
+}
+
+.phase-bubble.unlocked:hover {
+    transform: scale(1.08);
+}
+
+.phase-bubble.select, .phase-bubble:focus-visible {
+    outline: 4px solid black;
+    outline-offset: 4px;
+}
+
+.phase-bubble-number {
+    position: relative;
+    z-index: 1;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.phase-bubble-lock {
+    position: absolute;
+    inset: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    object-fit: contain;
+    opacity: 0.45;
+}
+
+.phase-barrier {
+    position: absolute;
+    top: -20px;
+    right: -85px;
+    width: 70px;
+    height: auto;
+    pointer-events: none;
+}
