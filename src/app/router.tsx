@@ -6,6 +6,7 @@ import { NotFound } from "@/features/not-found";
 import { MainMenu } from "@/features/main-menu";
 import { Home } from "@/features/home";
 import { PhaseSelector } from "@/features/phase-selector";
+import { PhasePage } from "@/features/phase";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
         element: <MainLayout/>,
         children: [
             {path: "/modules/:moduleId", element: <PhaseSelector/>},
+            {path: "/modules/:moduleId/phases/:phaseId", element: <PhasePage />},
         ]
     }
 ]);

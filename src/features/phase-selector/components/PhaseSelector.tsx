@@ -41,7 +41,7 @@ export function PhaseSelector() {
             <button
                 className="phase-selector-play"
                 type="button"
-                onClick={() => console.log("Apertou botão jogar")}
+                onClick={() => navigate(`/modules/${moduleData.id}/phases/${selectedPhase.id}`)}
             >
             JOGAR
             </button>

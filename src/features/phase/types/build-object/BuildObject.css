@@ -1,0 +1,10 @@
+.build-object {
+    gap: 16px;
+    width: 100%;
+    display: grid;
+    margin: 0 auto;
+    align-items: start;
+    box-sizing: border-box;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--phase-content-width);
+}

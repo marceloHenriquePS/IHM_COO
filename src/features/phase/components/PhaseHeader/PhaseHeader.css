@@ -1,0 +1,18 @@
+.phase-header {
+    max-width: var(--phase-content-width);
+    text-align: center;
+    padding: 0px 25px 10px;
+    font-family: system-ui;
+}
+
+.phase-header-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.phase-header-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
