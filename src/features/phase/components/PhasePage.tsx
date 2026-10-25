@@ -14,19 +14,23 @@ export function PhasePage() {
     const { feedback, showFeedback, clearFeedback } = useFeedback();
 
     const phase = getPhase(Number(moduleId), Number(phaseId));
+    const requirements = phase?.type === "analyse-object" ? phase.content.requirements : undefined;
 
     if (!phase || !isPhaseUnlocked(Number(moduleId), Number(phaseId))) {
         return <Navigate to={`/modules/${moduleId}`} replace />
     }
 
-    const Screen = PHASE_TYPES[phase.type];
+    const {Screen, showHeader} = PHASE_TYPES[phase.type];
 
     return (
         <main className="phase-page">
+            {showHeader && (
+
             <div className="phase-intro">
-                <PhaseHeader heading={phase.title} instructions={phase.instructions} />
+                <PhaseHeader heading={phase.title} instructions={phase.instructions} requirements={requirements} />
                 <FeedbackMessage feedback={feedback}/>
             </div>
+            )}
 
             <Screen 
                 key={`${moduleId}-${phaseId}`} 

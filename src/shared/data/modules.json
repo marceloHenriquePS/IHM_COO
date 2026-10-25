@@ -36,10 +36,39 @@
             },
             {
                 "id":2,
-                "title": "Fase 2",
-                "description": "Descrição da fase 1-2",
-                "instructions": "Instruções da fase 1-2",
-                "type": "build-object"
+                "title": "Fase 2 - Analisando Currículos",
+                "description": "A Escola Municipal de COO precisa contratar um novo professor. Selecione os candidatos que atendem aos requisitos da prefeitura.",
+                "instructions": "Selecione **2 CANDIDATOS** para passar para a próxima etapa baseado nos requisitos abaixo:",
+                "type": "analyse-object",
+                "content": {
+                    "requirements": [
+                        "O candidato deve ter entre **24 a 27 anos**, possuir formação de **professor** e atuar na área da **educação**",
+                        "A prefeitura busca um profissional que tenha pretensão salarial até **R$ 8.000**.",
+                        "Os candidatos com **menor salário** tem preferência."
+                    ],
+                    "submitLabel": "Avançar",
+                    "submitIcon": "hammer",
+                    "resourceIcon": "box",
+                    "maxSelected": 2,
+                    "answer": ["pedro", "maria"],
+                    "fields": [
+                        { "id": "name",   "label": "Nome",    "icon": "user" },
+                        { "id": "age",    "label": "Idade",   "icon": "calendar" },
+                        { "id": "sector", "label": "Setor",   "icon": "build" },
+                        { "id": "role",   "label": "Cargo",   "icon": "briefcase" },
+                        { "id": "salary", "label": "Salário", "icon": "coin" }
+                    ],
+                    "candidates": [
+                        { "id": "pedro", "photo": "pedro", "name": "Pedro", "age": "24", "sector": "Educação", "role": "Professor", "salary": "R$ 7.000" },
+                        { "id": "maria", "photo": "maria", "name": "Maria", "age": "27", "sector": "Educação", "role": "Professor", "salary": "R$ 6.500" },
+                        { "id": "joao",  "photo": "joao",  "name": "João",  "age": "28", "sector": "Educação", "role": "Professor", "salary": "R$ 6.000" }
+                    ],
+                    "messages": {
+                        "incomplete": "Selecione 2 candidatos antes de confirmar.",
+                        "wrong": "Algum candidato não atende aos requisitos. Releia as regras com atenção.",
+                        "success": "Candidatos selecionados com sucesso!"
+                    }
+                }
             },
             {
                 "id":3,
@@ -53,16 +82,16 @@
                     "submitIcon": "hammer",
                     "resourceIcon": "box",
                     "fields": [
-                        { "id": "nome",      "label": "Nome",      "icon": "note",    "expected": "Escola Municipal Classe Nova" },
-                        { "id": "endereco",    "label": "Endereço",    "icon": "pin",   "expected": "Rua dos Objetos" },
-                        { "id": "turno", "label": "Turno", "icon": "calendar", "expected": "Tarde" },
-                        { "id": "tipo",      "label": "Tipo",      "icon": "books",   "expected": "Fundamental II" }
+                        { "id": "nome",     "label": "Nome",     "icon": "note",     "expected": "Escola Municipal Classe Nova" },
+                        { "id": "endereco", "label": "Endereço", "icon": "pin",      "expected": "Rua dos Objetos" },
+                        { "id": "turno",    "label": "Turno",    "icon": "calendar", "expected": "Tarde" },
+                        { "id": "tipo",     "label": "Tipo",     "icon": "books",    "expected": "Fundamental II" }
                     ],
                     "groups": [
-                        { "id": "nome",      "label": "Nome",      "icon": "note",    "options": ["Escola Municipal Construtora", "Escola Municial Polímera", "Escola Municipal Classe Nova", "Escola Municipal Instância"] },
-                        { "id": "endereco",    "label": "Endereço",    "icon": "pin",   "options": ["Rua dos Objetos", "Avenida dos Atributos", "Rua da Herança", "Avenida dos Métodos"] },
-                        { "id": "turno", "label": "Turno", "icon": "calendar", "options": ["Manhã", "Tarde", "Noite", "Integral"] },
-                        { "id": "tipo",      "label": "Tipo",      "icon": "books",   "options": ["Fundamental I", "Fundamental II", "Ensino Médio", "Ensino Superior"] }
+                        { "id": "nome",     "label": "Nome",     "icon": "note",     "options": ["Escola Municipal Construtora", "Escola Municial Polímera", "Escola Municipal Classe Nova", "Escola Municipal Instância"] },
+                        { "id": "endereco", "label": "Endereço", "icon": "pin",      "options": ["Rua dos Objetos", "Avenida dos Atributos", "Rua da Herança", "Avenida dos Métodos"] },
+                        { "id": "turno",    "label": "Turno",    "icon": "calendar", "options": ["Manhã", "Tarde", "Noite", "Integral"] },
+                        { "id": "tipo",     "label": "Tipo",     "icon": "books",    "options": ["Fundamental I", "Fundamental II", "Ensino Médio", "Ensino Superior"] }
                     ],
                     "messages": {
                         "incomplete": "Ainda há campos em branco. Arraste um valor para cada atributo da escola.",

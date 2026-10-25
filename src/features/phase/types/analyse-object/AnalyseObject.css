@@ -1,0 +1,48 @@
+.analyse-object {
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    max-width: var(--phase-content-width);
+}
+
+.analyse-object .resource-center { width: 100%; }
+
+.analyse-submit {
+    border: 0;
+    color: #111;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 6px 56px;
+    align-self: center;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    background: #ffc400;
+    text-transform: uppercase;
+    transition: filter 0.15s ease;
+}
+
+.analyse-submit:hover {
+    filter: brightness(0.95);
+}
+
+.analyse-submit:focus-visible {
+    outline-offset: 3px;
+    outline: 3px solid #111;
+}
+.resume-list {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resume-card-body {
+    gap: 6px;
+    display: flex;
+    padding: 6px 10px;
+    align-items: center;
+    flex-direction: column;
+}
