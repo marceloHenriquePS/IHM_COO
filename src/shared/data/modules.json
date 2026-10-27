@@ -8,97 +8,135 @@
                 "id":1,
                 "title": "Fase 1 - Dê vida a nossa cidade",
                 "description":"Nossa cidade precisa de vida, dê as características certas a ela selecioando os atributos corretos.",
-                "instructions": "Para começar, registre a cidade **COO**, localizada no estado de **INSTÂNZIA**, com **10.000** habitantes e uma área de **100** km².",
-                "type": "build-object",
-                "content": {
-                    "className":"Cidade",
-                    "submitLabel": "Cadastrar cidade",
-                    "submitIcon": "hammer",
-                    "resourceIcon": "box",
-                    "fields": [
-                        { "id": "nome",      "label": "Nome",      "icon": "pin",    "expected": "COO" },
-                        { "id": "estado",    "label": "Estado",    "icon": "brazil",   "expected": "Instânzia" },
-                        { "id": "populacao", "label": "População", "icon": "users", "expected": "10.000" },
-                        { "id": "area",      "label": "Área",      "icon": "area",   "expected": "100 km²" }
-                    ],
-                    "groups": [
-                        { "id": "nome",      "label": "Nome",      "icon": "pin",    "options": ["Classe do Sul", "Instânzia", "Objetolândia", "COO"] },
-                        { "id": "estado",    "label": "Estado",    "icon": "brazil",   "options": ["Classe do Sul", "Encapsulia", "Objetolândia", "Instânzia"] },
-                        { "id": "populacao", "label": "População", "icon": "users", "options": ["5.000", "8.000", "10.000", "10.500"] },
-                        { "id": "area",      "label": "Área",      "icon": "area",   "options": ["100 km²", "150 km²", "200 km²", "175 km²"] }
-                    ],
-                    "messages": {
-                        "incomplete": "Ainda há campos em branco. Arraste um valor para cada atributo da cidade.",
-                        "wrong": "Algo não confere com o enunciado. Revise os campos em vermelho.",
-                        "success": "Cidade cadastrada com sucesso! COO agora existe."
-                }
-                }
+                "steps": [
+                    {
+                        "type": "build-object",
+                        "instructions": "Para começar, registre a cidade **COO**, localizada no estado de **INSTÂNZIA**, com **10.000** habitantes e uma área de **100** km².",
+                        "content": {
+                            "className":"Cidade",
+                            "submitLabel": "Cadastrar cidade",
+                            "submitIcon": "hammer",
+                            "fields": [
+                                { "id": "nome",      "label": "Nome",      "icon": "pin",    "expected": "COO" },
+                                { "id": "estado",    "label": "Estado",    "icon": "brazil",   "expected": "Instânzia" },
+                                { "id": "populacao", "label": "População", "icon": "users", "expected": "10.000" },
+                                { "id": "area",      "label": "Área",      "icon": "area",   "expected": "100 km²" }
+                            ],
+                            "groups": [
+                                { "id": "nome",      "label": "Nome",      "icon": "pin",    "options": ["Classe do Sul", "Instânzia", "Objetolândia", "COO"] },
+                                { "id": "estado",    "label": "Estado",    "icon": "brazil",   "options": ["Classe do Sul", "Encapsulia", "Objetolândia", "Instânzia"] },
+                                { "id": "populacao", "label": "População", "icon": "users", "options": ["5.000", "8.000", "10.000", "10.500"] },
+                                { "id": "area",      "label": "Área",      "icon": "area",   "options": ["100 km²", "150 km²", "200 km²", "175 km²"] }
+                            ],
+                            "messages": {
+                                "incomplete": "Ainda há campos em branco. Arraste um valor para cada atributo da cidade.",
+                                "wrong": "Algo não confere com o enunciado. Revise os campos em vermelho.",
+                                "success": "Cidade cadastrada com sucesso! COO agora existe."
+                            }
+                        }
+                    }
+                ]
             },
             {
                 "id":2,
                 "title": "Fase 2 - Analisando Currículos",
                 "description": "A Escola Municipal de COO precisa contratar um novo professor. Selecione os candidatos que atendem aos requisitos da prefeitura.",
-                "instructions": "Selecione **2 CANDIDATOS** para passar para a próxima etapa baseado nos requisitos abaixo:",
-                "type": "analyse-object",
-                "content": {
-                    "requirements": [
-                        "O candidato deve ter entre **24 a 27 anos**, possuir formação de **professor** e atuar na área da **educação**",
-                        "A prefeitura busca um profissional que tenha pretensão salarial até **R$ 8.000**.",
-                        "Os candidatos com **menor salário** tem preferência."
-                    ],
-                    "submitLabel": "Avançar",
-                    "submitIcon": "hammer",
-                    "resourceIcon": "box",
-                    "maxSelected": 2,
-                    "answer": ["pedro", "maria"],
-                    "fields": [
-                        { "id": "name",   "label": "Nome",    "icon": "user" },
-                        { "id": "age",    "label": "Idade",   "icon": "calendar" },
-                        { "id": "sector", "label": "Setor",   "icon": "build" },
-                        { "id": "role",   "label": "Cargo",   "icon": "briefcase" },
-                        { "id": "salary", "label": "Salário", "icon": "coin" }
-                    ],
-                    "candidates": [
-                        { "id": "pedro", "photo": "pedro", "name": "Pedro", "age": "24", "sector": "Educação", "role": "Professor", "salary": "R$ 7.000" },
-                        { "id": "maria", "photo": "maria", "name": "Maria", "age": "27", "sector": "Educação", "role": "Professor", "salary": "R$ 6.500" },
-                        { "id": "joao",  "photo": "joao",  "name": "João",  "age": "28", "sector": "Educação", "role": "Professor", "salary": "R$ 6.000" }
-                    ],
-                    "messages": {
-                        "incomplete": "Selecione 2 candidatos antes de confirmar.",
-                        "wrong": "Algum candidato não atende aos requisitos. Releia as regras com atenção.",
-                        "success": "Candidatos selecionados com sucesso!"
+                "steps": [
+                    {
+                        "type": "analyse-object",
+                        "instructions": [
+                            "Selecione **2 CANDIDATOS** para passar para a próxima etapa baseado nos requisitos abaixo:",
+                            "O candidato deve ter entre **24 a 27 anos**, possuir formação de **professor** e atuar na área da **educação**",
+                            "A prefeitura busca um profissional que tenha pretensão salarial até **R$ 8.000**.",
+                            "Os candidatos com **menor salário** tem preferência."
+                        ],
+                        "content": {
+                            "submitLabel": "Confirmar Candidatos",
+                            "submitIcon": "pen",
+                            "maxSelected": 2,
+                            "answer": ["pedro", "maria"],
+                            "fields": [
+                                { "id": "name",   "label": "Nome",    "icon": "user" },
+                                { "id": "age",    "label": "Idade",   "icon": "calendar" },
+                                { "id": "sector", "label": "Setor",   "icon": "build" },
+                                { "id": "role",   "label": "Cargo",   "icon": "briefcase" },
+                                { "id": "salary", "label": "Salário", "icon": "coin" }
+                            ],
+                            "candidates": [
+                                { "id": "pedro", "photo": "pedro", "name": "Pedro", "age": "24", "sector": "Educação", "role": "Professor", "salary": "R$ 7.000" },
+                                { "id": "maria", "photo": "maria", "name": "Maria", "age": "27", "sector": "Educação", "role": "Professor", "salary": "R$ 6.500" },
+                                { "id": "joao",  "photo": "joao",  "name": "João",  "age": "28", "sector": "Educação", "role": "Professor", "salary": "R$ 6.000" }
+                            ],
+                            "messages": {
+                                "incomplete": "Selecione 2 candidatos antes de confirmar.",
+                                "wrong": "Algum candidato não atende aos requisitos. Releia as regras com atenção.",
+                                "success": "Candidatos selecionados com sucesso!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "analyse-object",
+                        "instructions": [
+                            "MUITO BEM! Agora vamos verificar os atributos de **PROFESSOR**. Selecione o candidato que melhor atende todos os requisitos abaixo.",
+                            "O candidato deve ser formado em **matemática**",
+                            "O candidato deve ter no mínimo **3 anos** de experiência.",
+                            "Estar disponível para trabalhar no turno da **manhã**"
+                        ],
+                        "content": {
+                            "submitLabel": "Contratar Funcionário",
+                            "submitIcon": "pen",
+                            "maxSelected": 1,
+                            "answer": ["maria"],
+                            "fields": [
+                                { "id": "name",                 "label": "Nome",        "icon": "user" },
+                                { "id": "education_background", "label": "Formação",    "icon": "calendar" },
+                                { "id": "experience",           "label": "Experiência", "icon": "build" },
+                                { "id": "shift",                "label": "Turno",       "icon": "briefcase" }                            ],
+                            "candidates": [
+                                { "id": "pedro", "photo": "pedro", "name": "Pedro", "education_background": "Matemática", "experience": "2 Anos", "shift": "Manhã"},
+                                { "id": "maria", "photo": "maria", "name": "Maria", "education_background": "Matemática", "experience": "5 Anos", "shift": "Manhã"}
+                            ],
+                            "messages": {
+                                "incomplete": "Selecione 1 candidato antes de confirmar.",
+                                "wrong": "O candidato não atende aos requisitos. Releia as regras com atenção.",
+                                "success": "Candidato selcionado com sucesso!"
+                            }
+                        }
                     }
-                }
+                ]
             },
             {
                 "id":3,
                 "title": "Fase 3 - Definindo o local de trabalho",
                 "description": "O professor foi selecionado e precisa trabalhar numa ESCOLA. Preencha o cadastro com essas informações e confirme a criação da escola",
-                "instructions": "A prefeitura informou que Maria vai para à **Escola Municipal Classe Nova**, na **Rua dos Objetos**, no turno da **Tarde** e ela dará aula no **Ensino Fundamental II**.",
-                "type": "build-object",
-                "content": {
-                    "className":"Escola",
-                    "submitLabel": "Cadastrar Escola",
-                    "submitIcon": "hammer",
-                    "resourceIcon": "box",
-                    "fields": [
-                        { "id": "nome",     "label": "Nome",     "icon": "note",     "expected": "Escola Municipal Classe Nova" },
-                        { "id": "endereco", "label": "Endereço", "icon": "pin",      "expected": "Rua dos Objetos" },
-                        { "id": "turno",    "label": "Turno",    "icon": "calendar", "expected": "Tarde" },
-                        { "id": "tipo",     "label": "Tipo",     "icon": "books",    "expected": "Fundamental II" }
-                    ],
-                    "groups": [
-                        { "id": "nome",     "label": "Nome",     "icon": "note",     "options": ["Escola Municipal Construtora", "Escola Municial Polímera", "Escola Municipal Classe Nova", "Escola Municipal Instância"] },
-                        { "id": "endereco", "label": "Endereço", "icon": "pin",      "options": ["Rua dos Objetos", "Avenida dos Atributos", "Rua da Herança", "Avenida dos Métodos"] },
-                        { "id": "turno",    "label": "Turno",    "icon": "calendar", "options": ["Manhã", "Tarde", "Noite", "Integral"] },
-                        { "id": "tipo",     "label": "Tipo",     "icon": "books",    "options": ["Fundamental I", "Fundamental II", "Ensino Médio", "Ensino Superior"] }
-                    ],
-                    "messages": {
-                        "incomplete": "Ainda há campos em branco. Arraste um valor para cada atributo da escola.",
-                        "wrong": "Algo não confere com o enunciado. Revise os campos em vermelho.",
-                        "success": "Escola cadastrada com sucesso! Maria agora é a nova professora da cidade!."
-                }
-                }
+                "steps": [
+                    {
+                        "type": "build-object",
+                        "instructions": "A prefeitura informou que Maria vai para à **Escola Municipal Classe Nova**, na **Rua dos Objetos**, no turno da **Tarde** e ela dará aula no **Ensino Fundamental II**.",
+                        "content": {
+                            "className":"Escola",
+                            "submitLabel": "Cadastrar Escola",
+                            "submitIcon": "pen",
+                            "fields": [
+                                { "id": "nome",     "label": "Nome",     "icon": "note",     "expected": "Escola Municipal Classe Nova" },
+                                { "id": "endereco", "label": "Endereço", "icon": "pin",      "expected": "Rua dos Objetos" },
+                                { "id": "turno",    "label": "Turno",    "icon": "calendar", "expected": "Tarde" },
+                                { "id": "tipo",     "label": "Tipo",     "icon": "books",    "expected": "Fundamental II" }
+                            ],
+                            "groups": [
+                                { "id": "nome",     "label": "Nome",     "icon": "note",     "options": ["Escola Municipal Construtora", "Escola Municial Polímera", "Escola Municipal Classe Nova", "Escola Municipal Instância"] },
+                                { "id": "endereco", "label": "Endereço", "icon": "pin",      "options": ["Rua dos Objetos", "Avenida dos Atributos", "Rua da Herança", "Avenida dos Métodos"] },
+                                { "id": "turno",    "label": "Turno",    "icon": "calendar", "options": ["Manhã", "Tarde", "Noite", "Integral"] },
+                                { "id": "tipo",     "label": "Tipo",     "icon": "books",    "options": ["Fundamental I", "Fundamental II", "Ensino Médio", "Ensino Superior"] }
+                            ],
+                            "messages": {
+                                "incomplete": "Ainda há campos em branco. Arraste um valor para cada atributo da escola.",
+                                "wrong": "Algo não confere com o enunciado. Revise os campos em vermelho.",
+                                "success": "Escola cadastrada com sucesso! Maria agora é a nova professora da cidade!."
+                        }
+                        }
+                    }
+                ]
             },
             {
                 "id":4,

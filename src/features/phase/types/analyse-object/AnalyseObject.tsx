@@ -1,6 +1,5 @@
 // SelectCandidates.tsx
-import type { PhaseScreenProps } from "../../phaseTypes";
-// import { BriefPanel } from "./components/BriefPanel/BriefPanel";
+import type { StepScreenProps } from "../../stepType";
 import "./AnalyseObject.css";
 import { useState } from "react";
 import { ICONS } from "../../icons";
@@ -9,12 +8,12 @@ import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import { ResumeList } from "./components/ResumeList/ResumeList";
 import type { ResumeFieldDef } from "./components/ResumeList/ResumeCard";
 
-export function AnalyseObject({ phase, showFeedback, clearFeedback }: PhaseScreenProps) {
+export function AnalyseObject({ step, locked, continueLabel, onComplete, onContinue, showFeedback, clearFeedback }: StepScreenProps) {
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
 
-    if (phase.type !== "analyse-object" || !phase.content) return null;
-    const { content } = phase;
+    if (step.type !== "analyse-object" || !step.content) return null;
+    const { content } = step;
 
     const fields: ResumeFieldDef[] = content.fields.map((f) => ({
         id: f.id,
@@ -23,6 +22,8 @@ export function AnalyseObject({ phase, showFeedback, clearFeedback }: PhaseScree
     }));
 
     function handleToggle(id: string) {
+        if (locked) return;
+
         setSelectedIds((prev) =>
             prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
         );
@@ -30,6 +31,11 @@ export function AnalyseObject({ phase, showFeedback, clearFeedback }: PhaseScree
     }
 
     function handleSubmit() {
+        if (locked) {
+            onContinue();
+            return;
+        };
+
         if (selectedIds.length < content.maxSelected) {
             showFeedback({ type: "warning", text: content.messages.incomplete });
             return;
@@ -45,11 +51,12 @@ export function AnalyseObject({ phase, showFeedback, clearFeedback }: PhaseScree
         }
 
         showFeedback({ type: "success", text: content.messages.success });
+        onComplete();
     }
 
     return (
         <div className="analyse-object">
-            <ResourceCenter icon={ICONS.box}>
+            <ResourceCenter>
                 <ResumeList
                     candidates={content.candidates}
                     photos={PHOTOS}
@@ -61,7 +68,10 @@ export function AnalyseObject({ phase, showFeedback, clearFeedback }: PhaseScree
             </ResourceCenter>
 
             <button className="analyse-submit" type="button" onClick={handleSubmit}>
-                {content.submitLabel}
+                {content.submitIcon && !locked && (
+                    <img src={ICONS[content.submitIcon]} alt="" className="analyse-submit-icon" />
+                )}
+                {locked ? continueLabel : content.submitLabel}
             </button>
         </div>
     );

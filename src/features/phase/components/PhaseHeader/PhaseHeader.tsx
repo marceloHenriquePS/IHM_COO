@@ -3,23 +3,24 @@ import "./PhaseHeader.css";
 
 interface PhaseHeaderProps {
     heading: string;
-    instructions: string;
-    requirements?: string[];
+    instructions: string | string[];
 }
 
-export function PhaseHeader({ heading, instructions, requirements }: PhaseHeaderProps) {
+export function PhaseHeader({ heading, instructions }: PhaseHeaderProps) {
+    const [intro, ...items] = Array.isArray(instructions) ? instructions : [instructions];
+
     return (
         <header className="phase-header">
             <h1 className="phase-header-title">{heading}</h1>
-            <p className="phase-header-text">{renderRichText(instructions)}</p>
+            <p className="phase-header-text">{renderRichText(intro)}</p>
 
-            {requirements && (
-                <ol className="phase-header-list">
-                    {requirements.map((req, i) => <li key={i}>{renderRichText(req)}</li>)}
-                </ol>
-            )
-
-            }
+            {items.length > 0 && (
+                <ul className="phase-header-list">
+                    {items.map((item, i) => (
+                        <li key={i}>{renderRichText(item)}</li>
+                    ))}
+                </ul>
+            )}
         </header>
     );
 }

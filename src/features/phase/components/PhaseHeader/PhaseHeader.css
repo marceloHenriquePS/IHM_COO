@@ -15,4 +15,15 @@
     margin: 0;
     font-size: 16px;
     line-height: 1.5;
+    white-space: pre-line;
+}
+
+.phase-header-list {
+    font-size: 14px;
+    margin: 10px 0 0;
+    text-align: left;
+    line-height: 1.35;
+    list-style: decimal;
+    display: inline-flex;
+    flex-direction: column;
 }

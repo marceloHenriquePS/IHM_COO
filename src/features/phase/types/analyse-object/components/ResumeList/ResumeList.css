@@ -1,12 +1,15 @@
 .resume-list {
-    gap: 8px;
-    display: grid;
-    align-items: start;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    display: flex;
+    justify-content: center;
 }
 
 .resume-card {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 420px;
     overflow: hidden;
+    
     background: #fff;
     border-radius: 8px;
     border: 2px solid #999;
@@ -50,7 +53,7 @@
 }
 
 .resume-card-row {
-    gap: 6px;
+    gap: 20px;
     display: grid;
     align-items: center;
     grid-template-columns: 90px 1fr;

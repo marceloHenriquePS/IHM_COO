@@ -11,5 +11,6 @@ import note from "./assets/icons/note-icon.png";
 import build from "./assets/icons/build-icon.png";
 import briefcase from "./assets/icons/briefcase-icon.png";
 import coin from "./assets/icons/coin-icon.png";
+import pen from "./assets/icons/pen-icon.png"
 
-export const ICONS: Record<string, string> = {box, pin, brazil, user, users, area, hammer, calendar, books, note, build, briefcase, coin}
+export const ICONS: Record<string, string> = {box, pin, brazil, user, users, area, hammer, calendar, books, note, build, briefcase, coin, pen}

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import "./ResourceCenter.css";
+import { ICONS } from "../../icons";
 
 interface ResourceCenterProps {
     icon?: string;
@@ -7,7 +8,9 @@ interface ResourceCenterProps {
     className?: string;
 }
 
-export function ResourceCenter({ icon, children, className = "" }: ResourceCenterProps) {
+export function ResourceCenter({ children, className = "" }: ResourceCenterProps) {
+    const icon = ICONS.box;
+
     return (
         <section className={`resource-center ${className}`}>
             <header className="resource-center-header">

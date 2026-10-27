@@ -5,16 +5,16 @@ import { ICONS } from "../../icons";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import { ResourceGroups } from "./components/ResourceGroups/ResourceGroups";
 import { useState } from "react";
-import type { PhaseScreenProps } from "../../phaseTypes";
+import type { StepScreenProps } from "../../stepType";
 
-export function BuildObject({ phase, showFeedback, clearFeedback}: PhaseScreenProps) {
+export function BuildObject({ step, showFeedback, clearFeedback}: StepScreenProps) {
     const [values, setValues] = useState<Record<string, string | null>>({});
     const [wrongIds, setWrongIds] = useState<string[]>([]);
 
 
-    if (phase.type !== "build-object") return null;
+    if (step.type !== "build-object") return null;
 
-    const { content } = phase;
+    const { content } = step;
 
     const fields = content.fields.map((f) => ({
         id: f.id,
@@ -66,7 +66,7 @@ export function BuildObject({ phase, showFeedback, clearFeedback}: PhaseScreenPr
                 wrongIds={wrongIds}
             />
 
-            <ResourceCenter icon={content.resourceIcon ? ICONS[content.resourceIcon] : undefined}>
+            <ResourceCenter>
                 <ResourceGroups groups={groups} />
             </ResourceCenter>
         </div>
