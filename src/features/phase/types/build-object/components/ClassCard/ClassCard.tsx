@@ -11,6 +11,7 @@ interface ClassCardProps {
     title: string;
     fields: ClassCardField[];
     values: Record<string, string | null>;
+    locked: boolean;
     submitLabel: string;
     submitIcon?: string;
     wrongIds?: string[]
@@ -18,7 +19,7 @@ interface ClassCardProps {
     onFieldChange: (fieldId: string, value: string | null) => void;
 }
 
-export function ClassCard({title, fields, values, submitLabel, submitIcon, wrongIds, onSubmit, onFieldChange}: ClassCardProps) {
+export function ClassCard({title, fields, values, locked, submitLabel, submitIcon, wrongIds, onSubmit, onFieldChange}: ClassCardProps) {
     return (
         <section className="class-card">
             <header className="class-card-header">
@@ -34,6 +35,7 @@ export function ClassCard({title, fields, values, submitLabel, submitIcon, wrong
                             label={field.label}
                             icon={field.icon}
                             value={values[field.id] ?? null}
+                            locked={locked}
                             wrong={wrongIds?.includes(field.id)}
                             onDropValue={(v) => onFieldChange(field.id, v)}
                             onClear={() => onFieldChange(field.id, null)}

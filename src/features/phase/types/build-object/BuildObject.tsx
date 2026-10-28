@@ -7,13 +7,12 @@ import { ResourceGroups } from "./components/ResourceGroups/ResourceGroups";
 import { useState } from "react";
 import type { StepScreenProps } from "../../stepType";
 
-export function BuildObject({ step, showFeedback, clearFeedback}: StepScreenProps) {
+export function BuildObject({ step, locked, continueLabel, onComplete, onContinue, showFeedback, clearFeedback }: StepScreenProps) {
     const [values, setValues] = useState<Record<string, string | null>>({});
     const [wrongIds, setWrongIds] = useState<string[]>([]);
 
 
     if (step.type !== "build-object") return null;
-
     const { content } = step;
 
     const fields = content.fields.map((f) => ({
@@ -34,6 +33,11 @@ export function BuildObject({ step, showFeedback, clearFeedback}: StepScreenProp
     }
 
     function handleSubmit() {
+        if (locked) {
+            onContinue();
+            return;
+        }
+
         const hasEmpty = content.fields.some((f) => !values[f.id]);
         if (hasEmpty) {
             setWrongIds([]);
@@ -50,6 +54,7 @@ export function BuildObject({ step, showFeedback, clearFeedback}: StepScreenProp
 
         setWrongIds([]);
         showFeedback({ type: "success", text: content.messages.success });
+        onComplete();
     }
 
 
@@ -59,8 +64,9 @@ export function BuildObject({ step, showFeedback, clearFeedback}: StepScreenProp
                 title={content.className}
                 fields={fields}
                 values={values}
-                submitLabel={content.submitLabel}
-                submitIcon={content.submitIcon ? ICONS[content.submitIcon] : undefined}
+                locked={locked}
+                submitLabel={locked ? continueLabel : content.submitLabel}
+                submitIcon={!locked && content.submitIcon ? ICONS[content.submitIcon] : undefined}
                 onFieldChange={handleFieldChange}
                 onSubmit={handleSubmit}
                 wrongIds={wrongIds}

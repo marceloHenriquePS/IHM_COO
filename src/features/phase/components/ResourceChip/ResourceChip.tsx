@@ -1,5 +1,5 @@
 // ResourceGroups/ResourceChip.tsx
-import { DRAG_MIME, type DragPayload } from "../../dnd";
+import { DRAG_MIME, type DragPayload } from "@/features/phase/dnd";
 
 interface ResourceChipProps {
     payload: DragPayload;
