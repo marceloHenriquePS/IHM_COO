@@ -1,9 +1,12 @@
 import data from "./modules.json"
 
 export const MODULES: Module[] = data as Module[];
+
 export type Step =
     | (BaseStep & { type: "build-object"; content: BuildObjectContent })
-    | (BaseStep & { type: "analyse-object"; content: AnalyseObjectContent });
+    | (BaseStep & { type: "analyse-object"; content: AnalyseObjectContent })
+    | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent});
+
 export type StepType = Step["type"]
 
 export interface Module {
@@ -41,6 +44,15 @@ export interface AnalyseObjectContent {
     fields: { id: keyof Candidate; label: string; icon: string }[];
     candidates: Candidate[];
     messages: { incomplete: string, wrong: string, success: string };
+}
+
+export interface ClassifyAttributesContent {
+    className: string;
+    submitLabel: string;
+    submitIcon?: string;
+    attributes: { id: string; label: string; icon: string; value: string; expected: string }[];
+    types: string[];
+    messages: { incomplete: string; wrong: string; success: string };
 }
 
 export interface Candidate {

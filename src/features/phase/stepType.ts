@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import type { Step, StepType} from "@/shared/data/modules";
 import { BuildObject } from "./types/build-object/BuildObject";
 import { AnalyseObject } from "./types/analyse-object/AnalyseObject";
+import { ClassifyAttributes } from "./types/classify-attributes/ClassifyAttributes";
 import type { Feedback } from "./components/FeedbackMessage/FeedbackMessage";
 
 export interface StepScreenProps {
@@ -17,4 +18,5 @@ export interface StepScreenProps {
 export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "build-object": BuildObject,
     "analyse-object": AnalyseObject,
+    "classify-attributes": ClassifyAttributes
 };

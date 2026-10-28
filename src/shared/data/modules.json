@@ -140,17 +140,61 @@
             },
             {
                 "id":4,
-                "title": "Fase 4",
-                "description": "Descrição da fase 1-4",
-                "instructions": "Instruções da fase 1-42",
-                "type": "build-object"
+                "title": "Fase 4 - O Hospital da Cidade",
+                "description":"Um novo hospital acaba de ser inaugurado na cidade e precisa organizar as informações de seus profissionais.",
+                "steps": [
+                    {
+                        "type": "classify-attributes",
+                        "instructions": "Ajude a estruturar os dados do hospital, identificando o tipo correto de cada atributo.Se precisar consulte o menu de **ajuda**.",
+                        "content": {
+                            "className":"Médico",
+                            "submitLabel": "Validar Atributos",
+                            "submitIcon": "hammer",
+                            "attributes": [
+                                { "id": "nome",          "label": "Nome",          "icon": "user",      "value": "Carlos",   "expected": "STRING" },
+                                { "id": "idade",         "label": "Idade",         "icon": "calendar",  "value": "32",       "expected": "INT" },
+                                { "id": "especialidade", "label": "Especialidade", "icon": "hammer",    "value": "Pediatra", "expected": "STRING" },
+                                { "id": "experiencia",   "label": "Experiência",   "icon": "briefcase", "value": "8",        "expected": "INT" },
+                                { "id": "salario",       "label": "Salário",       "icon": "coin",      "value": "7500,50",  "expected": "DOUBLE" }
+                            ],
+                            "types": ["STRING", "INT", "DOUBLE", "BOOLEAN"],
+                            "messages": {
+                                "incomplete": "Ainda há atributos sem tipo. Arraste um tipo para cada um..",
+                                "wrong": "Algum tipo não confere com o valor do atributo.",
+                                "success": "Atributos validados com sucesso!"
+                            }
+                        }
+                    }
+                ]
             },
             {
                 "id":5,
-                "title": "Fase 5",
-                "description": "Descrição da fase 1-5",
-                "instructions": "Instruções da fase 1-5",
-                "type": "build-object"
+                "title": "Fase 5 - Evitando a Fadiga",
+                "description":"A equipe do hospital quer evitar retrabalho nos próximos cadastros. Defina o tipo correto de cada atributo do medicamento.",
+                "steps": [
+                    {
+                        "type": "classify-attributes",
+                        "instructions": "Para evitar retrabalho nos próximos cadastros, **defina agora o tipo correto** de cada atributo do medicamento.",
+                        "content": {
+                            "className":"Medicamento",
+                            "submitLabel": "Validar Atributos",
+                            "submitIcon": "hammer",
+                            "attributes": [
+                                { "id": "nome",       "label": "Nome",       "icon": "user",    "value": "", "expected": "STRING" },
+                                { "id": "dosagem",    "label": "Dosagem",    "icon": "dropper", "value": "", "expected": "INT" },
+                                { "id": "preco",      "label": "Preço",      "icon": "coin",    "value": "", "expected": "DOUBLE" },
+                                { "id": "quantidade", "label": "Quantidade", "icon": "amount",  "value": "", "expected": "INT" },
+                                { "id": "controlado", "label": "Controlado", "icon": "clock",   "value": "", "expected": "BOOLEAN" }
+                            ],
+                            "types": ["STRING", "INT", "DOUBLE", "BOOLEAN"],
+                            "messages": {
+                                "incomplete": "Ainda há atributos sem tipo. Arraste um tipo para cada um..",
+                                "wrong": "Algum tipo não confere com o valor do atributo.",
+                                "success": "Atributos validados com sucesso!"
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

@@ -1,0 +1,15 @@
+.drop-slot {
+    padding: 4px 8px;
+    border: 2px solid #aaa;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #999;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.drop-slot.filled { color: #111; cursor: pointer; }
+.drop-slot.over   { border-color: #ffc400; background: #fff8d6; }
+.drop-slot.wrong  { border-color: #d32f2f; background: #fdecea; }

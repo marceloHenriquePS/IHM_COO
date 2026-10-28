@@ -1,0 +1,14 @@
+.type-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.type-chip {
+    min-width: 110px;
+    padding: 6px 16px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
