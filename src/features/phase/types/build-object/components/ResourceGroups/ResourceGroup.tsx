@@ -1,4 +1,4 @@
-import { ResourceChip } from "./ResourceChip";
+import { ResourceChip } from "@/features/phase/components/ResourceChip/ResourceChip";
 
 interface ResourceGroupProps {
     id: string;
