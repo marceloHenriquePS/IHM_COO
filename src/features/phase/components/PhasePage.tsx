@@ -47,6 +47,7 @@ function PhaseStep({ moduleId, phase, stepIndex }: PhaseStepProps) {
     const [done, setDone] = useState(false);
     const [, setSearchParams] = useSearchParams();
     const { feedback, showFeedback, clearFeedback } = useFeedback();
+    const { completePhase } = useProgress();
 
     const step = phase.steps[stepIndex];
     const isLast = stepIndex === phase.steps.length - 1;
@@ -54,6 +55,7 @@ function PhaseStep({ moduleId, phase, stepIndex }: PhaseStepProps) {
 
     function handleContinue() {
         if (isLast) {
+            completePhase(moduleId, phase.id);
             navigate(`/modules/${moduleId}`);
             return;
         }
