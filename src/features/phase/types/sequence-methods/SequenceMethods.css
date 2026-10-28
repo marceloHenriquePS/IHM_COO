@@ -1,0 +1,68 @@
+.sequence-methods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.sequence-methods-image {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+.sequence-methods-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.sequence-button {
+    padding: 3px 18px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sequence-button:hover:not(:disabled) {
+    filter: brightness(0.95);
+}
+
+.sequence-button:disabled {
+    background: #d9d9d9;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.methods-center {
+    width: 100%;
+}
+
+.methods-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.methods-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    
+}
+
+.methods-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.methods-center .resource-center-body {
+    padding: 8px;
+}

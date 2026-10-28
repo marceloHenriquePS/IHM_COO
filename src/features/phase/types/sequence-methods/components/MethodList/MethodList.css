@@ -1,0 +1,12 @@
+.method-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.method-chip {
+    padding: 4px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}

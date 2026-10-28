@@ -5,7 +5,8 @@ export const MODULES: Module[] = data as Module[];
 export type Step =
     | (BaseStep & { type: "build-object"; content: BuildObjectContent })
     | (BaseStep & { type: "analyse-object"; content: AnalyseObjectContent })
-    | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent});
+    | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent})
+    | (BaseStep & { type: "sequence-methods"; content: SequenceMethodsContent });
 
 export type StepType = Step["type"]
 
@@ -52,6 +53,17 @@ export interface ClassifyAttributesContent {
     submitIcon?: string;
     attributes: { id: string; label: string; icon: string; value: string; expected: string }[];
     types: string[];
+    messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface SequenceMethodsContent {
+    image: string;
+    initialStatus: string;
+    slots: number;
+    methods: { name: string; status: string }[];
+    answer: string[];
+    undoLabel: string;
+    runLabel: string;
     messages: { incomplete: string; wrong: string; success: string };
 }
 

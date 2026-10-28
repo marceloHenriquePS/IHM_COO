@@ -202,7 +202,47 @@
         "id": 2, 
         "title": "Módulo 2", 
         "subtitle":"Métodos",
-        "phases": []
+        "phases": [
+            {
+                "id":1,
+                "title": "Fase 1 - Um Dia Metódico",
+                "description":"O senhor Metódico, dono da cafeteria JAVAS COFFEE lhe contratou para ajudar a tomar conta da cafeteria hoje.",
+                "steps": [
+                    {
+                        "type": "sequence-methods",
+                        "instructions": [
+                            "Organize as ações da Javas Coffee e faça a cafeteria funcionar corretamente."
+                        ],
+                        "content": {
+                            "image": "javasCoffee",
+                            "initialStatus": "O restaurante está atualmente fechado...",
+                            "slots": 5,
+                            "methods": [
+                                { "name": "receberPedido()", "status": "Um pedido foi recebido." },
+                                { "name": "servir()",        "status": "O pedido foi servido ao cliente." },
+                                { "name": "fechar()",        "status": "O restaurante está fechado." },
+                                { "name": "preparar()",      "status": "O pedido está sendo preparado." },
+                                { "name": "abrir()",         "status": "O restaurante está aberto." }
+                            ],
+                            "answer": ["abrir()", "receberPedido()", "preparar()", "servir()", "fechar()"],
+                            "undoLabel": "Desfazer",
+                            "runLabel": "Executar",
+                            "messages": {
+                                "incomplete": "A fila ainda tem espaços vazios. Coloque cinco ações antes de executar.",
+                                "wrong": "A cafeteria não funcionou direito. Desfaça e reorganize as ações.",
+                                "success": "A Javas Coffee funcionou perfeitamente!"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id":2,
+                "title": "Fase 1 - Dê vida a nossa cidade",
+                "description":"Nossa cidade precisa de vida, dê as características certas a ela selecioando os atributos corretos.",
+                "steps": []
+            }
+        ]
     },
     {
         "id": 3, 
