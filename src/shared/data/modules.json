@@ -238,9 +238,141 @@
             },
             {
                 "id":2,
-                "title": "Fase 1 - Dê vida a nossa cidade",
-                "description":"Nossa cidade precisa de vida, dê as características certas a ela selecioando os atributos corretos.",
-                "steps": []
+                "title": "Fase 2 - Um Pedido De Cada Vez",
+                "description":"O senhor Metódico está em mais um dia corrido e precisa da sua ajuda para cuidar do pedidos da cafeteria.",
+                "steps": [
+                    {
+                        "type": "order-methods",
+                        "instructions": ["Ajude o senhor Metódico a gerenciar os pedidos da cafeteria! **SELECIONE** as ações com base no **ESTADO** do pedido"],
+                        "content": {
+                            "question": "Qual método você deseja executar?",
+                            "preparateDelayMs": 3000,
+                            "order": {
+                                "number": "001",
+                                "item": "Cappuccino",
+                                "image": "cappuccino",
+                                "badge": { "label": "Pendente", "tone": "pending" },
+                                "details": [
+                                    { "id": "cliente", "label": "Cliente", "value": "Ana" },
+                                    { "id": "estado",  "label": "Estado",  "value": "Aguardando Preparo" },
+                                    { "id": "pago",    "label": "Pago",    "value": "Sim" }
+                                ]
+                            },
+                            "actions": [
+                                { "id": "prepare", "title": "Preparar Pedido", "call": "pedido.preparar()", "icon": "java" },
+                                { "id": "serve",   "title": "Servir Pedido",   "call": "pedido.servir()",  "icon": "checkCircle" }
+                            ],
+                            "states": {
+                                "preparing": { "badge": { "label": "Em preparo", "tone": "preparing" }, "status": "Preparando" },
+                                "ready":     { "badge": { "label": "Pronto",     "tone": "ready" },     "status": "Pronto para Servir" },
+                                "served":    { "badge": { "label": "Servido",    "tone": "ready" },     "status": "Servido" }
+                            },
+                            "messages": {
+                                "preparing": "O pedido está sendo preparado. Aguarde um instante.",
+                                "notReady": "O pedido ainda não está pronto para ser servido.",
+                                "alreadyPrepared": "Este pedido já foi preparado.",
+                                "success": "Pedido servido com sucesso!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "order-methods",
+                        "instructions": ["Carlos está com **pressa!** Entregue o pedido dele o mais rápido possível."],
+                        "content": {
+                            "question": "Qual método você deseja executar?",
+                            "preparateDelayMs": 3000,
+                            "order": {
+                                "number": "002",
+                                "item": "Fatia de Bolo",
+                                "image": "cake",
+                                "badge": { "label": "Pendente", "tone": "pending" },
+                                "details": [
+                                    { "id": "cliente", "label": "Cliente", "value": "Carlos" },
+                                    { "id": "estado",  "label": "Estado",  "value": "Aguardando Preparo" },
+                                    { "id": "pago",    "label": "Pago",    "value": "Sim" }
+                                ]
+                            },
+                            "actions": [
+                                { "id": "prepare", "title": "Preparar Pedido", "call": "pedido.preparar()", "icon": "java" },
+                                { "id": "serve",   "title": "Servir Pedido",   "call": "pedido.servir()",  "icon": "checkCircle" }
+                            ],
+                            "states": {
+                                "preparing": { "badge": { "label": "Em preparo", "tone": "preparing" }, "status": "Preparando" },
+                                "ready":     { "badge": { "label": "Pronto",     "tone": "ready" },     "status": "Pronto para Servir" },
+                                "served":    { "badge": { "label": "Servido",    "tone": "ready" },     "status": "Servido" }
+                            },
+                            "messages": {
+                                "preparing": "O pedido está sendo preparado. Aguarde um instante.",
+                                "notReady": "O pedido ainda não está pronto para ser servido.",
+                                "alreadyPrepared": "Este pedido já foi preparado.",
+                                "success": "Pedido servido com sucesso!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "order-queue",
+                        "instructions": ["**SELECIONE** e **VERIFIQUE** cada pedido, e sirva todos para encerrar o dia."],
+                        "content": {
+                            "orders": [
+                                {
+                                    "id": "003",
+                                    "item": "Café Expresso",
+                                    "image": "coffee",
+                                    "phase": "preparing",
+                                    "badge": { "label": "Em preparo", "tone": "preparing" },
+                                    "details": [
+                                        { "id": "cliente", "label": "Cliente", "value": "Gertrudes" },
+                                        { "id": "estado",  "label": "Estado",  "value": "Em Preparo" },
+                                        { "id": "pago",    "label": "Pago",    "value": "Sim" }
+                                    ]
+                                },
+                                {
+                                    "id": "004",
+                                    "item": "Cappuccino",
+                                    "image": "cappuccino",
+                                    "phase": "pending",
+                                    "badge": { "label": "Pendente", "tone": "pending" },
+                                    "details": [
+                                        { "id": "cliente", "label": "Cliente", "value": "Laura" },
+                                        { "id": "estado",  "label": "Estado",  "value": "Aguardando Preparo" },
+                                        { "id": "pago",    "label": "Pago",    "value": "Sim" }
+                                    ]
+                                },
+                                {
+                                    "id": "005",
+                                    "item": "Fatia de bolo",
+                                    "image": "cake",
+                                    "phase": "ready",
+                                    "badge": { "label": "Pronto", "tone": "ready" },
+                                    "details": [
+                                        { "id": "cliente", "label": "Cliente", "value": "Ingryd" },
+                                        { "id": "estado",  "label": "Estado",  "value": "Pronto para servir" },
+                                        { "id": "pago",    "label": "Pago",    "value": "Sim" }
+                                    ]
+                                }
+                            ],
+                            "actions": [
+                                { "id": "prepare", "title": "Preparar Pedido", "call": "pedido.preparar()", "icon": "java" },
+                                { "id": "serve",   "title": "Servir Pedido",   "call": "pedido.servir()",  "icon": "checkCircle" }
+                            ],
+                            "states": {
+                                "pending":   { "badge": { "label": "Pendente",   "tone": "pending" },   "status": "Aguardando Preparo" },
+                                "preparing": { "badge": { "label": "Em preparo", "tone": "preparing" }, "status": "Preparando" },
+                                "ready":     { "badge": { "label": "Pronto",     "tone": "ready" },     "status": "Pronto para Servir" },
+                                "served":    { "badge": { "label": "Servido",    "tone": "served" },    "status": "Servido" }
+                            },
+                            "messages": {
+                                "noSelection": "Selecione um pedido antes de escolher o método.",
+                                "preparing": "Este pedido ainda está sendo preparado.",
+                                "notReady": "Este pedido ainda não está pronto para ser servido.",
+                                "alreadyPrepared": "Este pedido já foi preparado.",
+                                "alreadyServed": "Este pedido já foi servido.",
+                                "served": "Pedido servido! Faltam {n}.",
+                                "success": "Todos os pedidos foram servidos. O dia foi encerrado!"
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

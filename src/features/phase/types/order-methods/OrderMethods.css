@@ -1,0 +1,42 @@
+.order-methods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 720px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.order-methods-question {
+    margin: 0;
+    font-size: 17px;
+    font-family: system-ui;
+    text-align: center;
+}
+
+.order-continue {
+    padding: 4px 36px;
+    border: 0;
+    border-radius: 6px;
+    background: #ffc400;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.order-center {
+    width: 100%;
+}
+
+.order-center .resource-center-header {
+    padding: 10px 9px;
+    gap: 9px;
+}
+
+.order-center .resource-center-body {
+    padding: 8px;
+}

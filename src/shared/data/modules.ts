@@ -5,11 +5,13 @@ export const MODULES: Module[] = data as Module[];
 export type Step =
     | (BaseStep & { type: "build-object"; content: BuildObjectContent })
     | (BaseStep & { type: "analyse-object"; content: AnalyseObjectContent })
-    | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent})
-    | (BaseStep & { type: "sequence-methods"; content: SequenceMethodsContent });
+    | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent })
+    | (BaseStep & { type: "sequence-methods"; content: SequenceMethodsContent })
+    | (BaseStep & { type: "order-methods"; content: OrderMethodsContent })
+    | (BaseStep & { type: "order-queue"; content: OrderQueueContent });
 
 export type StepType = Step["type"]
-
+export type OrderTone = "pending" | "preparing" | "ready" | "served";
 export interface Module {
     id: number;
     title: string;
@@ -65,6 +67,41 @@ export interface SequenceMethodsContent {
     undoLabel: string;
     runLabel: string;
     messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface OrderMethodsContent {
+    question: string;
+    order: OrderData;
+    actions: { id: "prepare" | "serve"; title: string; call: string; icon: string }[];
+    states: Record<"preparing" | "ready" | "served", {
+        badge: { label: string; tone: OrderTone };
+        status: string;
+    }>;
+    messages: { preparing: string; notReady: string; alreadyPrepared: string; success: string; };
+}
+
+export interface OrderQueueContent {
+    orders: OrderData[];
+    actions: { id: "prepare" | "serve"; title: string; call: string; icon: string }[];
+    states: Record<OrderTone, { badge: { label: string; tone: OrderTone }; status: string }>;
+    messages: {
+        noSelection: string;
+        preparing: string;
+        notReady: string;
+        alreadyPrepared: string;
+        alreadyServed: string;
+        served: string;
+        success: string;
+    };
+}
+
+export interface OrderData {
+    id: string;
+    item: string;
+    image: string;
+    phase: OrderTone;
+    badge: { label: string; tone: OrderTone };
+    details: { id: string; label: string; value: string }[];
 }
 
 export interface Candidate {
