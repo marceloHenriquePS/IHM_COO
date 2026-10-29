@@ -117,3 +117,42 @@
     color: #f2a900;
     white-space: nowrap;
 }
+
+@media (max-height: 800px) {
+    .main-menu {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .main-menu__logo {
+        width: 8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .main-menu__title {
+        font-size: 7rem;
+    }
+
+    .main-menu__brace {
+        font-size: 2.5rem;
+        margin-bottom: 14px;
+    }
+
+    .main-menu__closing-brace {
+        font-size: 2.5rem;
+        margin-top: 0.8rem;
+    }
+
+    .main-menu__name-line {
+        margin-bottom: 1rem;
+    }
+
+    .main-menu__buttons {
+        gap: 0.7rem;
+        margin-top: 1.2rem;
+    }
+
+    .main-menu__console {
+        margin-top: 1.2rem;
+    }
+}
