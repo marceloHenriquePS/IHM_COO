@@ -15,6 +15,7 @@ export type Step =
     | (BaseStep & { type: "calculate-payment"; content: CalculatePaymentContent })
     | (BaseStep & { type: "find-unprotected"; content: FindUnprotectedContent })
     | (BaseStep & { type: "diagnose-cause"; content: DiagnoseCauseContent })
+    | (BaseStep & { type: "sort-conveyor"; content: SortConveyorContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -181,6 +182,15 @@ export interface DiagnoseCauseContent {
     answer: number;
     submitLabel: string;
     messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface SortConveyorContent {
+    rules: { title: string; intro: string; items: string[] };
+    compartments: { id: string; label: string; icon: string }[];
+    attributes: { id: string; label: string; answer: string }[];
+    rulesLabel: string;
+    runLabel: string;
+    messages: { queueEmpty: string; wrong: string; success: string };
 }
 
 export interface OrderData {

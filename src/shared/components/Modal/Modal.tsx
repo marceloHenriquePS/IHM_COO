@@ -1,36 +1,66 @@
-import type React from 'react';
-import logo from "@/shared/assets/logo-coo.png"
-import './Modal.css'
-import { Button } from '../Button/Button';
+import { useEffect, useId, useRef, type ReactNode } from "react";
+import "./Modal.css";
 
-type ModalProps = {
-    icon: React.ReactNode;
-    children: React.ReactNode;
+interface ModalProps {
+    open: boolean;
+    title: string;
     onClose: () => void;
-    onNext?: () => void;
-    onPrevious?: () => void;
-};
+    children: ReactNode;
+}
 
-export function Modal({icon, children, onClose, onNext, onPrevious} : ModalProps) {
+export function Modal({
+    open,
+    title,
+    onClose,
+    children,
+}: ModalProps) {
+    const ref = useRef<HTMLDialogElement>(null);
+    const titleId = useId();
+
+    useEffect(() => {
+        const dialog = ref.current;
+
+        if (!dialog) return;
+
+        if (open && !dialog.open) {
+            dialog.showModal();
+        } else if (!open && dialog.open) {
+            dialog.close();
+        }
+    }, [open]);
+
     return (
-        <div className='modal-overlay'>
-            <div className='modal'>
-                <div className='modal__header'>
-                    <img src={logo} alt="Logo COO" className="modal__header-logo" />
-                    <span className='modal__header-title'>COO - Cidade Orientada a Objetos</span>
-                    <button className='modal__close-button' onClick={onClose}>X</button>
+        <dialog
+            ref={ref}
+            className="modal"
+            aria-labelledby={titleId}
+            onClose={onClose}
+            onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                    onClose();
+                }
+            }}
+        >
+            <div className="modal-header">
+                <div className="modal-heading">
+                    <h2 id={titleId} className="modal-title">
+                        {title}
+                    </h2>
                 </div>
 
-                <div className='modal__body'>
-                    <div className='modal__icon'>{icon}</div>
-                    <p className='modal__text'>{children}</p>
-                </div>
-
-                <div className='modal__footer'>
-                    <Button className='modal__nav-button' label='ANTERIOR' onClick={onPrevious}></Button>
-                    <Button className='modal__nav-button' label='PRÓXIMO' onClick={onNext}></Button>
-                </div>
+                <button
+                    type="button"
+                    className="modal-close-icon"
+                    onClick={onClose}
+                    aria-label="Fechar modal"
+                >
+                    ×
+                </button>
             </div>
-        </div>
+
+            <div className="modal-box">
+                {children}
+            </div>
+        </dialog>
     );
 }

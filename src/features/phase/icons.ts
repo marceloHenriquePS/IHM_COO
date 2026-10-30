@@ -18,6 +18,8 @@ import clock from "./assets/icons/clock-icon.png";
 import checkCircle from "./assets/icons/check-circle-icon.png";
 import java from "./assets/icons/java-icon.png";
 import bulb from "./assets/icons/bulb-icon.png";
+import lockOpen from "./assets/icons/lock-open-icon.png";
+import lockClosed from "./assets/icons/lock-closed-icon.png";
 
 export const ICONS: Record<string, string> = {
     box,
@@ -39,5 +41,7 @@ export const ICONS: Record<string, string> = {
     clock,
     checkCircle,
     java,
-    bulb
+    bulb,
+    lockOpen,
+    lockClosed
 }

@@ -1,0 +1,39 @@
+.conveyor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-top: 2px solid #999;
+    border-bottom: 2px solid #999;
+}
+
+.conveyor-item {
+    padding: 2px 10px;
+    border: 2px solid #111;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.conveyor { overflow: hidden; }
+
+.conveyor-item.leaving-left  { animation: slide-left 0.9s ease-in forwards; }
+.conveyor-item.leaving-right { animation: slide-right 0.9s ease-in forwards; }
+
+@keyframes slide-left {
+    to { transform: translateX(-220px); opacity: 0; }
+}
+
+@keyframes slide-right {
+    to { transform: translateX(220px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .conveyor-item.leaving-left,
+    .conveyor-item.leaving-right {
+        animation-duration: 0.01s;
+    }
+}

@@ -741,6 +741,43 @@
                 "title": "Fase 2 - Segurança em Primeiro Lugar",
                 "description":"O dono do **Mercado Central** da cidade pediu sua ajuda. Depois do apagão na cidade o Gerente ficou com medo do sistema do mercado estar **inseguro** e pediu para você revisar.",
                 "steps": [
+                    {
+                        "type": "sort-conveyor",
+                        "instructions": [
+                            "O sistema de gerenciamento do supermercado precisa de proteção! Organize os atributos dos produtos nos compartimentos indicados. \nConfira as **INSTRUÇÕES**."
+                        ],
+                        "content": {
+                            "rules": {
+                                "title": "Regras de Negócio - Classe Produto",
+                                "intro": "O sistema do supermercado deve respeitar as seguintes regras:",
+                                "items": [
+                                    "Os funcionários podem consultar livremente o **nome**, a **categoria** e o **código de barras** dos produtos.",
+                                    "O **preço** dos produtos só pode ser alterado por meio de operações controladas.",
+                                    "A **quantidade** em estoque só pode ser modificada após a confirmação de uma movimentação.",
+                                    "O **custo** de compra é uma informação interna, cujo acesso deve ser restrito."
+                                ]
+                            },
+                            "compartments": [
+                                { "id": "public",  "label": "Público", "icon": "lockOpen" },
+                                { "id": "private", "label": "Privado", "icon": "lockClosed" }
+                            ],
+                            "attributes": [
+                                { "id": "quantidade", "label": "Quantidade",      "answer": "private" },
+                                { "id": "categoria",  "label": "Categoria",       "answer": "public" },
+                                { "id": "nome",       "label": "Nome",            "answer": "public" },
+                                { "id": "barras",     "label": "Código de barras", "answer": "public" },
+                                { "id": "preco",      "label": "Preço",           "answer": "private" },
+                                { "id": "custo",      "label": "Custo",           "answer": "private" }
+                            ],
+                            "rulesLabel": "Instruções",
+                            "runLabel": "Proteger",
+                            "messages": {
+                                "queueEmpty": "A esteira está vazia. Clique em um atributo que você acha errado para devolvê-lo à esteira.",
+                                "wrong": "{n} atributo(s) estão no compartimento errado. Devolva-os à esteira e analise de novo.",
+                                "success": "Todos os atributos estão nos compartimentos certos!"
+                            }
+                        }
+                    }
                 ]
             }
         ]
