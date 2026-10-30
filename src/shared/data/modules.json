@@ -458,6 +458,184 @@
                         }
                     }
                 ]
+            },
+            {
+                "id":4,
+                "title": "Fase 4 - Revisão de Veículos",
+                "description":"**Sua fama como ajudante multi tarefas se espalhou!** O mecânico da cidade agora quer sua ajuda na oficina para **ajudar nos concertos**. Tome um café que o Sr.Metódido te deu e vá correndo para a oficina!!!",
+                "steps": [
+                    {
+                        "type": "inspect-vehicle",
+                        "instructions": [
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                        ],
+                        "content": {
+                            "vehicle": {
+                                "number": "001",
+                                "image": "carYellow",
+                                "checks": [
+                                    { "id": "pintura",    "label": "Pintura Danificada",       "value": true },
+                                    { "id": "retrovisor", "label": "Retrovisores Danificados", "value": true },
+                                    { "id": "motor",      "label": "Motor Aprovado",           "value": true },
+                                    { "id": "freios",     "label": "Freios Aprovados",         "value": true },
+                                    { "id": "pneus",      "label": "Pneus Calibrados",         "value": true },
+                                    { "id": "docs",       "label": "Documentação Válida",      "value": true }
+                                ]
+                            },
+                            "answer": true,
+                            "diagnoseLabel": "Diagnosticar",
+                            "messages": {
+                                "incomplete": "Escolha true ou false antes de diagnosticar.",
+                                "wrong": "Esse diagnóstico não confere com as regras de liberação. Releia a ficha e as regras.",
+                                "success": "Diagnóstico correto!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "inspect-vehicle",
+                        "instructions": [
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                        ],
+                        "content": {
+                            "vehicle": {
+                                "number": "002",
+                                "image": "carBlue",
+                                "checks": [
+                                    { "id": "pintura",    "label": "Pintura Danificada",       "value": true },
+                                    { "id": "retrovisor", "label": "Retrovisores Danificados", "value": false },
+                                    { "id": "motor",      "label": "Motor Aprovado",           "value": true },
+                                    { "id": "freios",     "label": "Freios Aprovados",         "value": false },
+                                    { "id": "pneus",      "label": "Pneus Calibrados",         "value": false },
+                                    { "id": "docs",       "label": "Documentação Válida",      "value": true }
+                                ]
+                            },
+                            "answer": false,
+                            "diagnoseLabel": "Diagnosticar",
+                            "messages": {
+                                "incomplete": "Escolha true ou false antes de diagnosticar.",
+                                "wrong": "Esse diagnóstico não confere com as regras de liberação. Releia a ficha e as regras.",
+                                "success": "Diagnóstico correto!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "inspect-vehicle",
+                        "instructions": [
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                        ],
+                        "content": {
+                            "vehicle": {
+                                "number": "002",
+                                "image": "carRed",
+                                "checks": [
+                                    { "id": "pintura",    "label": "Pintura Danificada",       "value": false },
+                                    { "id": "retrovisor", "label": "Retrovisores Danificados", "value": false },
+                                    { "id": "motor",      "label": "Motor Aprovado",           "value": true },
+                                    { "id": "freios",     "label": "Freios Aprovados",         "value": true },
+                                    { "id": "pneus",      "label": "Pneus Calibrados",         "value": true },
+                                    { "id": "docs",       "label": "Documentação Válida",      "value": true }
+                                ]
+                            },
+                            "answer": true,
+                            "diagnoseLabel": "Diagnosticar",
+                            "messages": {
+                                "incomplete": "Escolha true ou false antes de diagnosticar.",
+                                "wrong": "Esse diagnóstico não confere com as regras de liberação. Releia a ficha e as regras.",
+                                "success": "Diagnóstico correto!"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id":5,
+                "title": "Fase 5 - Atendimento Completo",
+                "description":"Para testar suas habilidades, o dono da oficina lhe deixou responsavél por fazer o atendimento completo de um veículo. Use o que você aprendeu até agora para cumprir as tarefas.",
+                "steps": [
+                    {
+                        "type": "repair-vehicle",
+                        "instructions": [
+                            "O véiculo precisa de reparos, selecione os metódos e realize os concetos. Não faça concertos desnecessários."
+                        ],
+                        "content": {
+                            "vehicle": { "number": "004", "image": "carGreen" },
+                            "sheetTitle": "Informações de Concerto",
+                            "prompt": "Arraste um método de cada vez e realize os concertos necessários",
+                            "runLabel": "Realizar concerto",
+                            "tasks": [
+                                { "id": "pintura",    "label": "Pintura Nova",           "method": "pintar()",                "needed": false },
+                                { "id": "retrovisor", "label": "Concertar Retrovisores", "method": "concertarRetrovisores()", "needed": true },
+                                { "id": "motor",      "label": "Concertar Motor",        "method": "concertarMotor()",        "needed": true },
+                                { "id": "freios",     "label": "Concertar Freios",       "method": "concertarFreios()",       "needed": false },
+                                { "id": "pneus",      "label": "Calibrar Pneus",         "method": "calibrarPneus()",         "needed": true },
+                                { "id": "docs",       "label": "Validar Documentação",   "method": "validarDocumentação()",   "needed": false }
+                            ],
+                            "methods": ["pintar()", "concertarRetrovisores()", "calibrarPneus()","concertarMotor()", "concertarFreios()", "validarDocumentação()"],
+                            "messages": {
+                                "incomplete": "Arraste um método para o campo antes de realizar o concerto.",
+                                "unnecessary": "Esse concerto não é necessário para este veículo.",
+                                "alreadyDone": "Esse concerto já foi realizado.",
+                                "progress": "Concerto realizado! Faltam {n}.",
+                                "success": "Veículo consertado por completo!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "calculate-payment",
+                        "instructions": [
+                            "Os concertos foram feitos e agora você precisa repassar o valor que o cliente precisa pagar, \nUtilize a tabela de preços e envie o valor final através do metódo **realizarPagamento(valor);**"
+                        ],
+                        "content": {
+                            "vehicle": { "number": "004", "image": "carGreen" },
+                            "sheetTitle": "Informações de Concerto",
+                            "priceTitle": "Tabela de Preços",
+                            "priceImage": "coins",
+                            "method": "realizarPagamento",
+                            "submitLabel": "Realizar pagamento",
+                            "tasks": [
+                                { "id": "pintura",    "label": "Pintura Nova",           "needed": false, "price": 20 },
+                                { "id": "retrovisor", "label": "Concertar Retrovisores", "needed": true,  "price": 30 },
+                                { "id": "motor",      "label": "Concertar Motor",        "needed": true,  "price": 50 },
+                                { "id": "freios",     "label": "Concertar Freios",       "needed": false, "price": 30 },
+                                { "id": "pneus",      "label": "Calibrar Pneus",         "needed": true,  "price": 10 },
+                                { "id": "docs",       "label": "Validar Documentação",   "needed": false, "price": 10 }
+                            ],
+                            "messages": {
+                                "incomplete": "Digite o valor antes de registrar o pagamento.",
+                                "invalid": "Digite apenas números.",
+                                "wrong": "O valor não confere. Some apenas os concertos que foram realizados.",
+                                "success": "Pagamento registrado corretamente!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "inspect-vehicle",
+                        "instructions": [
+                            "Por último faça a inspeção e verifique se está tudo correto."
+                        ],
+                        "content": {
+                            "vehicle": {
+                                "number": "004",
+                                "image": "carGreen",
+                                "checks": [
+                                    { "id": "pintura",    "label": "Pintura Danificada",       "value": false },
+                                    { "id": "retrovisor", "label": "Retrovisores Danificados", "value": false },
+                                    { "id": "motor",      "label": "Motor Aprovado",           "value": true },
+                                    { "id": "freios",     "label": "Freios Aprovados",         "value": true },
+                                    { "id": "pneus",      "label": "Pneus Calibrados",         "value": true },
+                                    { "id": "docs",       "label": "Documentação Válida",      "value": true }
+                                ]
+                            },
+                            "answer": true,
+                            "diagnoseLabel": "Diagnosticar",
+                            "messages": {
+                                "incomplete": "Escolha true ou false antes de diagnosticar.",
+                                "wrong": "Esse diagnóstico não confere com as regras de liberação. Releia a ficha e as regras.",
+                                "success": "Diagnóstico correto!"
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

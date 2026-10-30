@@ -1,0 +1,39 @@
+.price-table {
+    box-sizing: border-box;
+    padding: 20px 14px 12px;
+    border: 2px dashed #999;
+    border-radius: 6px;
+    background: #fff;
+    font-family: system-ui;
+}
+
+.price-table-title {
+    margin: 0 0 4px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.price-table-image {
+    display: block;
+    width: 120px;
+    height: 80px;
+    margin: 0 auto 8px;
+    object-fit: contain;
+}
+
+.price-table-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 16px;
+}
+
+.price-table-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.price-table-row dt { font-weight: 800; }
+.price-table-row dd { margin: 0; }

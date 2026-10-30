@@ -1,0 +1,59 @@
+.repair-vehicle {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 820px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.repair-vehicle-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.repair-vehicle-action {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.repair-vehicle-prompt {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.repair-vehicle-slot .drop-slot {
+    padding: 8px;
+    border: 0;
+    border-radius: 4px;
+    background: #d9d9d9;
+    font-size: 15px;
+}
+
+.repair-vehicle-slot .drop-slot.filled { background: #fff; border: 2px solid #777; }
+.repair-vehicle-slot .drop-slot.over   { background: #fff8d6; }
+
+.repair-vehicle-run {
+    padding: 5px 14px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.repair-vehicle-run:hover { filter: brightness(0.95); }
+
+.repair-center .method-chip {
+    padding: 3px 10px;
+    font-size: 16px;
+}

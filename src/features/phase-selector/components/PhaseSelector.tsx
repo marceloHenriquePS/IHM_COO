@@ -1,5 +1,6 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useProgress } from '@/shared/hooks/useProgress';
+import { renderRichText } from '@/shared/utils/richText';
 import { getModuleById } from '@/shared/data/modules';
 import { PhaseTrack } from './PhaseTrack/PhaseTrack';
 import { useState } from 'react';
@@ -36,7 +37,7 @@ export function PhaseSelector() {
                 onSelect={setSelectedId}
             />
 
-            <p className="phase-selector-description">{selectedPhase.description}</p>
+            <p className="phase-selector-description">{renderRichText(selectedPhase.description)}</p>
 
             <button
                 className="phase-selector-play"

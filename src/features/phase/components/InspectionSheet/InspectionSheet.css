@@ -1,0 +1,48 @@
+.inspection-sheet {
+    box-sizing: border-box;
+    padding: 10px 14px 12px;
+    border: 2px dashed #999;
+    background: #fff;
+    font-family: system-ui;
+}
+
+.inspection-sheet-title {
+    margin: 0 0 4px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.inspection-sheet-image {
+    display: block;
+    width: 120px;
+    height: 80px;
+    margin: 0 auto 8px;
+    object-fit: contain;
+}
+
+.inspection-sheet-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.inspection-sheet-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.inspection-sheet-dots {
+    flex: 1;
+    border-bottom: 2px dotted #111;
+    transform: translateY(-3px);
+}
+
+.inspection-sheet-row.done .inspection-sheet-value {
+    color: #2e9e4f;
+}

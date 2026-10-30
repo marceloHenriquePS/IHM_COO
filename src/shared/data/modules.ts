@@ -10,6 +10,9 @@ export type Step =
     | (BaseStep & { type: "order-methods"; content: OrderMethodsContent })
     | (BaseStep & { type: "order-queue"; content: OrderQueueContent })
     | (BaseStep & { type: "custom-order"; content: CustomOrderContent })
+    | (BaseStep & { type: "inspect-vehicle"; content: InspectVehicleContent })
+    | (BaseStep & { type: "repair-vehicle"; content: RepairVehicleContent })
+    | (BaseStep & { type: "calculate-payment"; content: CalculatePaymentContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -111,6 +114,44 @@ export interface CustomOrderContent {
     answer: Record<string, number>;
     finalizeLabel: string;
     messages: { incomplete: string; wrong: string; success: string; full: string };
+}
+
+export interface InspectVehicleContent {
+    vehicle: {
+        number: string;
+        image: string;
+        checks: { id: string; label: string; value: boolean }[];
+    };
+    answer: boolean;
+    diagnoseLabel: string;
+    messages: { incomplete: string; wrong: string; success: string; full: string };
+}
+
+export interface RepairVehicleContent {
+    vehicle: { number: string; image: string };
+    sheetTitle: string;
+    prompt: string;
+    runLabel: string;
+    tasks: { id: string; label: string; method: string; needed: boolean }[];
+    methods: string[];
+    messages: {
+        incomplete: string;
+        unnecessary: string;
+        alreadyDone: string;
+        progress: string;
+        success: string;
+    };
+}
+
+export interface CalculatePaymentContent {
+    vehicle: { number: string; image: string };
+    sheetTitle: string;
+    priceTitle: string;
+    priceImage: string;
+    method: string;
+    submitLabel: string;
+    tasks: { id: string; label: string; needed: boolean; price: number }[];
+    messages: { incomplete: string; invalid: string; wrong: string; success: string };
 }
 
 export interface OrderData {

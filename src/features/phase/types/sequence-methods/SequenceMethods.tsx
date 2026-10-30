@@ -5,7 +5,7 @@ import { Terminal } from "./components/Terminal/Terminal";
 import { MethodQueue } from "./components/MethodQueue/MethodQueue";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import "./SequenceMethods.css";
-import { MethodList } from "./components/MethodList/MethodList";
+import { MethodList } from "../../components/MethodList/MethodList";
 
 const STEP_DELAY_MS = 1200;
 

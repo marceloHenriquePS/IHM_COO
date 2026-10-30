@@ -1,0 +1,16 @@
+.inspect-vehicle {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.inspect-vehicle-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: stretch;
+}

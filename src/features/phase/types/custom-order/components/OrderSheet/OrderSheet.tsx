@@ -4,7 +4,7 @@ import "./OrderSheet.css";
 interface OrderSheetProps {
     number: string;
     slots: number;
-    items: string[];          // imagens já resolvidas, uma por unidade
+    items: string[];
     details: { id: string; label: string; value: string }[];
     finalizeLabel: string;
     wrong?: boolean;

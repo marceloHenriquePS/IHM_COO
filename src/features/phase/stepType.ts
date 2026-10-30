@@ -7,7 +7,10 @@ import { SequenceMethods } from "./types/sequence-methods/SequenceMethods";
 import { OrderMethods } from "./types/order-methods/OrderMethods";
 import { OrderQueue } from "./types/order-queue/OrderQueue";
 import { CustomOrder } from "./types/custom-order/CustomOrder";
+import { InspectVehicle } from "./types/inspect-vehicle/InspectVehicle";
 import type { Feedback } from "./components/FeedbackMessage/FeedbackMessage";
+import { RepairVehicle } from "./types/repair-vehicle/RepairVehicle";
+import { CalculatePayment } from "./types/calculate-payment/CalculatePayment";
 
 export interface StepScreenProps {
     step: Step;
@@ -28,4 +31,10 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "order-methods": OrderMethods,
     "order-queue": OrderQueue,
     "custom-order": CustomOrder,
+    "inspect-vehicle": InspectVehicle,
+    "repair-vehicle": RepairVehicle,
+    "calculate-payment": CalculatePayment
 };
+
+console.log("InspectVehicle:", InspectVehicle);
+console.log("STEP_TYPES:", STEP_TYPES);
