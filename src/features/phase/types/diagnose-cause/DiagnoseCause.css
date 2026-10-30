@@ -1,0 +1,29 @@
+.diagnose-cause {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.cause-center { width: 100%; }
+
+.cause-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.cause-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.cause-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.cause-center .resource-center-body { padding: 12px; }

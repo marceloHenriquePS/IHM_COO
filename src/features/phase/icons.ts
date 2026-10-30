@@ -17,5 +17,27 @@ import amount from "./assets/icons/amount-icon.png";
 import clock from "./assets/icons/clock-icon.png";
 import checkCircle from "./assets/icons/check-circle-icon.png";
 import java from "./assets/icons/java-icon.png";
+import bulb from "./assets/icons/bulb-icon.png";
 
-export const ICONS: Record<string, string> = { box, pin, brazil, user, users, area, hammer, calendar, books, note, build, briefcase, coin, pen, dropper, amount, clock, checkCircle, java}
+export const ICONS: Record<string, string> = {
+    box,
+    pin,
+    brazil,
+    user,
+    users,
+    area,
+    hammer,
+    calendar,
+    books,
+    note,
+    build,
+    briefcase,
+    coin,
+    pen,
+    dropper,
+    amount,
+    clock,
+    checkCircle,
+    java,
+    bulb
+}

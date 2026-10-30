@@ -1,0 +1,66 @@
+.class-sheet {
+    width: 100%;
+    border: 2px solid #111;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.class-sheet-header {
+    padding: 6px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+}
+
+.class-sheet-header h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.class-sheet-rows {
+    margin: 0;
+    padding: 12px 20px 14px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.class-sheet-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 140px;
+    align-items: center;
+    gap: 16px;
+}
+
+.class-sheet-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.class-sheet-label img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.class-sheet-value {
+    padding: 4px 8px;
+    border: 2px solid #999;
+    border-radius: 4px;
+    background: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    animation: value-flash 0.6s ease-out;
+}
+
+@keyframes value-flash {
+    from { background: #fff1a8; }
+    to   { background: #fff; }
+}

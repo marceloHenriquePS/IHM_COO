@@ -1,0 +1,50 @@
+.alter-panel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+}
+
+.alter-panel-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.alter-panel-field select,
+.alter-panel-field input {
+    width: 160px;
+    padding: 4px 8px;
+    border: 2px solid #999;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.alter-panel-field select:focus-visible,
+.alter-panel-field input:focus-visible {
+    outline: 3px solid #ffc400;
+    outline-offset: 1px;
+}
+
+.alter-panel-field :disabled { background: #eee; }
+
+.alter-panel-submit {
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.alter-panel-submit:hover { filter: brightness(0.95); }

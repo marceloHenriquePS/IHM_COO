@@ -1,0 +1,33 @@
+.access-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 2px solid #999;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+}
+
+.access-column-title {
+    margin: 0 0 6px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.access-column select {
+    padding: 6px 8px;
+    border: 2px solid #999;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.access-column select:focus-visible {
+    outline: 3px solid #ffc400;
+    outline-offset: 1px;
+}

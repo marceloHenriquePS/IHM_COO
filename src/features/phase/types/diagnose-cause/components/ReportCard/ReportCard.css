@@ -1,0 +1,31 @@
+.report-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px 14px;
+    border: 2px solid #111;
+    border-radius: 4px;
+    background: #fff;
+    font-family: system-ui;
+}
+
+.report-card-title {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.report-card-question {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.report-card-options {
+    margin: 0;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+}

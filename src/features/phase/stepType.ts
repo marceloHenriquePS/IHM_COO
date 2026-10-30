@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type { Step, StepType} from "@/shared/data/modules";
+import type { Step, StepType } from "@/shared/data/modules";
 import { BuildObject } from "./types/build-object/BuildObject";
 import { AnalyseObject } from "./types/analyse-object/AnalyseObject";
 import { ClassifyAttributes } from "./types/classify-attributes/ClassifyAttributes";
@@ -11,6 +11,8 @@ import { InspectVehicle } from "./types/inspect-vehicle/InspectVehicle";
 import type { Feedback } from "./components/FeedbackMessage/FeedbackMessage";
 import { RepairVehicle } from "./types/repair-vehicle/RepairVehicle";
 import { CalculatePayment } from "./types/calculate-payment/CalculatePayment";
+import { FindUnprotected } from "./types/find-unprotected/FindUnprotected";
+import { DiagnoseCause } from "./types/diagnose-cause/DiagnoseCause";
 
 export interface StepScreenProps {
     step: Step;
@@ -33,8 +35,7 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "custom-order": CustomOrder,
     "inspect-vehicle": InspectVehicle,
     "repair-vehicle": RepairVehicle,
-    "calculate-payment": CalculatePayment
+    "calculate-payment": CalculatePayment,
+    "find-unprotected": FindUnprotected,
+    "diagnose-cause": DiagnoseCause
 };
-
-console.log("InspectVehicle:", InspectVehicle);
-console.log("STEP_TYPES:", STEP_TYPES);

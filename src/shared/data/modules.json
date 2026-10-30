@@ -643,7 +643,107 @@
         "id": 3, 
         "title": "Módulo 3", 
         "subtitle":"Encapsulamento",
-        "phases": []
+        "phases": [
+            {
+                "id":1,
+                "title": "Fase 1 - Apagão na Cidade",
+                "description":"**A cidade apagou!!!** Alguém conseguiu modificar os dados do nosso sistema **sem qualquer autorização**. Contamos com você para instalar uma **proteção** antes que tenhamos outro apagão!",
+                "steps": [
+                    {
+                        "type": "find-unprotected",
+                        "instructions": [
+                            "A classe **ILUMINAÇÃO** da cidade tem os atributos abaixo, verifique um por um e descubra a causa do apagão."
+                        ],
+                        "content": {
+                            "className": "Iluminação",
+                            "hint": "Selecione um atributo e tente **modificá-lo**. Descubra qual deles está **desprotegido.**",
+                            "unprotectedId": "servico",
+                            "attributes": [
+                                { "id": "orcamento", "label": "Orçamento",          "type": "int",     "icon": "coin",   "value": "80.000" },
+                                { "id": "postes",    "label": "Postes com defeito", "type": "int",     "icon": "bulb",   "value": "15" },
+                                { "id": "servico",   "label": "Serviço ativo",      "type": "boolean", "icon": "hammer", "value": "false" }
+                            ],
+                            "selectLabel": "Atributo",
+                            "valueLabel": "Novo Valor",
+                            "submitLabel": "Tentar alteração",
+                            "messages": {
+                                "incomplete": "Digite um novo valor antes de tentar a alteração.",
+                                "invalid": "Esse valor não é válido para o tipo do atributo.",
+                                "blocked": "Alteração bloqueada! Esse atributo está protegido.",
+                                "success": "A alteração funcionou! Esse atributo estava desprotegido."
+                            }
+                        }
+                    },
+                    {
+                        "type": "diagnose-cause",
+                        "instructions": [
+                            "**PARABÉNS!** Você descobriu que o atributo **SERVICO ATIVO** pode ser alterado diretamente. \nAgora, vamos elaborar o diagnóstico para informar qual foi a origem do problema."
+                        ],
+                        "content": {
+                            "reportTitle": "Relatório de Investigação",
+                            "question": "Qual foi a origem do problema?",
+                            "options": [
+                                "O objeto possui poucos atributos.",
+                                "O atributo que controla a iluminação estava protegido incorretamente",
+                                "O orçamento da prefeitura era pouco.",
+                                "Algum atributo tinha o tipo errado."
+                            ],
+                            "answer": 1,
+                            "submitLabel": "Confirmar diagnóstico",
+                            "messages": {
+                                "incomplete": "Escolha uma das opções antes de confirmar.",
+                                "wrong": "Esse não foi o motivo do apagão. Releia o relatório e pense no que você descobriu.",
+                                "success": "Diagnóstico correto!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "find-unprotected",
+                        "instructions": [
+                            "Com o diagnóstico em mãos, vamos **PROTEGER** o atributo e garantir que o problema não aconteça mais, \nusando os **MODIFICADORES DE ACESSO**: **privado, público e protegido**"
+                        ],
+                        "content": {
+                            "className": "Iluminação",
+                            "hint": "Coloque o acesso correto e teste se você consegue alterar para validar a segurança.",
+                            "unprotectedId": "servico",
+                            "access": {
+                            "title": "Acesso",
+                            "options": [
+                                { "id": "public",    "label": "Público" },
+                                { "id": "protected", "label": "Protegido" },
+                                { "id": "private",   "label": "Privado" }
+                            ],
+                            "initial": "public",
+                            "requiredId": "private"
+                            },
+                            "attributes": [
+                                { "id": "orcamento", "label": "Orçamento",          "type": "int",     "icon": "coin",   "value": "80.000" },
+                                { "id": "postes",    "label": "Postes com defeito", "type": "int",     "icon": "bulb",   "value": "15" },
+                                { "id": "servico",   "label": "Serviço ativo",      "type": "boolean", "icon": "hammer", "value": "false" }
+                            ],
+                            "selectLabel": "Atributo",
+                            "valueLabel": "Novo Valor",
+                            "submitLabel": "Tentar alteração",
+                            "messages": {
+                                "incomplete": "Digite um novo valor antes de tentar a alteração.",
+                                "invalid": "Esse valor não é válido para o tipo do atributo.",
+                                "blocked": "Alteração bloqueada! Esse atributo está protegido.",
+                                "stillOpen": "A alteração funcionou: esse atributo ainda está exposto. Ajuste o acesso.",
+                                "notAllProtected": "Essa alteração foi bloqueada, mas ainda há atributos expostos. Proteja todos os atributos da classe.",
+                                "success": "Alteração bloqueada! O atributo agora está protegido."
+                            }
+                        }
+                        }
+                ]
+            },
+            {
+                "id":2,
+                "title": "Fase 2 - Segurança em Primeiro Lugar",
+                "description":"O dono do **Mercado Central** da cidade pediu sua ajuda. Depois do apagão na cidade o Gerente ficou com medo do sistema do mercado estar **inseguro** e pediu para você revisar.",
+                "steps": [
+                ]
+            }
+        ]
     },
     {
         "id": 4, 

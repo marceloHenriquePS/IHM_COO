@@ -13,6 +13,8 @@ export type Step =
     | (BaseStep & { type: "inspect-vehicle"; content: InspectVehicleContent })
     | (BaseStep & { type: "repair-vehicle"; content: RepairVehicleContent })
     | (BaseStep & { type: "calculate-payment"; content: CalculatePaymentContent })
+    | (BaseStep & { type: "find-unprotected"; content: FindUnprotectedContent })
+    | (BaseStep & { type: "diagnose-cause"; content: DiagnoseCauseContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -154,6 +156,33 @@ export interface CalculatePaymentContent {
     messages: { incomplete: string; invalid: string; wrong: string; success: string };
 }
 
+export interface FindUnprotectedContent {
+    className: string;
+    hint: string;
+    unprotectedId: string;
+    attributes: {
+        id: string;
+        label: string;
+        type: string;
+        icon: string;
+        value: string;
+    }[];
+    selectLabel: string;
+    valueLabel: string;
+    submitLabel: string;
+    access?: AccessConfig;
+    messages: { incomplete: string; invalid: string; blocked: string; notAllProtected?: string; stillOpen?: string, success: string; };
+}
+
+export interface DiagnoseCauseContent {
+    reportTitle: string;
+    question: string;
+    options: string[];
+    answer: number;
+    submitLabel: string;
+    messages: { incomplete: string; wrong: string; success: string };
+}
+
 export interface OrderData {
     id: string;
     item: string;
@@ -167,6 +196,13 @@ export interface Candidate {
     id: string;
     photo: string;
     [key: string]: string;
+}
+
+export interface AccessConfig {
+    title: string;
+    options: { id: string; label: string }[];
+    initial: string;
+    requiredId: string;
 }
 
 export function getModuleById(id: number): Module | undefined {
