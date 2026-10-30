@@ -1,0 +1,47 @@
+.customer-speech {
+    gap: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.customer-speech-image {
+    width: 300px;
+    height: 250px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.customer-speech-bubble {
+    margin: 0;
+    max-width: 260px;
+    position: relative;
+    padding: 18px 22px;
+
+    color: #111;
+    background: #fff;
+    border-radius: 20px;
+    border: 3px solid #111;
+
+    font-size: 17px;
+    font-family: system-ui;
+
+    line-height: 1.4;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.customer-speech-bubble::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+
+    top: 50%;
+    left: -11px;
+
+    width: 18px;
+    height: 18px;
+
+    background: #111;
+    border-radius: 2px;
+    transform: translateY(-50%) rotate(45deg);
+}

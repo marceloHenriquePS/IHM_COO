@@ -8,7 +8,8 @@ export type Step =
     | (BaseStep & { type: "classify-attributes"; content: ClassifyAttributesContent })
     | (BaseStep & { type: "sequence-methods"; content: SequenceMethodsContent })
     | (BaseStep & { type: "order-methods"; content: OrderMethodsContent })
-    | (BaseStep & { type: "order-queue"; content: OrderQueueContent });
+    | (BaseStep & { type: "order-queue"; content: OrderQueueContent })
+    | (BaseStep & { type: "custom-order"; content: CustomOrderContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -93,6 +94,23 @@ export interface OrderQueueContent {
         served: string;
         success: string;
     };
+}
+
+export interface CustomOrderContent {
+    customer: string;
+    speech: string;
+    maxItems: number;
+    addLabel: string;
+    extraLabel: string;
+    order: {
+        number: string;
+        details: { id: string; label: string; value: string }[];
+    };
+    products: { id: string; name: string; image: string }[];
+    extras: { id: string; name: string; image: string }[];
+    answer: Record<string, number>;
+    finalizeLabel: string;
+    messages: { incomplete: string; wrong: string; success: string; full: string };
 }
 
 export interface OrderData {

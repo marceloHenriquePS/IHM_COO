@@ -1,0 +1,92 @@
+.order-sheet {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 16px 30px 18px;
+    border: 2px dashed #999;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.order-sheet.wrong {
+    background: #fdecea;
+    border-color: #d32f2f;
+}
+
+.order-sheet-title {
+    margin: 0 0 12px;
+    font-size: 17px;
+    text-align: center;
+    font-family: system-ui;
+}
+
+.order-sheet-slots {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    justify-content: center;
+}
+
+.order-sheet-slot {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    line-height: 1;
+    font-size: 24px;
+    border-radius: 50%;
+    place-items: center;
+    border: 2px solid #111;
+}
+
+.order-sheet-slot.filled {
+    border: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background: none;
+    cursor: pointer;
+}
+
+.order-sheet-slot.filled:disabled {
+    cursor: default;
+}
+
+.order-sheet-slot.filled:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.order-sheet-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.order-sheet-details {
+    margin: 0 0 24px;
+    font-size: 16px;
+    font-family: system-ui;
+}
+
+.order-sheet-row {
+    gap: 6px;
+    display: flex;
+}
+
+.order-sheet-row dt { font-weight: 800; }
+.order-sheet-row dd { margin: 0; }
+
+.order-sheet-finalize {
+    border: 0;
+    width: 100%;
+    display: block;
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 999px;
+    background: #ffc400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.order-sheet-finalize:hover { filter: brightness(0.95); }

@@ -6,10 +6,12 @@ import { ClassifyAttributes } from "./types/classify-attributes/ClassifyAttribut
 import { SequenceMethods } from "./types/sequence-methods/SequenceMethods";
 import { OrderMethods } from "./types/order-methods/OrderMethods";
 import { OrderQueue } from "./types/order-queue/OrderQueue";
+import { CustomOrder } from "./types/custom-order/CustomOrder";
 import type { Feedback } from "./components/FeedbackMessage/FeedbackMessage";
 
 export interface StepScreenProps {
     step: Step;
+    stepIndex: number;
     locked: boolean;
     continueLabel: string;
     onComplete: () => void;
@@ -24,5 +26,6 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "classify-attributes": ClassifyAttributes,
     "sequence-methods": SequenceMethods,
     "order-methods": OrderMethods,
-    "order-queue": OrderQueue
+    "order-queue": OrderQueue,
+    "custom-order": CustomOrder,
 };

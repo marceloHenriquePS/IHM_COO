@@ -71,6 +71,7 @@ function PhaseStep({ moduleId, phase, stepIndex }: PhaseStepProps) {
 
             <Screen
                 step={step}
+                stepIndex={stepIndex}
                 locked={done}
                 continueLabel={isLast ? "Confirmar": "Avançar"}
                 onComplete={() => setDone(true)}

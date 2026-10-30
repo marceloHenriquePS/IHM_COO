@@ -373,6 +373,91 @@
                         }
                     }
                 ]
+            },
+            {
+                "id":3,
+                "title": "Fase 3 - Pedido Sob Medida",
+                "description": "Como funcionário multitarefas da Javas Coffe, agora você é atendente. Cada cliente pede algo diferente, anote os pedidos conforme o que se pede.",
+                "steps": [
+                    {
+                        "type": "custom-order",
+                        "instructions": [ "Personalize cada pedido colocando os parâmetros corretos, de acordo com o exemplo: **adicionarItem**(produto, quantidade);"],
+                        "content": {
+                            "customer": "joao",
+                            "speech": "1 Cappuccino, 2 Cafés Expressos e 1 Fatia de Bolo",
+                            "maxItems": 8,
+                            "addLabel": "Adicionar Item",
+                            "order": {
+                                "number": "006",
+                                "details": [
+                                    { "id": "cliente", "label": "Cliente", "value": "João" },
+                                    { "id": "estado",  "label": "Estado",  "value": "Anotando Pedido" },
+                                    { "id": "pago",    "label": "Pago",    "value": "Não" }
+                                ]
+                            },
+                            "products": [
+                                { "id": "cappuccino", "name": "Cappuccino",    "image": "cappuccino" },
+                                { "id": "coffee",     "name": "Café Expresso", "image": "coffee" },
+                                { "id": "cake",       "name": "Fatia de Bolo", "image": "cake" },
+                                { "id": "cookie",     "name": "Cookie",        "image": "cookie" },
+                                { "id": "crossaint",  "name": "Crossaint",     "image": "crossaint" },
+                                { "id": "coffe_candy", "name": "Bala de Café",  "image": "coffe_candy" }
+
+                            ],
+                            "extras":[],
+                            "answer": { "cappuccino:none": 1, "coffee:none": 2, "cake:none": 1 },
+                            "finalizeLabel": "Finalizar pedido",
+                            "messages": {
+                                "incomplete": "O pedido está vazio. Adicione os itens que o cliente pediu.",
+                                "wrong": "O pedido não confere com o que o cliente pediu. Confira os itens e as quantidades.",
+                                "success": "Pedido anotado corretamente!",
+                                "full": "O pedido já está cheio. Remova um item para adicionar outro."
+                            }
+                        }
+                    },
+                    {
+                        "type": "custom-order",
+                        "instructions": [ "Os pedidos agora estão mais complexos, com a possibilidade de tererm extras a depender do produto, registre o pedido corretamento conforme:\n**adicionarExtra(produto, extra, quantidade)**"],
+                        "content": {
+                            "customer": "maria",
+                            "speech": "2 Capuccinnos, um deles com Chantilly. 1 Croissant, 1 Café Expresso  com Chocolate e 2 Balas de Café",
+                            "maxItems": 8,
+                            "addLabel": "Adicionar Item",
+                            "extraLabel": "Adicionar Extra",
+                            "order": {
+                                "number": "007",
+                                "details": [
+                                    { "id": "cliente", "label": "Cliente", "value": "Maria" },
+                                    { "id": "estado",  "label": "Estado",  "value": "Anotando Pedido" },
+                                    { "id": "pago",    "label": "Pago",    "value": "Não" }
+                                ]
+                            },
+                            "products": [
+                                { "id": "cappuccino",  "name": "Cappuccino",    "image": "cappuccino" },
+                                { "id": "coffee",      "name": "Café Expresso", "image": "coffee" },
+                                { "id": "cake",        "name": "Fatia de Bolo", "image": "cake" },
+                                { "id": "cookie",      "name": "Cookie",        "image": "cookie" },
+                                { "id": "crossaint",   "name": "Crossaint",     "image": "crossaint" },
+                                { "id": "coffe_candy", "name": "Bala de Café",  "image": "coffe_candy" }
+                            ],
+                            "extras": [
+                                { "id": "chantilly",        "name": "Chantilly",           "image": "chantilly" },
+                                { "id": "chocolate_syrup",  "name": "Xarope de Chocolate", "image": "chocolate_syrup" },
+                                { "id": "strawberry_syrup", "name": "Xarope de Morango",   "image": "strawberry_syrup" },
+                                { "id": "milk",             "name": "Leite",               "image": "milk" },
+                                { "id": "condensed_milk",   "name": "Leite Condensado",    "image": "condensed_milk" }
+                            ],
+                            "answer": { "cappuccino:none": 1, "cappuccino:chantilly": 1, "coffee:chocolate_syrup": 1, "crossaint:none": 1, "coffe_candy:none": 2},
+                            "finalizeLabel": "Finalizar pedido",
+                            "messages": {
+                                "incomplete": "O pedido está vazio. Adicione os itens que o cliente pediu.",
+                                "wrong": "O pedido não confere com o que o cliente pediu. Confira os itens e as quantidades.",
+                                "success": "Pedido anotado corretamente!",
+                                "full": "O pedido já está cheio. Remova um item para adicionar outro."
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },
