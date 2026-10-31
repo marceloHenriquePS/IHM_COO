@@ -14,6 +14,8 @@ import { CalculatePayment } from "./types/calculate-payment/CalculatePayment";
 import { FindUnprotected } from "./types/find-unprotected/FindUnprotected";
 import { DiagnoseCause } from "./types/diagnose-cause/DiagnoseCause";
 import { SortConveyor } from "./types/sort-conveyor/SortConveyor";
+import { ProductRequests } from "./types/product-request/ProductRequests";
+import { AccuseSuspect } from "./types/accuse-suspect/AccuseSuspect";
 
 export interface StepScreenProps {
     step: Step;
@@ -40,4 +42,6 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "find-unprotected": FindUnprotected,
     "diagnose-cause": DiagnoseCause,
     "sort-conveyor": SortConveyor,
+    "product-requests": ProductRequests,
+    "accuse-suspect": AccuseSuspect,
 };

@@ -16,6 +16,8 @@ export type Step =
     | (BaseStep & { type: "find-unprotected"; content: FindUnprotectedContent })
     | (BaseStep & { type: "diagnose-cause"; content: DiagnoseCauseContent })
     | (BaseStep & { type: "sort-conveyor"; content: SortConveyorContent })
+    | (BaseStep & { type: "product-requests"; content: ProductRequestsContent })
+    | (BaseStep & { type: "accuse-suspect"; content: AccuseSuspectContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -191,6 +193,52 @@ export interface SortConveyorContent {
     rulesLabel: string;
     runLabel: string;
     messages: { queueEmpty: string; wrong: string; success: string };
+}
+
+export interface ProductRequestsContent {
+    employeeImage: string;
+    playerImage: string;
+    employeeLabel: string;
+    playerLabel: string;
+    tableTitle: string;
+    columns: { id: string; label: string }[];
+    products: ({ id: string } & Record<string, string>)[];
+    actions: { id: "get" | "set"; title: string; call: string; icon: string }[];
+    requests: {
+        id: string;
+        text: string;
+        method: "get" | "set";
+        productId: string;
+        attributeId: string;
+        value: string;
+        reply: string;
+    }[];
+    labels: { getPrompt: string; setPrompt: string; productPrompt: string; confirm: string };
+    messages: {
+        wrongMethod: Record<"get" | "set", string>;
+        emptyAnswer: string;
+        wrongAnswer: string;
+        emptyValue: string;
+        wrongProduct: string;
+        wrongAttribute: string;
+        wrongValue: string;
+        success: string;
+    };
+}
+
+export interface AccuseSuspectContent {
+    dossierTitle: string;
+    clues: string[];
+    question: string;
+    suspects: { id: string; name: string; role: string; image: string }[];
+    answer: string;
+    submitLabel: string;
+    messages: {
+        incomplete: string;
+        wrong: string;
+        wrongBySuspect?: Record<string, string>;
+        success: string;
+    };
 }
 
 export interface OrderData {

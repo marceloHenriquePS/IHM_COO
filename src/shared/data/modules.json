@@ -779,6 +779,426 @@
                         }
                     }
                 ]
+            },
+            {
+                "id":3,
+                "title": "Fase 3 - De Olho no Estoque",
+                "description":"O dono do **Mercado Central** da cidade pediu sua ajuda. Depois do apagão na cidade ele ficou com medo do sistema do mercado estar **inseguro** e pediu para você tomar conta do sistema pessoalmente.",
+                "steps": [
+                    {
+                        "type": "product-requests",
+                        "instructions": [
+                            "Analise as solicitações dos funcionários para consultar ou modificar os dados dos produtos. \nIdentifique quando utilizar métodos de **consulta (GET)** ou **alteração (SET)**"
+                        ],
+                        "content": {
+                            "employeeImage": "employeeWoman",
+                            "playerImage": "player",
+                            "employeeLabel": "Funcionário",
+                            "playerLabel": "Você",
+                            "tableTitle": "Tabela de Produtos",
+                            "columns": [
+                                { "id": "nome",       "label": "Nome" },
+                                { "id": "categoria",  "label": "Categoria" },
+                                { "id": "barras",     "label": "Código de barras" },
+                                { "id": "preco",      "label": "Preço" },
+                                { "id": "quantidade", "label": "Quantidade" },
+                                { "id": "custo",      "label": "Custo" }
+                            ],
+                            "products": [
+                                { "id": "arroz", "nome": "Arroz 1kg", "categoria": "Grãos", "barras": "7891000000011", "preco": "R$ 8,00", "quantidade": "45", "custo": "R$ 6,00" },
+                                { "id": "feijao", "nome": "Feijão 1kg", "categoria": "Grãos", "barras": "7891000000028", "preco": "R$ 7,50", "quantidade": "30", "custo": "R$ 5,20" },
+                                { "id": "acucar", "nome": "Açucar 1kg", "categoria": "Mercearia", "barras": "7891000000035", "preco": "R$ 4,00", "quantidade": "60", "custo": "R$ 3,20" },
+                                { "id": "cafe", "nome": "Café 250g ", "categoria": "Bebidas", "barras": "7891000000042", "preco": "R$ 15,00", "quantidade": "20", "custo": "R$ 11,00" },
+                                { "id": "leite", "nome": "Leite 1L", "categoria": "Laticínios", "barras": "7891000000059", "preco": "R$ 6,90", "quantidade": "35", "custo": "R$ 5,00" },
+                                { "id": "macarrao", "nome": "Macarrão 500g   ", "categoria": "Massas", "barras": "7891000000066", "preco": "R$ 5,00", "quantidade": "40", "custo": "R$ 3,50" },
+                                { "id": "oleo", "nome": "Óleo 900ml", "categoria": "Mercearia", "barras": "7891000000073", "preco": "R$ 7,20", "quantidade": "25", "custo": "R$ 5,80" },
+                                { "id": "farinha", "nome": "Farinha 1kg", "categoria": "Grãos", "barras": "7891000000080", "preco": "R$ 6,50", "quantidade": "18", "custo": "R$ 4,70" },
+                                { "id": "biscoito", "nome": "Biscoito 300g", "categoria": "Biscoitos", "barras": "7891000000097", "preco": "R$ 4,00", "quantidade": "60", "custo": "R$ 2,80" },
+                                { "id": "achocolatado", "nome": "Achocolatado 400g", "categoria": "Bebidas", "barras": "7891000000103", "preco": "R$ 9,90", "quantidade": "22", "custo": "R$ 7,00" }
+                            ],
+                            "actions": [
+                                { "id": "get", "title": "Consultar", "call": "produto.getAtributo()", "icon": "eye" },
+                                { "id": "set", "title": "Alterar",   "call": "produto.setAtributo(valor)", "icon": "pencil" }
+                            ],
+                            "requests": [
+                                {
+                                    "id": "r1",
+                                    "text": "Olá, você poderia me informar o preço do açúcar?",
+                                    "method": "get",
+                                    "productId": "acucar",
+                                    "attributeId": "preco",
+                                    "value": "R$ 4,00",
+                                    "reply": "O açúcar ta custando R$ 4,00."
+                                },
+                                {
+                                    "id": "r2",
+                                    "text": "Acabaram de comprar 10 pacotes de biscoitos, poderia atualizar a quantidade, por favor.",
+                                    "method": "set",
+                                    "productId": "biscoito",
+                                    "attributeId": "quantidade",
+                                    "value": "50",
+                                    "reply": "Quantidade de biscoitos atualizada."
+                                },
+                                {
+                                    "id": "r3",
+                                    "text": "Preciso saber o preço do arroz para informar a um cliente.",
+                                    "method": "get",
+                                    "productId": "arroz",
+                                    "attributeId": "preco",
+                                    "value": "R$ 8,00",
+                                    "reply": "O arroz custa R$ 8,00."
+                                },
+                                {
+                                    "id": "r4",
+                                    "text": "Você acredita que eu esqueci de anotar a quantidade de biscoistos depois que você mudou kkkkk. Poderia me dizer?",
+                                    "method": "get",
+                                    "productId": "biscoito",
+                                    "attributeId": "quantidade",
+                                    "value": "50",
+                                    "reply": "Sem problemas, os bicoitos tem 50 unidades. Não esquece de anotar ein!"
+                                },
+                                {
+                                    "id": "r5",
+                                    "text": "O leitor do corredor de laticínios parou, sabe me dizer qual o código de barras do Leite?",
+                                    "method": "get",
+                                    "productId": "leite",
+                                    "attributeId": "barras",
+                                    "value": "7891000000059",
+                                    "reply": "Você tá ficando exigente moça! Mas tá aqui 7891000000059."
+                                }
+                            ],
+                            "labels": {
+                                "getPrompt": "Informe o valor solicitado:",
+                                "setPrompt": "Altere o valor solicitado:",
+                                "confirm": "Confirmar"
+                            },
+                            "messages": {
+                            "wrongMethod": {
+                                "get": "Essa solicitação pede uma consulta (GET): é só ler o valor, sem alterar nada.",
+                                "set": "Essa solicitação pede uma alteração (SET): o valor do produto precisa mudar."
+                            },
+                            "emptyAnswer": "Digite o valor que você encontrou na tabela.",
+                            "wrongAnswer": "Esse não é o valor solicitado. Procure o produto e o atributo certos na tabela.",
+                            "emptyValue": "Digite o novo valor.",
+                            "wrongProduct": "Esse não é o produto da solicitação.",
+                            "wrongAttribute": "Esse não é o atributo que o funcionário pediu para alterar.",
+                            "wrongValue": "O novo valor não confere com a solicitação. Confira a conta.",
+                            "success": "Todas as solicitações foram atendidas!"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Fase 4 - Caso Apagão: Os Registros",
+                "description": "Na delegacia, o delegado Aurélio precisa da sua ajuda para descobrir **quem causou o apagão da cidade**. Comece pelos registros de acesso e assuma o papal de investigador para descobrir **quem foi o culpado**.",
+                "steps": [
+                    {
+                        "type": "product-requests",
+                        "instructions": [
+                            "O delegado Aurélio abriu o caso do **apagão**. O sistema foi alterado às **02:14**. Consulte e atualize o **Livro de Registros** com os métodos **GET** e **SET**."
+                        ],
+                        "content": {
+                            "employeeImage": "delegate",
+                            "playerImage": "player",
+                            "employeeLabel": "Delegado Aurélio",
+                            "playerLabel": "Você",
+                            "tableTitle": "Livro de Registros de Acesso",
+                            "columns": [
+                                { "id": "nome",     "label": "Nome" },
+                                { "id": "cargo",    "label": "Cargo" },
+                                { "id": "entrada",  "label": "Entrada" },
+                                { "id": "saida",    "label": "Saída" },
+                                { "id": "terminal", "label": "Terminal" }
+                            ],
+                            "products": [
+                                { "id": "marcos",  "nome": "Marcos Vilar",   "cargo": "Vereador",         "entrada": "19:00", "saida": "21:15", "terminal": "-" },
+                                { "id": "bia",     "nome": "Bia Nogueira",   "cargo": "Estagiária",       "entrada": "08:00", "saida": "17:30", "terminal": "Terminal 02" },
+                                { "id": "helena",  "nome": "Helena Duarte",  "cargo": "Engenheira de TI", "entrada": "18:00", "saida": "23:30", "terminal": "Terminal 01" },
+                                { "id": "rodrigo", "nome": "Rodrigo Pires",  "cargo": "Técnico elétrico", "entrada": "22:10", "saida": "03:00", "terminal": "Terminal 03" }
+                            ],
+                            "actions": [
+                                { "id": "get", "title": "Consultar", "call": "registro.getAtributo()",      "icon": "eye" },
+                                { "id": "set", "title": "Alterar",   "call": "registro.setAtributo(valor)", "icon": "pencil" }
+                            ],
+                            "requests": [
+                            {
+                                "id": "r1",
+                                "text": "A que horas o vereador Marcos Vilar saiu da prefeitura?",
+                                "method": "get", "productId": "marcos", "attributeId": "saida", "value": "21:15",
+                                "reply": "Marcos saiu às 21:15, bem antes do apagão."
+                            },
+                            {
+                                "id": "r2",
+                                "text": "E a engenheira Helena Duarte? Preciso do horário de saída dela.",
+                                "method": "get", "productId": "helena", "attributeId": "saida", "value": "23:30",
+                                "reply": "Helena saiu às 23:30."
+                            },
+                            {
+                                "id": "r3",
+                                "text": "Confirme também a saída da estagiária Bia.",
+                                "method": "get", "productId": "bia", "attributeId": "saida", "value": "17:30",
+                                "reply": "Bia saiu às 17:30."
+                            },
+                            {
+                                "id": "r4",
+                                "text": "O Rodrigo avisou que na verdade saiu às 03:10, e não às 03:00. Corrija o registro dele.",
+                                "method": "set", "productId": "rodrigo", "attributeId": "saida", "value": "03:10",
+                                "reply": "Saída do Rodrigo corrigida para 03:10."
+                            }
+                            ],
+                            "labels": { "getPrompt": "Informe o valor solicitado:", "setPrompt": "Altere o valor solicitado:", "productPrompt": "Registro:", "confirm": "Confirmar" },
+                            "messages": {
+                                "wrongMethod": {
+                                    "get": "O delegado quer apenas uma consulta (GET): ler o valor, sem alterar nada.",
+                                    "set": "O delegado pediu uma correção (SET): o valor do registro precisa mudar."
+                                },
+                                "emptyAnswer": "Digite o valor que você encontrou na tabela.",
+                                "wrongAnswer": "Esse não é o valor pedido. Procure a pessoa e a coluna certas.",
+                                "emptyValue": "Digite o novo valor.",
+                                "wrongProduct": "Esse não é o registro da solicitação.",
+                                "wrongAttribute": "Esse não é o atributo que o delegado pediu para alterar.",
+                                "wrongValue": "O novo valor não confere com o que o delegado informou.",
+                                "success": "Registros atualizados! Três suspeitos já tinham saído antes das 02:14."
+                            }
+                        }
+                    },
+                    {
+                        "type": "sort-conveyor",
+                        "instructions": [
+                            "Antes de abrir o laudo, organize o **arquivo do caso**. Informações sigilosas **não podem** ficar acessíveis a qualquer policial. Confira as **INSTRUÇÕES**."
+                        ],
+                        "content": {
+                            "rules": {
+                                "title": "Regras do Arquivo - Classe Evidência",
+                                "intro": "O arquivo da delegacia deve respeitar as seguintes regras:",
+                                "items": [
+                                    "Qualquer policial pode consultar o **número do caso**, a **data** e o **local** do registro.",
+                                    "O **nome da testemunha** deve ser protegido.",
+                                    "O **depoimento** é sigiloso e só pode ser acessado com autorização.",
+                                    "A **digital coletada** é prova técnica e deve ficar restrita à perícia."
+                                ]
+                            },
+                            "compartments": [
+                                { "id": "public",  "label": "Público", "icon": "lockOpen" },
+                                { "id": "private", "label": "Privado", "icon": "lockClosed" }
+                            ],
+                            "attributes": [
+                                { "id": "depoimento",  "label": "Depoimento",       "answer": "private" },
+                                { "id": "numero",      "label": "Número do caso",   "answer": "public" },
+                                { "id": "digital",     "label": "Digital coletada", "answer": "private" },
+                                { "id": "data",        "label": "Data",             "answer": "public" },
+                                { "id": "testemunha",  "label": "Testemunha",       "answer": "private" },
+                                { "id": "local",       "label": "Local",            "answer": "public" }
+                            ],
+                            "rulesLabel": "Instruções",
+                            "runLabel": "Ligar esteira",
+                            "messages": {
+                                "queueEmpty": "A esteira está vazia. Clique em um atributo que você acha errado para devolvê-lo à esteira.",
+                                "wrong": "{n} atributo(s) estão no compartimento errado. Devolva-os à esteira e analise de novo.",
+                                "success": "Arquivo organizado! Laudo liberado: a alteração foi feita no Terminal 03, às 02:14."
+                            }
+                        }
+                    },
+                    {
+                        "type": "diagnose-cause",
+                        "instructions": [
+                            "Com os registros e o laudo em mãos, o delegado quer saber **quem já pode ser descartado** da lista de suspeitos."
+                        ],
+                        "content": {
+                            "reportTitle": "Quadro de Suspeitos",
+                            "question": "Quem já pode ser descartado, considerando o horário do apagão?",
+                            "options": [
+                                "Ninguém, todos estavam na prefeitura.",
+                                "Marcos, Bia e Helena, que já tinham saído da prefeitura.",
+                                "Rodrigo, porque ele é apenas um técnico.",
+                                "Helena, porque ela é engenheira de TI."
+                            ],
+                            "answer": 1,
+                            "submitLabel": "Confirmar diagnóstico",
+                            "messages": {
+                                "incomplete": "Escolha uma das opções antes de confirmar.",
+                                "wrong": "Releia o Livro de Registros e compare os horários de saída com as 02:14.",
+                                "success": "Isso mesmo! Só o Rodrigo estava na prefeitura às 02:14. Será que o caso acabou?"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Fase 5 - Caso Apagão: O Terminal 03",
+                "description": "O caso tem uma reviravolta. Investigue o terminal onde o sistema foi alterado e aponte o culpado.",
+                "steps": [
+                    {
+                        "type": "find-unprotected",
+                        "instructions": [
+                            "A perícia encontrou algo estranho na **conta do sistema** usada na alteração. \nAlguém mexeu em um dos atributos. Selecione um atributo e tente **modificá-lo** para descobrir qual está **desprotegido**."
+                        ],
+                        "content": {
+                            "className": "Conta TI",
+                            "hint": "Selecione um atributo e tente **modificá-lo**. Descubra qual deles está **desprotegido.**",
+                            "unprotectedId": "remoto",
+                            "attributes": [
+                                { "id": "nivel",      "label": "Nível de acesso",   "type": "int",     "icon": "user",   "value": "3" },
+                                { "id": "tentativas", "label": "Tentativas de login", "type": "int",   "icon": "hammer", "value": "0" },
+                                { "id": "remoto",     "label": "Acesso remoto",     "type": "boolean", "icon": "bulb",   "value": "false" }
+                            ],
+                            "selectLabel": "Atributo",
+                            "valueLabel": "Novo Valor",
+                            "submitLabel": "Tentar alteração",
+                            "messages": {
+                                "incomplete": "Digite um novo valor antes de tentar a alteração.",
+                                "invalid": "Esse valor não é válido para o tipo do atributo.",
+                                "blocked": "Alteração bloqueada! Esse atributo está protegido.",
+                                "success": "A alteração funcionou! O acesso remoto da conta estava exposto."
+                            }
+                        }
+                    },
+                    {
+                        "type": "find-unprotected",
+                        "instructions": [
+                            "Agora feche a brecha. Use os **MODIFICADORES DE ACESSO** para garantir que ninguém mais altere a conta: **privado, público e protegido**"
+                        ],
+                        "content": {
+                            "className": "Conta TI",
+                            "hint": "Coloque o acesso correto e teste se você consegue alterar para validar a segurança.",
+                            "unprotectedId": "remoto",
+                            "access": {
+                                "title": "Acesso",
+                                "options": [
+                                    { "id": "public",    "label": "Público" },
+                                    { "id": "protected", "label": "Protegido" },
+                                    { "id": "private",   "label": "Privado" }
+                                ],
+                                "initial": "public",
+                                "requiredId": "private"
+                            },
+                            "attributes": [
+                                { "id": "nivel",      "label": "Nível de acesso",   "type": "int",     "icon": "user",   "value": "3" },
+                                { "id": "tentativas", "label": "Tentativas de login", "type": "int",   "icon": "hammer", "value": "0" },
+                                { "id": "remoto",     "label": "Acesso remoto",     "type": "boolean", "icon": "bulb",   "value": "true" }
+                            ],
+                            "selectLabel": "Atributo",
+                            "valueLabel": "Novo Valor",
+                            "submitLabel": "Tentar alteração",
+                            "messages": {
+                                "incomplete": "Digite um novo valor antes de tentar a alteração.",
+                                "invalid": "Esse valor não é válido para o tipo do atributo.",
+                                "blocked": "Alteração bloqueada! Esse atributo está protegido.",
+                                "stillOpen": "A alteração funcionou: esse atributo ainda está exposto. Ajuste o acesso.",
+                                "notAllProtected": "Essa alteração foi bloqueada, mas ainda há atributos expostos. Proteja todos os atributos da conta.",
+                                "success": "Conta protegida! Agora vamos ver quem usou essa brecha."
+                            }
+                        }
+                    },
+                    {
+                        "type": "product-requests",
+                        "instructions": [
+                            "O delegado liberou o **Registro de Sessões do Terminal 03**. Use **GET** e **SET** para atender os pedidos e descobrir quem estava por trás do terminal."
+                        ],
+                        "content": {
+                            "employeeImage": "delegate",
+                            "playerImage": "player",
+                            "employeeLabel": "Delegado Aurélio",
+                            "playerLabel": "Você",
+                            "tableTitle": "Sessões do Terminal 03",
+                            "columns": [
+                                { "id": "sessao",     "label": "Sessão" },
+                                { "id": "hora",       "label": "Hora" },
+                                { "id": "conta",      "label": "Conta" },
+                                { "id": "origem",     "label": "Origem" },
+                                { "id": "permissao",  "label": "Permissão" },
+                                { "id": "status",     "label": "Status" }
+                            ],
+                            "products": [
+                                { "id": "s1", "sessao": "Sessão A", "hora": "02:00", "conta": "tec_rodrigo", "origem": "Local",  "permissao": "Leitura",        "status": "Encerrada" },
+                                { "id": "s2", "sessao": "Sessão B", "hora": "02:14", "conta": "ti_helena",   "origem": "Remota", "permissao": "Administrador",  "status": "Encerrada" },
+                                { "id": "s3", "sessao": "Sessão C", "hora": "02:20", "conta": "tec_rodrigo", "origem": "Local",  "permissao": "Leitura",        "status": "Ativa" }
+                            ],
+                            "actions": [
+                                { "id": "get", "title": "Consultar", "call": "sessao.getAtributo()",      "icon": "eye" },
+                                { "id": "set", "title": "Alterar",   "call": "sessao.setAtributo(valor)", "icon": "pencil" }
+                            ],
+                            "requests": [
+                                {
+                                    "id": "r1",
+                                    "text": "Qual conta fez a sessão das 02:14, a Sessão B?",
+                                    "method": "get", "productId": "s2", "attributeId": "conta", "value": "ti_helena",
+                                    "reply": "A sessão das 02:14 usou a conta ti_helena."
+                                },
+                                {
+                                    "id": "r2",
+                                    "text": "De onde veio essa mesma sessão? Do próprio terminal ou de fora?",
+                                    "method": "get", "productId": "s2", "attributeId": "origem", "value": "Remota",
+                                    "reply": "A sessão veio de acesso remoto."
+                                },
+                                {
+                                    "id": "r3",
+                                    "text": "O Rodrigo poderia ter alterado o sistema? Veja a permissão da Sessão A dele.",
+                                    "method": "get", "productId": "s1", "attributeId": "permissao", "value": "Leitura",
+                                    "reply": "O Rodrigo só tinha permissão de leitura."
+                                },
+                                {
+                                    "id": "r4",
+                                    "text": "O Rodrigo ainda está com a Sessão C aberta. Encerre-a, por favor.",
+                                    "method": "set", "productId": "s3", "attributeId": "status", "value": "Encerrada",
+                                    "reply": "Sessão C encerrada."
+                                }
+                            ],
+                            "labels": { "getPrompt": "Informe o valor solicitado:", "setPrompt": "Altere o valor solicitado:", "productPrompt": "Sessão:", "confirm": "Confirmar" },
+                            "messages": {
+                                "wrongMethod": {
+                                    "get": "O delegado quer apenas uma consulta (GET): ler o valor, sem alterar nada.",
+                                    "set": "O delegado pediu uma alteração (SET): o valor da sessão precisa mudar."
+                                },
+                                "emptyAnswer": "Digite o valor que você encontrou na tabela.",
+                                "wrongAnswer": "Esse não é o valor pedido. Procure a sessão e a coluna certas.",
+                                "emptyValue": "Digite o novo valor.",
+                                "wrongProduct": "Essa não é a sessão da solicitação.",
+                                "wrongAttribute": "Esse não é o atributo que o delegado pediu para alterar.",
+                                "wrongValue": "O novo valor não confere com o pedido.",
+                                "success": "Registros analisados! O caso tem uma reviravolta."
+                            }
+                        }
+                    },
+                    {
+                        "type": "accuse-suspect",
+                        "instructions": [
+                            "Você reuniu todas as pistas. Leia o **dossiê**, escolha o **culpado** e entregue ao delegado."
+                        ],
+                        "content": {
+                            "dossierTitle": "Dossiê do Caso Apagão",
+                            "clues": [
+                                "O sistema de iluminação foi alterado às 02:14.",
+                                "Marcos, Bia e Helena já tinham saído da prefeitura quando o apagão aconteceu.",
+                                "A alteração partiu da conta ti_helena, com permissão de administrador.",
+                                "A sessão das 02:14 foi remota, e não feita no terminal.",
+                                "Rodrigo estava no terminal, mas só tinha permissão de leitura."
+                            ],
+                            "question": "Quem causou o apagão?",
+                            "suspects": [
+                                { "id": "marcos",  "name": "Marcos Vilar",  "role": "Vereador",         "image": "marcos" },
+                                { "id": "bia",     "name": "Bia Nogueira",  "role": "Estagiária",       "image": "bia" },
+                                { "id": "helena",  "name": "Helena Duarte", "role": "Engenheira de TI", "image": "helena" },
+                                { "id": "rodrigo", "name": "Rodrigo Pires", "role": "Técnico elétrico", "image": "rodrigo" }
+                            ],
+                            "answer": "helena",
+                            "submitLabel": "Apontar culpado",
+                            "messages": {
+                                "incomplete": "Escolha um suspeito antes de apontar o culpado.",
+                                "wrong": "As provas não sustentam essa acusação. Releia o dossiê.",
+                                "wrongBySuspect": {
+                                    "marcos":  "O Marcos saiu às 21:15, muito antes do apagão.",
+                                    "bia":     "A Bia saiu às 17:30 e nem tinha acesso à conta de TI.",
+                                    "rodrigo": "O Rodrigo estava no terminal, mas só tinha permissão de leitura. Ele não poderia ter alterado o sistema."
+                                },
+                                "success": "Caso resolvido! Helena usou o acesso remoto exposto da própria conta e alterou o sistema de casa. A cidade agora está protegida."
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

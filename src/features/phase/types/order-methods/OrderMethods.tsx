@@ -4,7 +4,7 @@ import type { StepScreenProps } from "../../stepType";
 import type { OrderTone } from "@/shared/data/modules";
 import { IMAGES } from "./images";
 import { OrderCard } from "./components/ActionCard/OrderCard";
-import { ActionList } from "./components/ActionList/ActionList";
+import { ActionList } from "../../components/ActionList/ActionList";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import "./OrderMethods.css";
 import { ICONS } from "../../icons";

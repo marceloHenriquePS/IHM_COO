@@ -6,7 +6,7 @@ import "./OrderQueue.css";
 import type { OrderTone } from "@/shared/data/modules";
 import { ICONS } from "../../icons";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
-import { ActionList } from "../order-methods/components/ActionList/ActionList";
+import { ActionList } from "../../components/ActionList/ActionList";
 
 const PREPARATE_DELAY_MS = 10000;
 

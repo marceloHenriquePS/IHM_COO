@@ -20,6 +20,8 @@ import java from "./assets/icons/java-icon.png";
 import bulb from "./assets/icons/bulb-icon.png";
 import lockOpen from "./assets/icons/lock-open-icon.png";
 import lockClosed from "./assets/icons/lock-closed-icon.png";
+import eye from "./assets/icons/eye-icon.png";
+import pencil from "./assets/icons/pencil-icon.png";
 
 export const ICONS: Record<string, string> = {
     box,
@@ -43,5 +45,7 @@ export const ICONS: Record<string, string> = {
     java,
     bulb,
     lockOpen,
-    lockClosed
+    lockClosed,
+    eye,
+    pencil
 }

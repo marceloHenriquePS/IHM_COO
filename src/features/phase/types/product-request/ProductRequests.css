@@ -1,0 +1,56 @@
+.product-requests {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}
+
+.product-modal-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-modal-error {
+    min-height: 18px;
+    margin: 8px 0 0;
+    color: #8a1c1c;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.requests-continue {
+    align-self: center;
+    padding: 5px 36px;
+    border: 0;
+    border-radius: 6px;
+    background: #ffc400;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.requests-center { width: 100%; }
+
+.requests-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.requests-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.requests-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.requests-center .resource-center-body { padding: 10px; }
