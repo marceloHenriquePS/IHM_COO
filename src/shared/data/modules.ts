@@ -22,6 +22,7 @@ export type Step =
     | (BaseStep & { type: "build-base-class"; content: BuildBaseClassContent })
     | (BaseStep & { type: "build-subclasses"; content: BuildSubclassesContent })
     | (BaseStep & { type: "match-pairs"; content: MatchPairsContent })
+    | (BaseStep & { type: "build-hierarchy"; content: BuildHierarchyContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -311,6 +312,19 @@ export interface MatchPairsContent {
     messages: { incomplete: string; wrong: string; success: string };
 }
 
+export interface BuildHierarchyContent {
+    tree: HierarchyNode;
+    chips: string[];
+    submitLabel: string;
+    messages: {
+        incomplete: string;
+        needParent: string;
+        wrong: string;
+        success: string;
+        poolEmpty: string;
+    };
+}
+
 export interface OrderData {
     id: string;
     item: string;
@@ -331,6 +345,12 @@ export interface AccessConfig {
     options: { id: string; label: string }[];
     initial: string;
     requiredId: string;
+}
+
+export interface HierarchyNode {
+    id: string;
+    label: string;
+    children?: HierarchyNode[];
 }
 
 export function getModuleById(id: number): Module | undefined {

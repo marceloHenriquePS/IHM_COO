@@ -1,0 +1,44 @@
+.build-hierarchy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 8px;
+    box-sizing: border-box;
+}
+
+.hierarchy-submit {
+    align-self: center;
+    padding: 6px 36px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.hierarchy-submit:hover { filter: brightness(0.95); }
+
+.hierarchy-center { width: 100%; }
+
+.hierarchy-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.hierarchy-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.hierarchy-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.hierarchy-center .resource-center-body { padding: 8px 10px; }

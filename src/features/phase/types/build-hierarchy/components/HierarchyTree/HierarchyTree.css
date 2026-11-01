@@ -1,0 +1,79 @@
+.hierarchy-scroll {
+    max-height: 240px;
+    overflow: auto;
+    padding: 4px 4px 8px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.hierarchy-tree,
+.hierarchy-tree ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hierarchy-tree {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.hierarchy-tree ul {
+    position: relative;
+    padding-top: 20px;
+}
+
+.hierarchy-tree li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 8px 0;
+}
+
+.hierarchy-tree li::before,
+.hierarchy-tree li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 20px;
+    border-top: 2px solid #555;
+}
+
+.hierarchy-tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #555;
+}
+
+.hierarchy-tree li:only-child { padding-top: 0; }
+.hierarchy-tree li:only-child::before,
+.hierarchy-tree li:only-child::after { display: none; }
+
+.hierarchy-tree li:first-child::before,
+.hierarchy-tree li:last-child::after { border: 0 none; }
+
+.hierarchy-tree li:last-child::before { border-right: 2px solid #555; }
+
+.hierarchy-tree ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 20px;
+    border-left: 2px solid #555;
+}
+
+.tree-node.blocked { opacity: 0.55; }
+
+.hierarchy-tree .drop-slot {
+    min-width: 140px;
+    padding: 3px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+}

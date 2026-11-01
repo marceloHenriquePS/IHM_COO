@@ -1404,6 +1404,64 @@
                         }
                     }
                 ]
+            },
+            {
+                "id":3,
+                "title": "Fase 2 - Uma Família de Funcionários",
+                "description":"O Hotel COO Palace precisa da sua ajuda no caos da organizações dos cargos de trabalho. o Gerente viu que você ajudou a prefeitra e tentou implementar sozinho, porém ficou uma bagunça, ajude-o a limpar",
+                "steps": [
+                            {
+                                "type": "build-hierarchy",
+                                "instructions": [
+                                    "Algumas profissões possuem funções em comum e outras são especializações de diferentes grupos. \nConstrua a **árvore de herança** e ajude o hotel a colocar cada classe no lugar certo!"
+                                ],
+                                "content": {
+                                    "tree": {
+                                    "id": "hotel",
+                                    "label": "Funcionário Hotel",
+                                    "children": [
+                                        {
+                                            "id": "atendimento",
+                                            "label": "Funcionário Atendimento",
+                                            "children": [{ "id": "recepcionista", "label": "Recepcionista" }]
+                                        },
+                                        {
+                                            "id": "cozinha",
+                                            "label": "Funcionário Cozinha",
+                                            "children": [
+                                                {
+                                                    "id": "cozinheiro",
+                                                    "label": "Cozinheiro",
+                                                    "children": [{ "id": "chef", "label": "Chef de Cozinha" }]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "limpeza",
+                                            "label": "Funcionário Limpeza",
+                                            "children": [
+                                                { "id": "faxineiro", "label": "Faxineiro" },
+                                                { "id": "camareira", "label": "Camareira" }
+                                            ]
+                                        }
+                                    ]
+                                    },
+                                    "chips": [
+                                        "Funcionário Limpeza", "Cozinheiro", "Funcionário Hotel",
+                                        "Camareira", "Recepcionista", "Funcionário Cozinha",
+                                        "Faxineiro", "Chef de Cozinha", "Funcionário Atendimento"
+                                    ],
+                                    "submitLabel": "Validar organização",
+                                    "messages": {
+                                        "incomplete": "A árvore ainda tem espaços vazios. Coloque todas as classes.",
+                                        "needParent": "Coloque primeiro a classe pai. A árvore se monta de cima para baixo.",
+                                        "wrong": "Algumas classes estão sob o pai errado, marcadas em vermelho. Pense de quem cada uma herda.",
+                                        "success": "Árvore de herança montada! Cada classe está no lugar certo.",
+                                        "poolEmpty": "Todas as classes já foram colocadas."
+                                    }
+                                }
+                            }
+                ]
             }
         ]
     },

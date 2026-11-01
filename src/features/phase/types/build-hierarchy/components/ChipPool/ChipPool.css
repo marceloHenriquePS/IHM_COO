@@ -1,0 +1,20 @@
+.chip-pool {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 6px 8px;
+    min-height: 100px;
+}
+
+.pool-chip {
+    padding: 3px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.chip-pool-empty {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
