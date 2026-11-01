@@ -1,0 +1,222 @@
+
+/* ===== CONTAINER PRINCIPAL ===== */
+
+.build-subclasses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 20px;
+    box-sizing: border-box;
+}
+
+/* ===== LINHA DAS CLASSES ===== */
+
+.build-subclasses-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* ===== PAINÉIS DAS CLASSES ===== */
+
+.class-panel {
+    --tone: #14397f;
+    --panel-body-h: 145px;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+
+    border: 2px solid var(--tone);
+    border-radius: 8px;
+    background: #fff;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.class-panel.yellow { --tone: #ffc400; }
+.class-panel.blue   { --tone: #14397f; }
+.class-panel.red    { --tone: #e2182f; }
+.class-panel.green  { --tone: #1ea83c; }
+
+/* ===== CABEÇALHO ===== */
+
+.class-panel-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+
+    min-height: 43px;
+    padding: 5px 6px;
+
+    background: var(--tone);
+    color: #fff;
+    text-align: center;
+}
+
+.class-panel.yellow .class-panel-header {
+    color: #111;
+}
+
+.class-panel-header h2 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Identificação da classe */
+
+.class-panel-tag {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+/* ===== CORPO DAS CLASSES ===== */
+
+.class-panel-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+    height: var(--panel-body-h);
+    padding: 10px 9px;
+
+    overflow-y: auto;
+    transition: background 0.15s;
+}
+
+.class-panel.over .class-panel-body {
+    background: #fff8d6;
+}
+
+.class-panel.yellow .class-panel-body {
+    justify-content: center;
+}
+
+.class-panel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.class-panel-item {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 3px 5px;
+
+    border: 0;
+    border-radius: 4px;
+    background: none;
+
+    font-family: system-ui;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+
+    overflow-wrap: anywhere;
+}
+
+button.class-panel-item {
+    cursor: pointer;
+}
+
+button.class-panel-item:disabled {
+    cursor: default;
+}
+
+button.class-panel-item:not(:disabled):hover {
+    background: #f1f1f1;
+}
+
+.class-panel-item.wrong {
+    background: #fdecea;
+    color: #8a1c1c;
+}
+
+.class-panel-empty {
+    margin: auto 0;
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+}
+
+.subclass-center {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.subclass-center-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 12px;
+}
+
+
+.subclass-submit {
+    align-self: center;
+
+    min-width: 250px;
+    padding: 9px 32px;
+
+    border: 0;
+    border-radius: 5px;
+    background: #ffc400;
+
+    color: #111;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.subclass-submit:hover {
+    background: #edb900;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+    .build-subclasses-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .class-panel-header h2 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .build-subclasses-row {
+        grid-template-columns: 1fr;
+    }
+}

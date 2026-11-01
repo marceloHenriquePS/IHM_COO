@@ -1,0 +1,68 @@
+.base-class-card {
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.base-class-card-header {
+    padding: 8px;
+    background: #ffc400;
+    text-align: center;
+}
+
+.base-class-card-header h2 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.base-class-card-body {
+    padding: 10px 40px 14px;
+}
+
+.base-class-card-columns,
+.base-class-card-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+}
+
+.base-class-card-columns h3 {
+    margin: 0 0 6px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.base-class-card-rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.base-class-card-footer {
+    display: flex;
+    justify-content: center;
+    padding: 0 40px 10px;
+}
+
+.base-class-card-submit {
+    padding: 6px 32px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.base-class-card-submit:hover { filter: brightness(0.95); }

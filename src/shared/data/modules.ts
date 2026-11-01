@@ -18,9 +18,13 @@ export type Step =
     | (BaseStep & { type: "sort-conveyor"; content: SortConveyorContent })
     | (BaseStep & { type: "product-requests"; content: ProductRequestsContent })
     | (BaseStep & { type: "accuse-suspect"; content: AccuseSuspectContent })
+    | (BaseStep & { type: "find-repetitions"; content: FindRepetitionsContent })
+    | (BaseStep & { type: "build-base-class"; content: BuildBaseClassContent })
+    | (BaseStep & { type: "build-subclasses"; content: BuildSubclassesContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
+export type ClassTone = "blue" | "red" | "green" | "yellow";
 export interface Module {
     id: number;
     title: string;
@@ -237,6 +241,55 @@ export interface AccuseSuspectContent {
         incomplete: string;
         wrong: string;
         wrongBySuspect?: Record<string, string>;
+        success: string;
+    };
+}
+
+export interface FindRepetitionsContent {
+    classes: {
+        id: string;
+        name: string;
+        tone: ClassTone;
+        attributes: { type: string; name: string }[];
+    }[];
+    answer: string[];
+    reportTitle: string;
+    sendLabel: string;
+    inputPlaceholder: string;
+    registerLabel: string;
+    messages: {
+        emptyInput: string;
+        duplicate: string;
+        notFound: string;
+        incomplete: string;
+        missing: string;
+        extra: string;
+        success: string;
+    };
+}
+
+export interface BuildBaseClassContent {
+    className: string;
+    attributeTitle: string;
+    typeTitle: string;
+    answer: { attribute: string; type: string }[];
+    attributes: string[];
+    types: string[];
+    submitLabel: string;
+    messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface BuildSubclassesContent {
+    parent: { name: string; attributes: string[] };
+    children: { id: string; name: string; tone: ClassTone; answer: string[] }[];
+    attributes: { label: string; type: string; field: string }[];
+    submitLabel: string;
+    messages: {
+        incomplete: string;
+        duplicate: string;
+        inherited: string;
+        wrong: string;
+        missing: string;
         success: string;
     };
 }

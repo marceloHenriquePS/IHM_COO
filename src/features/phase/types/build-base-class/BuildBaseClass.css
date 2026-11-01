@@ -1,0 +1,9 @@
+.build-base-class {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 780px;
+    padding: 0 24px 16px;
+    box-sizing: border-box;
+}

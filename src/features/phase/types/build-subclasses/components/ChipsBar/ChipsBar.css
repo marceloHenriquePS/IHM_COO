@@ -1,0 +1,14 @@
+.chips-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 6px;
+}
+
+.subclass-chip {
+    padding: 2px 8px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}

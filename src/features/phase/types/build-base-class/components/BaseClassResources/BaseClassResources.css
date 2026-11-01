@@ -1,0 +1,38 @@
+.base-resources {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.base-resources-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.base-chip {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 3px 8px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.base-resources-submit {
+    margin-top: 4px;
+    padding: 6px 32px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.base-resources-submit:hover { filter: brightness(0.95); }

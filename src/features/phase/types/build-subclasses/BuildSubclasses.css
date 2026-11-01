@@ -1,0 +1,59 @@
+.build-subclasses {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* width: 100%; */
+    /* max-width: 920px; */
+    padding: 0 24px 8px;
+    box-sizing: border-box;
+}
+
+.build-subclasses-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    align-items: start;
+}
+
+.subclass-center { width: 100%; }
+
+.subclass-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.subclass-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.subclass-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.subclass-center .resource-center-body { padding: 8px 10px; }
+
+.subclass-center-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.subclass-center-row .chips-bar { flex: 1; min-width: 0; }
+
+.subclass-submit {
+    flex-shrink: 0;
+    padding: 6px 20px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.subclass-submit:hover { filter: brightness(0.95); }

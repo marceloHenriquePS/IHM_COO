@@ -16,6 +16,9 @@ import { DiagnoseCause } from "./types/diagnose-cause/DiagnoseCause";
 import { SortConveyor } from "./types/sort-conveyor/SortConveyor";
 import { ProductRequests } from "./types/product-request/ProductRequests";
 import { AccuseSuspect } from "./types/accuse-suspect/AccuseSuspect";
+import { FindRepetitions } from "./types/find-repetitions/FindRepetitions";
+import { BuildBaseClass } from "./types/build-base-class/BuildBaseClass";
+import { BuildSubclasses } from "./types/build-subclasses/BuildSubclasses";
 
 export interface StepScreenProps {
     step: Step;
@@ -44,4 +47,7 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "sort-conveyor": SortConveyor,
     "product-requests": ProductRequests,
     "accuse-suspect": AccuseSuspect,
+    "find-repetitions": FindRepetitions,
+    "build-base-class": BuildBaseClass,
+    "build-subclasses": BuildSubclasses,
 };

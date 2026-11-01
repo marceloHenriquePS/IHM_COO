@@ -1,0 +1,63 @@
+.repetition-report {
+    box-sizing: border-box;
+    min-height: 74px;
+    padding: 8px 12px 10px;
+    border: 2px solid #999;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.repetition-report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.repetition-report-header h3 {
+    margin: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.repetition-report-send {
+    padding: 2px 14px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.repetition-report-send:hover { filter: brightness(0.95); }
+
+.repetition-report-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.repetition-chip {
+    padding: 2px 12px;
+    border: 2px solid #777;
+    border-radius: 4px;
+    background: #fff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.repetition-chip:disabled { cursor: default; }
+
+.repetition-chip:not(:disabled):hover {
+    border-color: #d32f2f;
+    background: #fdecea;
+}

@@ -1206,12 +1206,146 @@
         "id": 4, 
         "title": "Módulo 4", 
         "subtitle":"Herança",
-        "phases": []
+        "phases": [
+            {
+                "id":1,
+                "title": "Fase 1 - Identificando Padrões",
+                "description":"Agora que a cidade está mais segura, o prefeito te chamou para uma tarefa mais tranquila, ajudar na classificação dos funcionários da prefeitura, ele acha que há **coisas repetidas demais nos arquivos.**",
+                "steps": [
+                    {
+                        "type": "find-repetitions",
+                        "instructions": [
+                            "Analise as classes e identifique essas repetições. Para repassar ao prefeito. **Anote** o nome delas e envie no relatório."
+                        ],
+                        "content": {
+                            "classes": [
+                                {
+                                    "id": "policial", "name": "Policial", "tone": "blue",
+                                    "attributes": [
+                                        { "type": "String", "name": "Nome" },
+                                        { "type": "int", "name": "Idade" },
+                                        { "type": "double", "name": "Peso" },
+                                        { "type": "String", "name": "Telefone" },
+                                        { "type": "String", "name": "Patente" },
+                                        { "type": "String", "name": "numeroDistintivo" },
+                                        { "type": "int", "name": "Delegacia" }
+                                    ]
+                                },
+                                {
+                                    "id": "bombeiro", "name": "Bombeiro", "tone": "red",
+                                    "attributes": [
+                                        { "type": "String", "name": "Nome" },
+                                        { "type": "int", "name": "Idade" },
+                                        { "type": "double", "name": "Peso" },
+                                        { "type": "String", "name": "Telefone" },
+                                        { "type": "String", "name": "especialidade" },
+                                        { "type": "boolean", "name": "emMissão" },
+                                        { "type": "int", "name": "estacao" }
+                                    ]
+                                },
+                                {
+                                    "id": "medico", "name": "Médico", "tone": "green",
+                                    "attributes": [
+                                        { "type": "String", "name": "Nome" },
+                                        { "type": "int", "name": "Idade" },
+                                        { "type": "double", "name": "Peso" },
+                                        { "type": "String", "name": "Telefone" },
+                                        { "type": "String", "name": "CRM" },
+                                        { "type": "String", "name": "especialidade" },
+                                        { "type": "int", "name": "Hospital" }
+                                    ]
+                                }
+                            ],
+                            "answer": ["Nome", "Idade", "Peso", "Telefone"],
+                            "reportTitle": "Relatório de repetições",
+                            "sendLabel": "Enviar",
+                            "inputPlaceholder": "Informe o nome do atributo",
+                            "registerLabel": "Registrar",
+                            "messages": {
+                                "emptyInput": "Digite o nome de um atributo antes de registrar.",
+                                "duplicate": "Esse atributo já está no relatório.",
+                                "notFound": "Nenhuma das classes tem um atributo com esse nome.",
+                                "incomplete": "O relatório está vazio. Registre as repetições antes de enviar.",
+                                "missing": "Ainda faltam atributos repetidos no relatório. Compare as três classes de novo.",
+                                "extra": "Há atributo no relatório que não se repete em todas as classes. Remova-o clicando nele.",
+                                "success": "Relatório enviado! O prefeito vai pedir uma classe base para guardar esses atributos."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-base-class",
+                        "instructions": [
+                            "Com base no seu relatório vamos montar uma **classe base**, que serve como **molde** para criar um funcionário e **evitará repetição** de atributos."
+                        ],
+                        "content": {
+                            "className": "Funcionário",
+                            "attributeTitle": "Atributo",
+                            "typeTitle": "Tipo",
+                            "answer": [
+                                { "attribute": "Nome",     "type": "String" },
+                                { "attribute": "Idade",    "type": "int" },
+                                { "attribute": "Peso",     "type": "double" },
+                                { "attribute": "Telefone", "type": "String" }
+                            ],
+                            "attributes": ["Nome", "Idade", "Peso", "Telefone"],
+                            "types": ["String", "int", "double", "boolean"],
+                            "submitLabel": "Criar classe",
+                            "messages": {
+                                "incomplete": "Complete as linhas: cada atributo precisa de um tipo, e ainda faltam atributos na classe.",
+                                "wrong": "Há linhas erradas, marcadas em vermelho. Confira o tipo de cada atributo e se ele realmente se repetia.",
+                                "success": "Classe Funcionário criada! Agora Policial, Bombeiro e Médico podem herdar esses atributos."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-subclasses",
+                        "instructions": [
+                            "Agora todo Policial, Bombeiro e Médico **herdam** de funcionário sem repetir código. \nA partir disso, **quais atributos teriam as classes filhas** de funcionário?"
+                        ],
+                        "content": {
+                            "parent": {
+                                "name": "Funcionário",
+                                "attributes": ["Nome", "Idade", "Peso", "Telefone"]
+                            },
+                            "children": [
+                                { "id": "policial",  "name": "Policial", "tone": "blue",  "answer": ["Patente", "Número distintivo", "Delegacia"] },
+                                { "id": "bombeiro",  "name": "Bombeiro", "tone": "red",   "answer": ["Especialidade", "Em missão", "Estação"] },
+                                { "id": "medico",    "name": "Médico",   "tone": "green", "answer": ["CRM", "Especialidade", "Hospital"] }
+                            ],
+                            "attributes": [
+                                { "label": "Telefone",          "type": "String",  "field": "telefone" },
+                                { "label": "Especialidade",     "type": "String",  "field": "especialidade" },
+                                { "label": "Hospital",          "type": "int",     "field": "hospital" },
+                                { "label": "Nome",              "type": "String",  "field": "nome" },
+                                { "label": "Estação",           "type": "int",     "field": "estacao" },
+                                { "label": "Patente",           "type": "String",  "field": "patente" },
+                                { "label": "Idade",             "type": "int",     "field": "idade" },
+                                { "label": "CRM",               "type": "String",  "field": "crm" },
+                                { "label": "Delegacia",         "type": "int",     "field": "delegacia" },
+                                { "label": "Em missão",         "type": "boolean", "field": "emMissao" },
+                                { "label": "Peso",              "type": "double",  "field": "peso" },
+                                { "label": "Número distintivo", "type": "String",  "field": "numeroDistintivo" }
+                            ],
+                            "submitLabel": "Criar classes",
+                            "messages": {
+                                "incomplete": "As classes filhas ainda estão vazias. Arraste os atributos de cada profissão.",
+                                "duplicate": "Esse atributo já está nessa classe.",
+                                "inherited": "Alguns atributos já são herdados de Funcionário e não precisam ser repetidos. Remova os marcados em vermelho.",
+                                "wrong": "Há atributos que não pertencem a essa classe, marcados em vermelho.",
+                                "missing": "Ainda faltam atributos em alguma classe filha.",
+                                "success": "Herança aplicada! As três classes reaproveitam Funcionário e só guardam o que é só delas."
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 5, 
         "title": "Módulo 5", 
         "subtitle":"Polimorfismo",
-        "phases": []
+        "phases": [
+        ]
     }
 ]
