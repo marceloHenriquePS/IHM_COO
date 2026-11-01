@@ -1,0 +1,32 @@
+.class-card-view {
+    overflow: hidden;
+    border: 2px solid #14397f;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 11px;
+}
+
+.class-card-view-title {
+    margin: 0;
+    padding: 3px 6px;
+    background: #14397f;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.class-card-view-attrs {
+    margin: 0;
+    padding: 4px 12px;
+    list-style: none;
+    font-weight: 600;
+    border-bottom: 2px solid #14397f;
+}
+
+.class-card-view-method {
+    margin: 0;
+    padding: 4px 12px;
+    font-weight: 600;
+}

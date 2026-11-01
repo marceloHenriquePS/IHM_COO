@@ -1338,6 +1338,72 @@
                         }
                     }
                 ]
+            },
+            {
+                "id":2,
+                "title": "Fase 2 - Todo Mundo Faz a Mesma Coisa?",
+                "description":"O Hotel COO Palace precisa da sua ajuda no caos da organizações dos cargos de trabalho. o Gerente viu que você ajudou a prefeitra e tentou implementar sozinho, porém ficou uma bagunça, ajude-o a limpar",
+                "steps": [
+                    {
+                        "type": "match-pairs",
+                        "instructions": [
+                            "Cada funcionário pode **trabalhar(função)** de maneira diferente, ligue as funções com base no que cada **Funcionário do Hotel** faz. Siga as **INSTRUÇÕES**"
+                        ],
+                        "content": {
+                            "leftItems": [
+                                { "id": "recepcionista", "label": "Recepcionista" },
+                                { "id": "camareiro",     "label": "Camareiro" },
+                                { "id": "cozinheiro",    "label": "Cozinheiro" },
+                                { "id": "gerente",       "label": "Gerente" },
+                                { "id": "faxineiro",     "label": "Faxineiro" }
+                            ],
+                            "rightItems": [
+                                { "id": "t1", "label": "Trabalho 1" },
+                                { "id": "t2", "label": "Trabalho 2" },
+                                { "id": "t3", "label": "Trabalho 3" },
+                                { "id": "t4", "label": "Trabalho 4" },
+                                { "id": "t5", "label": "Trabalho 5" }
+                            ],
+                            "answer": {
+                                "recepcionista": "t3",
+                                "camareiro": "t1",
+                                "cozinheiro": "t5",
+                                "gerente": "t4",
+                                "faxineiro": "t2"
+                            },
+                            "classCard": {
+                                "name": "Funcionário Hotel",
+                                "attributes": ["String: Nome", "String: Cargo"],
+                                "method": "trabalhar(função);"
+                            },
+                            "rulesLabel": "Instruções",
+                            "validateLabel": "Validar",
+                            "rules": {
+                                "title": "Classes do Hotel COO Palace",
+                                "intro": "Cada funcionário possui sua própria forma de trabalhar.",
+                                "inherits": [
+                                    "classe Recepcionista → FuncionarioHotel",
+                                    "classe Camareiro → FuncionarioHotel",
+                                    "classe Cozinheiro → FuncionarioHotel",
+                                    "classe Gerente → FuncionarioHotel",
+                                    "classe Faxineiro → FuncionarioHotel"
+                                ],
+                                "jobs": [
+                                    { "id": "t1", "text": "Minha função é organizar os quartos, trocar as roupas de cama e deixá-los preparados para a chegada dos hóspedes." },
+                                    { "id": "t2", "text": "Cuido da limpeza das áreas comuns do hotel, como corredores, recepção e outros espaços compartilhados." },
+                                    { "id": "t3", "text": "Sou responsável por receber os hóspedes, realizar o check-in e o check-out e fornecer informações sobre o hotel." },
+                                    { "id": "t4", "text": "Sou responsável por coordenar os funcionários, acompanhar o funcionamento do hotel e resolver problemas administrativos." },
+                                    { "id": "t5", "text": "Trabalho preparando refeições, seguindo os pedidos e garantindo que os alimentos sejam servidos adequadamente." }
+                                ]
+                            },
+                            "messages": {
+                                "incomplete": "Ainda faltam ligações. Cada cargo precisa de um trabalho.",
+                                "wrong": "Algumas ligações estão erradas, marcadas em vermelho. Releia as instruções.",
+                                "success": "Todos os funcionários foram ligados ao trabalho certo!"
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

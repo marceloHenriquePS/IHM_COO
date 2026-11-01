@@ -21,6 +21,7 @@ export type Step =
     | (BaseStep & { type: "find-repetitions"; content: FindRepetitionsContent })
     | (BaseStep & { type: "build-base-class"; content: BuildBaseClassContent })
     | (BaseStep & { type: "build-subclasses"; content: BuildSubclassesContent })
+    | (BaseStep & { type: "match-pairs"; content: MatchPairsContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -292,6 +293,22 @@ export interface BuildSubclassesContent {
         missing: string;
         success: string;
     };
+}
+
+export interface MatchPairsContent {
+    leftItems: { id: string; label: string }[];
+    rightItems: { id: string; label: string }[];
+    answer: Record<string, string>;
+    classCard: { name: string; attributes: string[]; method: string };
+    rulesLabel: string;
+    validateLabel: string;
+    rules: {
+        title: string;
+        intro: string;
+        inherits: string[];
+        jobs: { id: string; text: string }[];
+    };
+    messages: { incomplete: string; wrong: string; success: string };
 }
 
 export interface OrderData {

@@ -1,0 +1,83 @@
+.match-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 24px 12px;
+    box-sizing: border-box;
+}
+
+.match-center { width: 100%; }
+
+.match-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.match-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.match-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.match-center .resource-center-body { padding: 8px 12px; }
+
+.match-center-row {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.match-center-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.match-center-buttons button {
+    padding: 6px 12px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.match-center-buttons button:hover { filter: brightness(0.95); }
+
+.hotel-rules-inherits {
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+.hotel-rules-jobs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.rules-modal-intro {
+    margin: 0 0 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #d32f2f;
+}
