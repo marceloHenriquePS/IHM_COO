@@ -1,4 +1,3 @@
-// ClassPanel/ClassPanel.tsx
 import { useState } from "react";
 import { DRAG_MIME, readPayload } from "@/features/phase/dnd";
 import "./ClassPanel.css";
@@ -7,14 +6,14 @@ export type PanelTone = "yellow" | "blue" | "red" | "green";
 
 interface PanelItem {
     label: string;
-    text: string;       // ex.: "String: patente"
+    text: string;
     wrong?: boolean;
 }
 
 interface ClassPanelProps {
     name: string;
     tone: PanelTone;
-    tag?: string;                         // ex.: "herda de Funcionário"
+    tag?: string;
     items: PanelItem[];
     emptyText?: string;
     locked?: boolean;

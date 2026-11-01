@@ -309,6 +309,7 @@ export interface MatchPairsContent {
         inherits: string[];
         jobs: { id: string; text: string }[];
     };
+    jobLabel?: string;
     messages: { incomplete: string; wrong: string; success: string };
 }
 

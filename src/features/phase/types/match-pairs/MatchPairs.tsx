@@ -3,7 +3,7 @@ import type { StepScreenProps } from "../../stepType";
 import { PairBoard } from "./components/PairBoard/PairBoard";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import { ClassCardView } from "./components/ClassCardView/ClassCardView";
-import { HotelRulesModal } from "./components/HotelRulesModal/HotelRulesModal";
+import { HotelRulesModal } from "./components/ClassRulesModal/ClassRulesModal";
 import "./MatchPairs.css";
 
 export function MatchPairs({ step, locked, continueLabel, onComplete, onContinue, showFeedback, clearFeedback }: StepScreenProps) {
@@ -112,6 +112,7 @@ export function MatchPairs({ step, locked, continueLabel, onComplete, onContinue
                 intro={content.rules.intro}
                 inherits={content.rules.inherits}
                 jobs={content.rules.jobs}
+                jobLabel={content.jobLabel ?? "Trabalho"}
                 onClose={() => setShowRules(false)}
             />        
         </div>

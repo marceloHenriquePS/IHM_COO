@@ -6,10 +6,11 @@ interface HotelRulesModalProps {
     intro: string;
     inherits: string[];
     jobs: { id: string; text: string }[];
+    jobLabel?: string;
     onClose: () => void;
 }
 
-export function HotelRulesModal({ open, title, intro, inherits, jobs, onClose }: HotelRulesModalProps) {
+export function HotelRulesModal({ open, title, intro, inherits, jobs, jobLabel, onClose }: HotelRulesModalProps) {
     return (
         <Modal open={open} title={title} onClose={onClose}>
             <p className="rules-modal-intro">{intro}</p>
@@ -21,8 +22,7 @@ export function HotelRulesModal({ open, title, intro, inherits, jobs, onClose }:
             <ol className="hotel-rules-jobs">
                 {jobs.map((j, i) => (
                     <li key={j.id}>
-                        <b>Trabalho {i + 1}:</b> {j.text}
-                    </li>
+                        <b>{jobLabel} {i + 1}:</b> {j.text}</li>
                 ))}
             </ol>
         </Modal>

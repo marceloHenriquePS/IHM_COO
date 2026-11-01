@@ -1407,7 +1407,7 @@
             },
             {
                 "id":3,
-                "title": "Fase 2 - Uma Família de Funcionários",
+                "title": "Fase 3 - Uma Família de Funcionários",
                 "description":"O Hotel COO Palace precisa da sua ajuda no caos da organizações dos cargos de trabalho. o Gerente viu que você ajudou a prefeitra e tentou implementar sozinho, porém ficou uma bagunça, ajude-o a limpar",
                 "steps": [
                             {
@@ -1461,6 +1461,480 @@
                                     }
                                 }
                             }
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Fase 4 - Heranças de um Passado Esquecido",
+                "description": "O Museu COO vai abrir uma nova ala e a diretora quer organizar o sistema da equipe. O código da equipe está cheio de repetição. Organize as classes usando herança.",
+                "steps": [
+                    {
+                        "type": "find-repetitions",
+                        "instructions": [
+                            "Analise as classes e identifique os atributos **repetidos nas três**. Cuidado: alguns se repetem só em **duas** classes."
+                        ],
+                        "content": {
+                            "classes": [
+                            {
+                                "id": "guia", "name": "Guia", "tone": "blue",
+                                "attributes": [
+                                    { "type": "String", "name": "Nome" },
+                                    { "type": "String", "name": "Matrícula" },
+                                    { "type": "String", "name": "Turno" },
+                                    { "type": "double", "name": "Salário" },
+                                    { "type": "String", "name": "idiomas" },
+                                    { "type": "int", "name": "visitasGuiadas" },
+                                    { "type": "String", "name": "roteiro" }
+                                ]
+                            },
+                            {
+                                "id": "restaurador", "name": "Restaurador", "tone": "red",
+                                "attributes": [
+                                    { "type": "String", "name": "Nome" },
+                                    { "type": "String", "name": "Matrícula" },
+                                    { "type": "String", "name": "Turno" },
+                                    { "type": "double", "name": "Salário" },
+                                    { "type": "String", "name": "especialidade" },
+                                    { "type": "String", "name": "setor" },
+                                    { "type": "boolean", "name": "usaLaboratório" }
+                                ]
+                            },
+                            {
+                                "id": "seguranca", "name": "Segurança", "tone": "green",
+                                "attributes": [
+                                    { "type": "String", "name": "Nome" },
+                                    { "type": "String", "name": "Matrícula" },
+                                    { "type": "String", "name": "Turno" },
+                                    { "type": "double", "name": "Salário" },
+                                    { "type": "String", "name": "setor" },
+                                    { "type": "String", "name": "idiomas" },
+                                    { "type": "boolean", "name": "armado" }
+                                ]
+                            }
+                            ],
+                            "answer": ["Nome", "Matrícula", "Turno", "Salário"],
+                            "reportTitle": "Relatório de repetições",
+                            "sendLabel": "Enviar",
+                            "inputPlaceholder": "Informe o nome do atributo",
+                            "registerLabel": "Registrar",
+                            "messages": {
+                                "emptyInput": "Digite o nome de um atributo antes de registrar.",
+                                "duplicate": "Esse atributo já está no relatório.",
+                                "notFound": "Nenhuma das classes tem um atributo com esse nome.",
+                                "incomplete": "O relatório está vazio. Registre as repetições antes de enviar.",
+                                "missing": "Ainda faltam atributos que se repetem nas três classes. Compare de novo.",
+                                "extra": "Há atributo no relatório que não aparece nas três classes. Remova-o clicando nele.",
+                                "success": "Relatório enviado! Quatri atributos aparecem em todas as profissões do museu."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-base-class",
+                        "instructions": [
+                            "Com base no seu relatório, monte a classe base **Funcionário Museu**. Use só os atributos que se repetem nas **três** classes, e escolha o **tipo** certo de cada um."
+                        ],
+                        "content": {
+                            "className": "Funcionário Museu",
+                            "rows": 5,
+                            "attributeTitle": "Atributo",
+                            "typeTitle": "Tipo",
+                            "answer": [
+                                { "attribute": "Nome", "type": "String" },
+                                { "attribute": "Matrícula", "type": "String" },
+                                { "attribute": "Turno", "type": "String" },
+                                { "attribute": "Salário", "type": "double" }
+                            ],
+                            "attributes": ["Turno", "Idiomas", "Nome", "Salário", "Setor", "Matrícula"],
+                            "types": ["double", "String", "boolean", "int"],
+                            "submitLabel": "Criar classe",
+                            "messages": {
+                                "incomplete": "Complete as linhas: cada atributo precisa de um tipo, e ainda faltam atributos na classe base.",
+                                "wrong": "Há linhas erradas, marcadas em vermelho. Confira o tipo e se o atributo realmente se repetia nas três classes.",
+                                "success": "Classe Funcionário Museu criada! Guia, Restaurador e Segurança já podem herdar dela."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-subclasses",
+                        "instructions": [
+                            "Agora Guia, Restaurador e Segurança **herdam** de Funcionário Museu. **Quais atributos** ficam em cada classe filha? \nAtenção: alguns atributos pertencem a **mais de uma** filha."
+                        ],
+                        "content": {
+                            "parent": {
+                                "name": "Funcionário Museu",
+                                "attributes": ["Nome", "Matrícula", "Turno", "Salário"]
+                            },
+                            "children": [
+                                { "id": "guia", "name": "Guia", "tone": "blue", "answer": ["Idiomas", "Visitas guiadas", "Roteiro"] },
+                                { "id": "restaurador", "name": "Restaurador", "tone": "red", "answer": ["Especialidade", "Setor", "Usa laboratório"] },
+                                { "id": "seguranca", "name": "Segurança", "tone": "green", "answer": ["Setor", "Idiomas", "Armado"] }
+                            ],
+                            "attributes": [
+                                { "label": "Setor", "type": "String", "field": "setor" },
+                                { "label": "Nome", "type": "String", "field": "nome" },
+                                { "label": "Armado", "type": "boolean", "field": "armado" },
+                                { "label": "Roteiro", "type": "String", "field": "roteiro" },
+                                { "label": "Salário", "type": "double", "field": "salario" },
+                                { "label": "Idiomas", "type": "String", "field": "idiomas" },
+                                { "label": "Usa laboratório", "type": "boolean", "field": "usaLaboratorio" },
+                                { "label": "Turno", "type": "String", "field": "turno" },
+                                { "label": "Visitas guiadas", "type": "int", "field": "visitasGuiadas" },
+                                { "label": "Matrícula", "type": "String", "field": "matricula" },
+                                { "label": "Especialidade", "type": "String", "field": "especialidade" }
+                            ],
+                            "submitLabel": "Criar classes",
+                            "messages": {
+                                "incomplete": "As classes filhas ainda estão vazias. Arraste os atributos de cada profissão.",
+                                "duplicate": "Esse atributo já está nessa classe.",
+                                "inherited": "Alguns atributos já são herdados de Funcionário Museu e não precisam ser repetidos. Remova os marcados em vermelho.",
+                                "wrong": "Há atributos que não pertencem a essa classe, marcados em vermelho.",
+                                "missing": "Ainda faltam atributos em alguma classe filha. Lembre que alguns se repetem em duas delas.",
+                                "success": "Herança aplicada! Cada profissão guarda só o que é só dela."
+                            }
+                        }
+                    },
+                    {
+                        "type": "match-pairs",
+                        "instructions": [
+                            "Cada funcionário do museu **trabalha(função)** de um jeito. Ligue cada cargo ao trabalho que ele realiza. Siga as **INSTRUÇÕES**"
+                        ],
+                        "content": {
+                            "leftItems": [
+                                { "id": "guia", "label": "Guia" },
+                                { "id": "restaurador", "label": "Restaurador" },
+                                { "id": "seguranca", "label": "Segurança" },
+                                { "id": "curador", "label": "Curador" },
+                                { "id": "bilheteiro", "label": "Bilheteiro" }
+                            ],
+                            "rightItems": [
+                                { "id": "t1", "label": "Trabalho 1" },
+                                { "id": "t2", "label": "Trabalho 2" },
+                                { "id": "t3", "label": "Trabalho 3" },
+                                { "id": "t4", "label": "Trabalho 4" },
+                                { "id": "t5", "label": "Trabalho 5" }
+                            ],
+                            "answer": {
+                                "guia": "t4",
+                                "restaurador": "t2",
+                                "seguranca": "t5",
+                                "curador": "t1",
+                                "bilheteiro": "t3"
+                            },
+                            "classCard": {
+                                "name": "Funcionário Museu",
+                                "attributes": ["String: Nome", "String: Cargo"],
+                                "method": "trabalhar(função);"
+                            },
+                            "rulesLabel": "Instruções",
+                            "validateLabel": "Validar",
+                            "rules": {
+                                "title": "Classes do Museu COO",
+                                "intro": "Cada funcionário possui sua própria forma de trabalhar.",
+                                "inherits": [
+                                    "classe Guia → FuncionarioMuseu",
+                                    "classe Restaurador → FuncionarioMuseu",
+                                    "classe Segurança → FuncionarioMuseu",
+                                    "classe Curador → FuncionarioMuseu",
+                                    "classe Bilheteiro → FuncionarioMuseu"
+                                ],
+                                "jobs": [
+                                    { "id": "t1", "text": "Escolho as obras que entram em cada exposição e escrevo os textos que explicam a escolha ao público." },
+                                    { "id": "t2", "text": "Recupero pinturas e esculturas desgastadas pelo tempo, usando técnicas delicadas para preservá-las." },
+                                    { "id": "t3", "text": "Vendo os ingressos, confiro as reservas e oriento os visitantes sobre horários e preços." },
+                                    { "id": "t4", "text": "Acompanho grupos pelas salas e conto a história de cada obra durante a visita." },
+                                    { "id": "t5", "text": "Vigio as salas, controlo quem entra nas áreas restritas e protejo as obras contra danos e furtos." }
+                                ]
+                            },
+                            "messages": {
+                                "incomplete": "Ainda faltam ligações. Cada cargo precisa de um trabalho.",
+                                "wrong": "Algumas ligações estão erradas, marcadas em vermelho. Releia as instruções.",
+                                "success": "Cada funcionário foi ligado ao trabalho certo!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-hierarchy",
+                        "instructions": [
+                            "O museu cresceu e agora tem **setores**. Construa a **árvore de herança** completa e coloque cada classe no lugar certo, começando pelo pai."
+                        ],
+                        "content": {
+                            "tree": {
+                                "id": "museu",
+                                "label": "Funcionário Museu",
+                                "children": [
+                                    {
+                                        "id": "acervo",
+                                        "label": "Funcionário Acervo",
+                                        "children": [
+                                            {
+                                                "id": "curador",
+                                                "label": "Curador",
+                                                "children": [{ "id": "curadorchefe", "label": "Curador-chefe" }]
+                                            },
+                                            { "id": "restaurador", "label": "Restaurador" }
+                                        ]
+                                    },
+                                    {
+                                    "id": "visitacao",
+                                    "label": "Funcionário Visitação",
+                                    "children": [
+                                        {
+                                            "id": "guia",
+                                            "label": "Guia",
+                                            "children": [{ "id": "guiabilingue", "label": "Guia Bilíngue" }]
+                                        }
+                                    ]
+                                    },
+                                    {
+                                        "id": "seguranca",
+                                        "label": "Funcionário Segurança",
+                                        "children": [{ "id": "vigilante", "label": "Vigilante" }]
+                                    }
+                                ]
+                            },
+                            "chips": [
+                                "Guia", "Funcionário Segurança", "Curador-chefe", "Funcionário Museu",
+                                "Vigilante", "Funcionário Visitação", "Restaurador", "Guia Bilíngue",
+                                "Funcionário Acervo", "Curador"
+                            ],
+                            "submitLabel": "Validar organização",
+                            "messages": {
+                                "incomplete": "A árvore ainda tem espaços vazios. Coloque todas as classes.",
+                                "needParent": "Coloque primeiro a classe pai. A árvore se monta de cima para baixo.",
+                                "wrong": "Algumas classes estão sob o pai errado, marcadas em vermelho. Pense de quem cada uma herda.",
+                                "success": "Árvore completa! A equipe do Museu COO está organizada.",
+                                "poolEmpty": "Todas as classes já foram colocadas."
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Fase 5 - Organizando o acervo",
+                "description": "A nova ala do museu vai exibir obras de arte. Revise tudo o que você aprendeu sobre herança e ajude o museu da cidade a reorganizar seu acervo.",
+                "steps": [
+                    {
+                        "type": "find-repetitions",
+                        "instructions": [
+                            "A nova ala do **Museu COO** vai receber obras de arte. Antes de cadastrá-las, encontre os atributos que **se repetem nas três classes**."
+                        ],
+                        "content": {
+                            "classes": [
+                            {
+                                "id": "pintura", "name": "Pintura", "tone": "blue",
+                                "attributes": [
+                                    { "type": "String", "name": "Título" },
+                                    { "type": "String", "name": "Artista" },
+                                    { "type": "int", "name": "Ano" },
+                                    { "type": "double", "name": "Valor" },
+                                    { "type": "String", "name": "tinta" },
+                                    { "type": "double", "name": "largura" },
+                                    { "type": "double", "name": "altura" }
+                                ]
+                            },
+                            {
+                                "id": "escultura", "name": "Escultura", "tone": "red",
+                                "attributes": [
+                                    { "type": "String", "name": "Título" },
+                                    { "type": "String", "name": "Artista" },
+                                    { "type": "int", "name": "Ano" },
+                                    { "type": "double", "name": "Valor" },
+                                    { "type": "String", "name": "material" },
+                                    { "type": "double", "name": "altura" },
+                                    { "type": "double", "name": "peso" }
+                                ]
+                            },
+                            {
+                                "id": "fotografia", "name": "Fotografia", "tone": "green",
+                                "attributes": [
+                                    { "type": "String", "name": "Título" },
+                                    { "type": "String", "name": "Artista" },
+                                    { "type": "int", "name": "Ano" },
+                                    { "type": "double", "name": "Valor" },
+                                    { "type": "boolean", "name": "colorida" },
+                                    { "type": "double", "name": "largura" },
+                                    { "type": "String", "name": "câmera" }
+                                ]
+                            }
+                            ],
+                            "answer": ["Título", "Artista", "Ano", "Valor"],
+                            "reportTitle": "Relatório de repetições",
+                            "sendLabel": "Enviar",
+                            "inputPlaceholder": "Informe o nome do atributo",
+                            "registerLabel": "Registrar",
+                            "messages": {
+                                "emptyInput": "Digite o nome de um atributo antes de registrar.",
+                                "duplicate": "Esse atributo já está no relatório.",
+                                "notFound": "Nenhuma das classes tem um atributo com esse nome.",
+                                "incomplete": "O relatório está vazio. Registre as repetições antes de enviar.",
+                                "missing": "Ainda faltam atributos repetidos no relatório. Compare as três classes de novo.",
+                                "extra": "Há atributo no relatório que não se repete em todas as classes. Remova-o clicando nele.",
+                                "success": "Relatório enviado! Todas as obras têm título, artista, ano e valor."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-base-class",
+                        "instructions": [
+                            "Crie a classe base **Obra de Arte**, que vai guardar o que é comum a todas as obras do museu."
+                        ],
+                        "content": {
+                            "className": "Obra de Arte",
+                            "rows": 4,
+                            "attributeTitle": "Atributo",
+                            "typeTitle": "Tipo",
+                            "answer": [
+                                { "attribute": "Título", "type": "String" },
+                                { "attribute": "Artista", "type": "String" },
+                                { "attribute": "Ano", "type": "int" },
+                                { "attribute": "Valor", "type": "double" }
+                            ],
+                            "attributes": ["Valor", "Largura", "Título", "Altura", "Ano", "Artista"],
+                            "types": ["int", "boolean", "String", "double"],
+                            "submitLabel": "Criar classe",
+                            "messages": {
+                                "incomplete": "Complete as linhas: cada atributo precisa de um tipo, e ainda faltam atributos na classe base.",
+                                "wrong": "Há linhas erradas, marcadas em vermelho. Confira o tipo e se o atributo realmente se repetia nas três classes.",
+                                "success": "Classe Obra de Arte criada! Pintura, Escultura e Fotografia já podem herdar dela."
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-subclasses",
+                        "instructions": [
+                            "Agora Pintura, Escultura e Fotografia **herdam** de Obra de Arte. Coloque em cada classe filha só os atributos que **são dela**."
+                        ],
+                        "content": {
+                            "parent": {
+                                "name": "Obra de Arte",
+                                "attributes": ["Título", "Artista", "Ano", "Valor"]
+                            },
+                            "children": [
+                                { "id": "pintura", "name": "Pintura", "tone": "blue", "answer": ["Tinta", "Largura", "Altura"] },
+                                { "id": "escultura", "name": "Escultura", "tone": "red", "answer": ["Material", "Altura", "Peso"] },
+                                { "id": "fotografia", "name": "Fotografia", "tone": "green", "answer": ["Colorida", "Largura", "Câmera"] }
+                            ],
+                            "attributes": [
+                                { "label": "Altura", "type": "double", "field": "altura" },
+                                { "label": "Título", "type": "String", "field": "titulo" },
+                                { "label": "Câmera", "type": "String", "field": "camera" },
+                                { "label": "Peso", "type": "double", "field": "peso" },
+                                { "label": "Valor", "type": "double", "field": "valor" },
+                                { "label": "Tinta", "type": "String", "field": "tinta" },
+                                { "label": "Colorida", "type": "boolean", "field": "colorida" },
+                                { "label": "Artista", "type": "String", "field": "artista" },
+                                { "label": "Largura", "type": "double", "field": "largura" },
+                                { "label": "Material", "type": "String", "field": "material" },
+                                { "label": "Ano", "type": "int", "field": "ano" }
+                            ],
+                            "submitLabel": "Criar classes",
+                            "messages": {
+                                "incomplete": "As classes filhas ainda estão vazias. Arraste os atributos de cada tipo de obra.",
+                                "duplicate": "Esse atributo já está nessa classe.",
+                                "inherited": "Alguns atributos já são herdados de Obra de Arte e não precisam ser repetidos. Remova os marcados em vermelho.",
+                                "wrong": "Há atributos que não pertencem a essa classe, marcados em vermelho.",
+                                "missing": "Ainda faltam atributos em alguma classe filha.",
+                                "success": "Herança aplicada! Cada tipo de obra guarda só o que é só dele."
+                            }
+                        }
+                    },
+                    {
+                        "type": "match-pairs",
+                        "instructions": [
+                            "Cada obra é **exibida(obra)** de um jeito diferente no museu. Ligue cada tipo de obra à forma como ela é exibida. Siga as **INSTRUÇÕES**"
+                        ],
+                        "content": {
+                            "jobLabel": "Exibição",
+                            "leftItems": [
+                                { "id": "pintura", "label": "Pintura" },
+                                { "id": "escultura", "label": "Escultura" },
+                                { "id": "fotografia", "label": "Fotografia" },
+                                { "id": "video", "label": "Vídeo" },
+                                { "id": "instalacao", "label": "Instalação" }
+                            ],
+                            "rightItems": [
+                                { "id": "t1", "label": "Exibição 1" },
+                                { "id": "t2", "label": "Exibição 2" },
+                                { "id": "t3", "label": "Exibição 3" },
+                                { "id": "t4", "label": "Exibição 4" },
+                                { "id": "t5", "label": "Exibição 5" }
+                            ],
+                            "answer": {
+                                "pintura": "t3",
+                                "escultura": "t1",
+                                "fotografia": "t5",
+                                "video": "t2",
+                                "instalacao": "t4"
+                            },
+                            "classCard": {
+                                "name": "Obra de Arte",
+                                "attributes": ["String: Título", "String: Artista"],
+                                "method": "exibir(obra);"
+                            },
+                            "rulesLabel": "Instruções",
+                            "validateLabel": "Validar",
+                            "rules": {
+                                "title": "Classes do Museu COO",
+                                "intro": "Cada obra possui sua própria forma de ser exibida.",
+                                "inherits": [
+                                    "classe Pintura → ObraDeArte",
+                                    "classe Escultura → ObraDeArte",
+                                    "classe Fotografia → ObraDeArte",
+                                    "classe Vídeo → ObraDeArte",
+                                    "classe Instalação → ObraDeArte"
+                                ],
+                                "jobs": [
+                                    { "id": "t1", "text": "Fico sobre um pedestal no centro da sala, e o visitante pode circular ao meu redor para me ver de todos os lados." },
+                                    { "id": "t2", "text": "Sou projetado em loop numa sala escura, com o som em fones de ouvido." },
+                                    { "id": "t3", "text": "Fico pendurada na parede, com iluminação direcionada e uma placa ao lado com título e artista." },
+                                    { "id": "t4", "text": "Ocupo a sala inteira, e o visitante entra para fazer parte da obra." },
+                                    { "id": "t5", "text": "Fico emoldurada sob vidro, com luz suave, para que a luz forte não desbote a imagem." }
+                                ]
+                            },
+                            "messages": {
+                                "incomplete": "Ainda faltam ligações. Cada obra precisa de uma forma de exibição.",
+                                "wrong": "Algumas ligações estão erradas, marcadas em vermelho. Releia as instruções.",
+                                "success": "Cada obra foi ligada à exibição certa!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "build-hierarchy",
+                        "instructions": [
+                            "Para fechar, monte a **árvore de herança** das obras do museu. Comece pelo pai e vá descendo."
+                        ],
+                        "content": {
+                            "tree": {
+                                "id": "obra",
+                                "label": "Obra de Arte",
+                                "children": [
+                                    {
+                                        "id": "plana",
+                                        "label": "Obra Plana",
+                                        "children": [
+                                            { "id": "pintura", "label": "Pintura" },
+                                            { "id": "fotografia", "label": "Fotografia" }
+                                        ]
+                                    },
+                                    {
+                                        "id": "tridimensional",
+                                        "label": "Obra Tridimensional",
+                                        "children": [{ "id": "escultura", "label": "Escultura" }]
+                                    }
+                                ]
+                            },
+                            "chips": ["Pintura", "Obra Tridimensional", "Fotografia", "Obra de Arte", "Escultura", "Obra Plana"],
+                            "submitLabel": "Validar organização",
+                            "messages": {
+                                "incomplete": "A árvore ainda tem espaços vazios. Coloque todas as classes.",
+                                "needParent": "Coloque primeiro a classe pai. A árvore se monta de cima para baixo.",
+                                "wrong": "Algumas classes estão sob o pai errado, marcadas em vermelho. Pense de quem cada uma herda.",
+                                "success": "Museu organizado! Você dominou a herança de classes.",
+                                "poolEmpty": "Todas as classes já foram colocadas."
+                            }
+                        }
+                    }
                 ]
             }
         ]

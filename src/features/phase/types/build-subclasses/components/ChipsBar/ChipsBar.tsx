@@ -1,4 +1,3 @@
-// ChipsBar/ChipsBar.tsx
 import { ResourceChip } from "@/features/phase/components/ResourceChip/ResourceChip";
 import "./ChipsBar.css";
 
