@@ -1,33 +1,52 @@
-import { useEffect, useId, useRef, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+
 import "./Modal.css";
+
+interface ModalPage {
+    title?: string;
+    content: ReactNode;
+}
 
 interface ModalProps {
     open: boolean;
     title: string;
     onClose: () => void;
-    children: ReactNode;
+    pages?: ModalPage[];
+    children?: ReactNode;
+    icon?: ReactNode;
 }
 
-export function Modal({
-    open,
-    title,
-    onClose,
-    children,
-}: ModalProps) {
+export function Modal(props: ModalProps) {
+    const { open, title, onClose, icon } = props;
+
+    const pages = props.pages ?? [
+        { content: props.children }
+    ];
+
     const ref = useRef<HTMLDialogElement>(null);
     const titleId = useId();
 
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const totalPages = pages.length;
+    const page = pages[currentPage];
+
     useEffect(() => {
         const dialog = ref.current;
-
-        if (!dialog) return;
-
-        if (open && !dialog.open) {
-            dialog.showModal();
-        } else if (!open && dialog.open) {
-            dialog.close();
-        }
+        if (dialog && open && !dialog.open) dialog.showModal();
     }, [open]);
+
+    const nextPage = () => {
+        setCurrentPage((current) =>
+            Math.min(current + 1, totalPages - 1)
+        );
+    };
+
+    const previousPage = () => {
+        setCurrentPage((current) =>
+            Math.max(current - 1, 0)
+        );
+    };
 
     return (
         <dialog
@@ -37,12 +56,18 @@ export function Modal({
             onClose={onClose}
             onClick={(e) => {
                 if (e.target === e.currentTarget) {
-                    onClose();
+                    props.onClose();
                 }
             }}
         >
             <div className="modal-header">
                 <div className="modal-heading">
+                    {icon && (
+                        <span className="modal-icon">
+                            {icon}
+                        </span>
+                    )}
+
                     <h2 id={titleId} className="modal-title">
                         {title}
                     </h2>
@@ -59,8 +84,41 @@ export function Modal({
             </div>
 
             <div className="modal-box">
-                {children}
+                {page && (
+                    <>
+                        {page.title && (
+                            <h3 className="modal-page-title">{page.title}</h3>
+                        )}
+                        {page.content}
+                    </>
+                )}
             </div>
+
+            {totalPages > 1 && (
+                <div className="modal-footer">
+                    <button
+                        type="button"
+                        className="modal-pagination-button"
+                        onClick={previousPage}
+                        disabled={currentPage === 0}
+                    >
+                        Anterior
+                    </button>
+
+                    <span className="modal-page-indicator">
+                        {currentPage + 1} de {totalPages}
+                    </span>
+
+                    <button
+                        type="button"
+                        className="modal-pagination-button"
+                        onClick={nextPage}
+                        disabled={currentPage === totalPages - 1}
+                    >
+                        Próximo
+                    </button>
+                </div>
+            )}
         </dialog>
     );
 }

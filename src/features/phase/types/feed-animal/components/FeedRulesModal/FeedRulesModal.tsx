@@ -10,31 +10,18 @@ interface FeedRulesModalProps {
 }
 
 export function FeedRulesModal({ open, title, intro, signature, items, onClose }: FeedRulesModalProps) {
-    const pages = [
-        {
-            content: (
-                <>
-                    <p className="rules-modal-intro">{intro}</p>
-                    <p className="feed-rules-signature">{signature}</p>
-
-                    <ul className="feed-rules-list">
-                        {items.map((text) => (
-                            <li key={text}>
-                                <b>Animal:</b> {text}
-                            </li>
-                        ))}
-                    </ul>
-                </>
-            ),
-        },
-    ];
-    
     return (
-        <Modal
-            open={open}
-            title={title}
-            onClose={onClose}
-            pages={pages}
-        />
+        <Modal open={open} title={title} onClose={onClose}>
+            <p className="rules-modal-intro">{intro}</p>
+            <p className="feed-rules-signature">{signature}</p>
+
+            <ul className="feed-rules-list">
+                {items.map((text) => (
+                    <li key={text}>
+                        <b>Animal:</b> {text}
+                    </li>
+                ))}
+            </ul>
+        </Modal>
     );
 }
