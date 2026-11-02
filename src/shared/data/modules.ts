@@ -23,6 +23,11 @@ export type Step =
     | (BaseStep & { type: "build-subclasses"; content: BuildSubclassesContent })
     | (BaseStep & { type: "match-pairs"; content: MatchPairsContent })
     | (BaseStep & { type: "build-hierarchy"; content: BuildHierarchyContent })
+    | (BaseStep & { type: "match-sounds"; content: MatchSoundsContent })
+    | (BaseStep & { type: "fill-blanks"; content: FillBlanksContent })
+    | (BaseStep & { type: "choose-animal"; content: ChooseAnimalContent })
+    | (BaseStep & { type: "feed-animal"; content: FeedAnimalContent })
+    | (BaseStep & { type: "sort-animals"; content: SortAnimalsContent })
 
 export type StepType = Step["type"]
 export type OrderTone = "pending" | "preparing" | "ready" | "served";
@@ -324,6 +329,55 @@ export interface BuildHierarchyContent {
         success: string;
         poolEmpty: string;
     };
+}
+
+export interface MatchSoundsContent {
+    prompt: string;
+    animals: { id: string; label: string; image: string }[];
+    sounds?: { number: string; audio: string }[];
+    options?: string[];
+    answer: Record<string, string>;
+    playLabel?: string;
+    stopLabel?: string;
+    validateLabel: string;
+    messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface FillBlanksContent {
+    title: string;
+    statements: string[];
+    answer: Record<string, string>;
+    words: string[];
+    validateLabel: string;
+    messages: { incomplete: string; wrong: string; success: string };
+}
+
+export interface ChooseAnimalContent {
+    speakerLabel: string;
+    speakerImage: string;
+    animals: { id: string; label: string; image: string }[];
+    requests: { id: string; text: string; answer: string; reply: string }[];
+    submitLabel: string;
+    messages: {
+        incomplete: string;
+        wrong: string;
+        wrongBy?: Record<string, string>;
+        success: string;
+    };
+}
+
+export interface FeedAnimalContent {
+    animal: { label: string; image: string };
+    answer: string[];
+    success: string;
+}
+
+export interface SortAnimalsContent {
+    poolLabel: string;
+    lanes: { id: string; label: string; tone: ClassTone }[];
+    animals: { id: string; label: string; image: string; answer: string; start?: string }[];
+    submitLabel: string;
+    messages: { incomplete: string; wrong: string; success: string };
 }
 
 export interface OrderData {

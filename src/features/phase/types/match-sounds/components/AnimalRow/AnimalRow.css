@@ -1,0 +1,40 @@
+.animal-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.animal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.animal-card-image {
+    width: 100%;
+    max-width: 120px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.animal-card .drop-slot {
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    min-width: 52px;
+    width: 100%;
+    max-width: 112px;
+    height: 52px;
+    padding: 0 6px;
+    font-size: 18px;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.animal-card .drop-slot.filled { color: #111; }

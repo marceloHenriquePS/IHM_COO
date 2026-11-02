@@ -1,0 +1,63 @@
+.match-sounds {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 12px;
+    box-sizing: border-box;
+}
+
+.match-sounds-prompt {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    font-family: system-ui;
+}
+
+.sounds-center { width: 100%; }
+
+.sounds-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.sounds-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.sounds-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.sounds-center .resource-center-body { padding: 10px 12px; }
+
+.sounds-center-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sounds-center-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.sounds-center-buttons button {
+    min-width: 140px;
+    padding: 5px 18px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sounds-center-buttons button:hover { filter: brightness(0.95); }

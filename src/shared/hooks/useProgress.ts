@@ -7,7 +7,7 @@ interface Progress {
 }
 
 const STORAGE_KEY = "coo-progress";
-const INITIAL: Progress = { moduleId: 1, phaseId: 1 };
+const INITIAL: Progress = { moduleId: 5, phaseId: 5 };
 
 function load(): Progress {
     try {

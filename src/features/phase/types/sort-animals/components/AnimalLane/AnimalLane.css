@@ -1,0 +1,74 @@
+.animal-lane {
+    --tone: #f5b800;
+    overflow: hidden;
+    border: 2px solid var(--tone);
+    border-radius: 4px;
+    background: #fff;
+}
+
+.animal-lane.yellow { --tone: #f5b800; }
+.animal-lane.blue   { --tone: #14397f; }
+.animal-lane.green  { --tone: #1ea83c; }
+.animal-lane.red    { --tone: #e2182f; }
+
+.animal-lane-title {
+    margin: 0;
+    padding: 1px 6px;
+    background: var(--tone);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.animal-lane.yellow .animal-lane-title { color: #111; }
+
+.animal-lane-body {
+    height: 64px;
+    transition: background 0.15s;
+}
+
+.animal-lane.over .animal-lane-body { background: #fff8d6; }
+
+.animal-lane-empty {
+    margin: 0;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.creature {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: none;
+    cursor: grab;
+}
+
+button.creature { cursor: pointer; }
+.creature:active { cursor: grabbing; }
+.creature:disabled { cursor: default; }
+
+.creature img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.creature.wrong {
+    border-color: #d32f2f;
+    background: #fdecea;
+}
+
+.creature:focus-visible {
+    outline: 3px solid #ffc400;
+    outline-offset: 2px;
+}

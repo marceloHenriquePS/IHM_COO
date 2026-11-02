@@ -21,6 +21,11 @@ import { BuildBaseClass } from "./types/build-base-class/BuildBaseClass";
 import { BuildSubclasses } from "./types/build-subclasses/BuildSubclasses";
 import { MatchPairs } from "./types/match-pairs/MatchPairs";
 import { BuildHierarchy } from "./types/build-hierarchy/BuildHierarchy";
+import { MatchSounds } from "./types/match-sounds/MatchSounds";
+import { FillBlanks } from "./types/fill-blanks/FillBlanks";
+import { ChooseAnimal } from "./types/choose-animal/ChooseAnimal";
+import { FeedAnimal } from "./types/feed-animal/FeedAnimal";
+import { SortAnimals } from "./types/sort-animals/SortAnimals";
 
 export interface StepScreenProps {
     step: Step;
@@ -54,4 +59,9 @@ export const STEP_TYPES: Record<StepType, ComponentType<StepScreenProps>> = {
     "build-subclasses": BuildSubclasses,
     "match-pairs": MatchPairs,
     "build-hierarchy": BuildHierarchy,
+    "match-sounds": MatchSounds,
+    "fill-blanks": FillBlanks,
+    "choose-animal": ChooseAnimal,
+    "feed-animal": FeedAnimal,
+    "sort-animals": SortAnimals,
 };

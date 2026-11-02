@@ -4,7 +4,7 @@ import { ICONS } from "../../icons";
 import { ResourceCenter } from "../../components/ResourceCenter/ResourceCenter";
 import { ActionList } from "../../components/ActionList/ActionList";
 import { IMAGES } from "./images";
-import { Dialogue } from "./components/Dialogue/Dialogue";
+import { Dialogue } from "../../components/Dialogue/Dialogue";
 import { ProductTableModal } from "./components/ProductTableModal/ProductTableModal";
 import "./ProductRequests.css";
 

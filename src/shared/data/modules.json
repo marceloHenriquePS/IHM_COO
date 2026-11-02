@@ -1944,6 +1944,481 @@
         "title": "Módulo 5", 
         "subtitle":"Polimorfismo",
         "phases": [
+            {
+                "id": 1,
+                "title": "Fase 1 - Show de Talentos Animal",
+                "description": "O zoológico da cidade está organizando os animais para uma atração, o tratador dos bixos chamou você para verificar se cada animal está pronto para a apresentação.",
+                "steps": [
+                    {
+                        "type": "match-sounds",
+                        "instructions": [
+                            "Cada animal consegue executar **emitirSom()** de uma maneira diferente. Ouça os sons e descubra qual pertence a cada animal!"
+                        ],
+                        "content": {
+                            "prompt": "**Arraste** o número ao qual você acha que cada animal faz ao **emitirSom()**",
+                            "animals": [
+                                { "id": "leao",    "label": "Leão",    "image": "lion" },
+                                { "id": "macaco",  "label": "Macaco",  "image": "monkey" },
+                                { "id": "elefante","label": "Elefante","image": "elephant" },
+                                { "id": "cobra",   "label": "Cobra",   "image": "snake" },
+                                { "id": "arara",   "label": "Arara",   "image": "parrot" }
+                            ],
+                            "sounds": [
+                                { "number": "1",  "audio": "elephant" },
+                                { "number": "2",  "audio": "cat" },
+                                { "number": "3",  "audio": "lion" },
+                                { "number": "4",  "audio": "cow" },
+                                { "number": "5",  "audio": "parrot" },
+                                { "number": "6",  "audio": "chicken" },
+                                { "number": "7",  "audio": "monkey" },
+                                { "number": "8",  "audio": "dog" },
+                                { "number": "9",  "audio": "snake" },
+                                { "number": "10", "audio": "horse" }
+                            ],
+                            "answer": {
+                                "leao": "3",
+                                "macaco": "7",
+                                "elefante": "1",
+                                "cobra": "9",
+                                "arara": "5"
+                            },
+                            "playLabel": "Ouvir sons",
+                            "stopLabel": "Parar",
+                            "validateLabel": "Validar",
+                            "messages": {
+                                "incomplete": "Ainda há animais sem som. Arraste um número para cada um.",
+                                "wrong": "Alguns sons não pertencem a esses animais, marcados em vermelho. Ouça de novo.",
+                                "success": "Todos os animais foram identificados pelo som!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "match-sounds",
+                        "instructions": [
+                            "Cada animal consegue executar **movimentar()** de uma maneira diferente. Analise as opções e descubra qual pertence a cada animal!"
+                        ],
+                        "content": {
+                            "prompt": "**Arraste** o tipo de movimento ao qual você acha que cada animal faz ao **movimentar()**",
+                            "animals": [
+                                { "id": "leao",     "label": "Leão",     "image": "lion" },
+                                { "id": "macaco",   "label": "Macaco",   "image": "monkey" },
+                                { "id": "elefante", "label": "Elefante", "image": "elephant" },
+                                { "id": "cobra",    "label": "Cobra",    "image": "snake" },
+                                { "id": "arara",    "label": "Arara",    "image": "parrot" }
+                            ],
+                            "options": ["Andar", "Correr", "Pular", "Rastejar", "Voar"],
+                            "answer": {
+                                "leao": "Correr",
+                                "macaco": "Pular",
+                                "elefante": "Andar",
+                                "cobra": "Rastejar",
+                                "arara": "Voar"
+                            },
+                            "validateLabel": "Conferir",
+                            "messages": {
+                                "incomplete": "Ainda há animais sem movimento. Arraste uma opção para cada um.",
+                                "wrong": "Alguns movimentos não pertencem a esses animais, marcados em vermelho.",
+                                "success": "Cada animal foi ligado ao seu movimento!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "fill-blanks",
+                        "instructions": [
+                            "Você conheceu diferentes animais e descobriu que cada um possui sua própria maneira de agir. Agora, complete as afirmações para identificar o que essas situações têm em comum."
+                        ],
+                        "content": {
+                            "title": "Questionamentos",
+                            "statements": [
+                                "Todos os animais podem executar a ação de {b1}, mas cada um produz um som diferente.",
+                                "A ação movimentar() pode ser executada por diferentes animais, apresentando diferentes {b2}.",
+                                "O leão, o macaco, o elefante, a cobra e a arara são {b3} diferentes mas que herdam da mesma classe pai {b4}.",
+                                "Quando diferentes objetos respondem de maneiras diferentes a uma mesma ação, temos o conceito de {b5}."
+                            ],
+                            "answer": {
+                                "b1": "Emitir som",
+                                "b2": "Comportamentos",
+                                "b3": "Classes",
+                                "b4": "Animais",
+                                "b5": "Polimorfismo"
+                            },
+                            "words": [
+                                "Comportamentos", "Polimorfismo", "Emitir som", "Animais",
+                                "Herança", "Correr", "Classes", "Métodos"
+                            ],
+                            "validateLabel": "Conferir respostas",
+                            "messages": {
+                                "incomplete": "Ainda há lacunas em branco. Complete todas as afirmações.",
+                                "wrong": "Algumas lacunas estão erradas, marcadas em vermelho. Releia as afirmações.",
+                                "success": "Muito bem! Mesma ação, comportamentos diferentes: isso é polimorfismo."
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Fase 2 - Cada Macaco no Seu Galho",
+                "description": "O biológo veio até o zoológico e está treinando os animais para executar algumas tarefas, como você é ótimo em separar as funções ajude o biológo nesse serviço.",
+                "steps": [
+                    {
+                        "type": "choose-animal",
+                        "instructions": [
+                            "Cada **animal** do Zoológico COO possui **habilidades próprias** e precisam ajudar em diferentes situações. \nEscolha o animal mais adequado para realizar cada solicitação."
+                        ],
+                        "content": {
+                            "speakerLabel": "Biólogo",
+                            "speakerImage": "biologist",
+                            "animals": [
+                                { "id": "leao",     "label": "Leão",     "image": "lion" },
+                                { "id": "macaco",   "label": "Macaco",   "image": "monkey" },
+                                { "id": "elefante", "label": "Elefante", "image": "elephant" },
+                                { "id": "cobra",    "label": "Cobra",    "image": "snake" },
+                                { "id": "arara",    "label": "Arara",    "image": "parrot" },
+                                { "id": "golfinho", "label": "Golfinho", "image": "dolphin" },
+                                { "id": "rinoceronte","label": "Rinoceronte","image": "rhinoceros" }
+                            ],
+                            "requests": [
+                                {
+                                    "id": "r1",
+                                    "text": "Um objeto importante ficou preso em um galho alto. Precisamos de alguém que consiga subir até lá sem dificuldade.",
+                                    "answer": "macaco",
+                                    "reply": "O macaco subiu e pegou o objeto!"
+                                },
+                                {
+                                    "id": "r2",
+                                    "text": "Precisamos atravessar o lago para entregar um recado do outro lado, e rápido.",
+                                    "answer": "golfinho",
+                                    "reply": "O golfinho atravessou o lago em segundos!"
+                                },
+                                {
+                                    "id": "r3",
+                                    "text": "Uma árvore caída bloqueia a trilha e é pesada demais para qualquer pessoa mover.",
+                                    "answer": "elefante",
+                                    "reply": "O elefante empurrou a árvore sem esforço!"
+                                },
+                                {
+                                    "id": "r4",
+                                    "text": "Precisamos emitir um aviso sonoro para alertar os outros animais sobre uma situação de emergência. Precisamos de alguém com um rugido forte.",
+                                    "answer": "leao",
+                                    "reply": "O leão soltou um rugido poderoso e alertou todos os animais!"
+                                },
+                                {
+                                    "id": "r5",
+                                    "text": "Uma mensagem precisa ser entregue rapidamente em uma área distante do zoológico, passando por cima de cercas e obstáculos.",
+                                    "answer": "arara",
+                                    "reply": "A arara voou até o local e entregou a mensagem!"
+                                }
+                            ],
+                            "submitLabel": "Informar animal",
+                            "messages": {
+                                "incomplete": "Arraste um animal para o campo antes de informar.",
+                                "wrong": "Esse animal não é o mais adequado para essa situação. Pense na habilidade dele.",
+                                "wrongBy": {
+                                    "cobra": "A cobra rasteja, mas essa tarefa pede outra habilidade."
+                                },
+                                "success": "Todas as solicitações foram atendidas!"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Fase 3 - Alimente os Animais",
+                "description": "Cada animal do zoológico tem uma alimentação diferente. Monte o método alimentar com os parâmetros certos.",
+                "steps": [
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Os animais do Zoológico COO estão com fome, mas cada um possui uma alimentação diferente! \nConsulte as instruções para descobrir o que cada animal come e monte o método **alimentar** com os parâmetros adequados."
+                        ],
+                        "content": {
+                            "animal": { "label": "Elefante", "image": "elephant" },
+                            "answer": ["Vegetais", "Folhas", "Frutas"],
+                            "success": "O elefante foi alimentado com vegetais, folhas e frutas!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Mais um animal com fome! Consulte as **instruções** e monte o método **alimentar** com os parâmetros certos."
+                        ],
+                        "content": {
+                            "animal": { "label": "Leão", "image": "lion" },
+                            "answer": ["Carne"],
+                            "success": "O leão recebeu a carne que precisava!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Este animal tem uma dieta **variada**. Consulte as **instruções** e descubra quantos parâmetros o método precisa."
+                        ],
+                        "content": {
+                            "animal": { "label": "Macaco", "image": "monkey" },
+                            "answer": ["Frutas", "Insetos"],
+                            "success": "O macaco adorou as frutas e os insetos!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Agora é a vez de uma ave. Consulte as **instruções** e monte o método **alimentar**."
+                        ],
+                        "content": {
+                            "animal": { "label": "Arara", "image": "parrot" },
+                            "answer": ["Sementes", "Frutas"],
+                            "success": "A arara bicou as sementes e as frutas!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Cuidado com este réptil. Consulte as **instruções** e descubra o que ele come."
+                        ],
+                        "content": {
+                            "animal": { "label": "Cobra", "image": "snake" },
+                            "answer": ["Carne"],
+                            "success": "A cobra foi alimentada com segurança!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Para fechar, o mamífero do aquário. Consulte as **instruções** e monte o método **alimentar**."
+                        ],
+                        "content": {
+                            "animal": { "label": "Golfinho", "image": "dolphin" },
+                            "answer": ["Peixes"],
+                            "success": "O golfinho comeu os peixes! Todos os animais foram alimentados."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Fase 4 - Assistente de Laboratório",
+                "description": "Cada animal do zoológico tem uma alimentação diferente. Monte o método alimentar com os parâmetros certos.",
+                "steps": [
+                    {
+                        "type": "sort-animals",
+                        "instructions": [
+                            "A equipe veterinária está reunindo os animais do zoológico para uma avaliação. Ajude a equipe e separe os animais em seus devidos setores."
+                        ],
+                        "content": {
+                            "poolLabel": "Animal",
+                            "lanes": [
+                                { "id": "mamiferos", "label": "Mamíferos", "tone": "blue" },
+                                { "id": "repteis",   "label": "Répteis",   "tone": "green" },
+                                { "id": "aves",      "label": "Aves",      "tone": "red" }
+                            ],
+                            "animals": [
+                                { "id": "girafa",     "label": "Girafa",     "image": "giraffe",   "answer": "mamiferos" },
+                                { "id": "macaco",     "label": "Macaco",     "image": "monkey",    "answer": "mamiferos" },
+                                { "id": "zebra",      "label": "Zebra",      "image": "zebra",     "answer": "mamiferos" },
+                                { "id": "cobra",      "label": "Cobra",      "image": "snake",     "answer": "repteis" },
+                                { "id": "arara",      "label": "Arara",      "image": "parrot",    "answer": "aves" },
+                                { "id": "golfinho",   "label": "Golfinho",   "image": "dolphin",   "answer": "mamiferos" },
+                                { "id": "rinoceronte", "label": "Rinoceronte", "image": "rhinoceros",     "answer": "mamiferos" },
+                                { "id": "camaleao",   "label": "Camaleão",   "image": "chameleon", "answer": "repteis" },
+                                { "id": "iguana",     "label": "Iguana",     "image": "iguana",    "answer": "repteis" },
+                                { "id": "avestruz",   "label": "Avestruz",   "image": "ostrich",   "answer": "aves" },
+                                { "id": "jacare",     "label": "Jacaré",     "image": "alligator", "answer": "repteis" },
+                                { "id": "coruja",     "label": "Coruja",     "image": "owl",       "answer": "aves" },
+                                { "id": "pinguim",    "label": "Pinguim",    "image": "penguin",   "answer": "aves" },
+                                { "id": "tartaruga",  "label": "Tartaruga",  "image": "turtle",    "answer": "repteis" },
+                                { "id": "tucano",     "label": "Tucano",     "image": "toucan",    "answer": "aves" }
+                            ],
+                            "submitLabel": "Confirmar organização",
+                            "messages": {
+                                "incomplete": "Ainda há animais na lista. Separe todos nos seus setores.",
+                                "wrong": "Alguns animais estão no setor errado, marcados em vermelho. Clique neles para devolvê-los à lista.",
+                                "success": "Todos os animais estão nos setores certos!"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Fase 5 - Inspeção Final do Zoológico",
+                "description": "O Zoológico COO vai passar por uma inspeção. Revise tudo o que você aprendeu sobre polimorfismo.",
+                "steps": [
+                    {
+                        "type": "match-sounds",
+                        "instructions": [
+                            "O Zoológico COO vai passar por uma **inspeção final**. Cada animal executa **dormir()** de uma maneira diferente. Analise as opções e descubra qual pertence a cada animal!"
+                        ],
+                        "content": {
+                            "prompt": "**Arraste** o jeito de descansar ao qual você acha que cada animal faz ao **dormir()**",
+                            "animals": [
+                                { "id": "leao",     "label": "Leão",     "image": "lion" },
+                                { "id": "macaco",   "label": "Macaco",   "image": "monkey" },
+                                { "id": "elefante", "label": "Elefante", "image": "elephant" },
+                                { "id": "cobra",    "label": "Cobra",    "image": "snake" },
+                                { "id": "arara",    "label": "Arara",    "image": "parrot" }
+                            ],
+                            "options": ["Pousar", "Boiar", "Deitar", "Enrolar", "Pendurar", "Encostar"],
+                            "answer": {
+                                "leao": "Deitar",
+                                "macaco": "Pendurar",
+                                "elefante": "Encostar",
+                                "cobra": "Enrolar",
+                                "arara": "Pousar"
+                            },
+                            "validateLabel": "Conferir",
+                            "messages": {
+                                "incomplete": "Ainda há animais sem opção. Arraste uma para cada um.",
+                                "wrong": "Alguns animais não descansam desse jeito, marcados em vermelho. Pense em como cada um vive.",
+                                "success": "Mesmo método, jeitos diferentes de executar!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "fill-blanks",
+                        "instructions": [
+                            "Antes de continuar a inspeção, vamos relembrar os **conceitos**. Complete as afirmações com as palavras certas."
+                        ],
+                        "content": {
+                            "title": "Revisão",
+                            "statements": [
+                                "Animal é a classe {b1}, e Leão, Macaco e Arara são classes {b2}.",
+                                "Quando cada classe filha reescreve um método da classe pai, como emitirSom(), temos {b3}.",
+                                "Quando o mesmo método aceita diferentes quantidades de parâmetros, como alimentar(), temos {b4}.",
+                                "Uma mesma ação com várias formas de acontecer é o conceito de {b5}."
+                            ],
+                            "answer": {
+                                "b1": "Pai",
+                                "b2": "Filhas",
+                                "b3": "Sobrescrita",
+                                "b4": "Sobrecarga",
+                                "b5": "Polimorfismo"
+                            },
+                            "words": [
+                                "Atributos", "Sobrecarga", "Pai", "Objeto",
+                                "Polimorfismo", "Filhas", "Herança", "Sobrescrita"
+                            ],
+                            "validateLabel": "Conferir respostas",
+                            "messages": {
+                                "incomplete": "Ainda há lacunas em branco. Complete todas as afirmações.",
+                                "wrong": "Algumas lacunas estão erradas, marcadas em vermelho. Releia as afirmações.",
+                                "success": "Conceitos em dia! Vamos voltar ao trabalho no zoológico."
+                            }
+                        }
+                    },
+                    {
+                        "type": "choose-animal",
+                        "instructions": [
+                            "Chegaram novos pedidos para a equipe. Cada **animal** tem **habilidades próprias**: escolha o mais adequado para cada situação."
+                        ],
+                        "content": {
+                            "speakerLabel": "Biólogo",
+                            "speakerImage": "biologist",
+                            "animals": [
+                                { "id": "leao",      "label": "Leão",       "image": "lion" },
+                                { "id": "macaco",    "label": "Macaco",     "image": "monkey" },
+                                { "id": "elefante",  "label": "Elefante",   "image": "elephant" },
+                                { "id": "cobra",     "label": "Cobra",      "image": "snake" },
+                                { "id": "arara",     "label": "Arara",      "image": "parrot" },
+                                { "id": "golfinho",  "label": "Golfinho",   "image": "dolphin" },
+                                { "id": "rinoceronte","label": "Rinoceronte","image": "rhinoceros" }
+                            ],
+                            "requests": [
+                            {
+                                "id": "r1",
+                                "text": "Precisamos levar um aviso até o topo da torre mais alta do zoológico, e as escadas estão fechadas.",
+                                "answer": "arara",
+                                "reply": "A arara voou até o topo da torre e entregou o aviso!"
+                            },
+                            {
+                                "id": "r2",
+                                "text": "Um filhote entrou numa toca estreita no chão e precisamos de alguém que passe por ali sem dificuldade.",
+                                "answer": "cobra",
+                                "reply": "A cobra deslizou pela toca e guiou o filhote para fora!"
+                            },
+                            {
+                                "id": "r3",
+                                "text": "Sacos de ração muito pesados precisam ser levados até o depósito do outro lado do parque.",
+                                "answer": "elefante",
+                                "reply": "O elefante carregou os sacos de uma vez só!"
+                            },
+                            {
+                                "id": "r4",
+                                "text": "Uma bola caiu bem no meio do lago e ninguém quer se molhar para buscá-la.",
+                                "answer": "golfinho",
+                                "reply": "O golfinho nadou até o meio do lago e trouxe a bola!"
+                            }
+                            ],
+                            "submitLabel": "Informar animal",
+                            "messages": {
+                                "incomplete": "Arraste um animal para o campo antes de informar.",
+                                "wrong": "Esse animal não é o mais adequado para essa situação. Pense na habilidade dele.",
+                                "success": "Todos os pedidos foram atendidos!"
+                            }
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Hora de alimentar os animais antes da inspeção! Consulte as **instruções** e monte o método **alimentar** com os parâmetros adequados."
+                        ],
+                        "content": {
+                            "animal": { "label": "Rinoceronte", "image": "rhinoceros" },
+                            "answer": ["Vegetais", "Folhas"],
+                            "success": "O rinoceronte comeu os vegetais e as folhas!"
+                        }
+                    },
+                    {
+                        "type": "feed-animal",
+                        "instructions": [
+                            "Agora é a vez de um animal com **mais parâmetros**. Consulte as **instruções** e descubra quantos alimentos ele precisa."
+                        ],
+                        "content": {
+                            "animal": { "label": "Elefante", "image": "elephant" },
+                            "answer": ["Vegetais", "Folhas", "Frutas"],
+                            "success": "O elefante foi alimentado com vegetais, folhas e frutas!"
+                        }
+                    },
+                    {
+                        "type": "sort-animals",
+                        "instructions": [
+                            "Para encerrar a inspeção, a equipe veterinária precisa **conferir a organização** dos animais. Cuidado: alguns já foram colocados em **setores errados**!"
+                        ],
+                        "content": {
+                            "poolLabel": "Animal",
+                            "lanes": [
+                                { "id": "mamiferos", "label": "Mamíferos", "tone": "blue" },
+                                { "id": "repteis",   "label": "Répteis",   "tone": "green" },
+                                { "id": "aves",      "label": "Aves",      "tone": "red" }
+                            ],
+                            "animals": [
+                                { "id": "pinguim",     "label": "Pinguim",     "image": "penguin",   "answer": "aves",      "start": "mamiferos" },
+                                { "id": "zebra",       "label": "Zebra",       "image": "zebra",     "answer": "mamiferos", "start": "mamiferos" },
+                                { "id": "jacare",      "label": "Jacaré",      "image": "alligator", "answer": "repteis",   "start": "aves" },
+                                { "id": "tucano",      "label": "Tucano",      "image": "toucan",    "answer": "aves" },
+                                { "id": "rinoceronte", "label": "Rinoceronte", "image": "rhinoceros",     "answer": "mamiferos", "start": "repteis" },
+                                { "id": "iguana",      "label": "Iguana",      "image": "iguana",    "answer": "repteis",   "start": "repteis" },
+                                { "id": "coruja",      "label": "Coruja",      "image": "owl",       "answer": "aves",      "start": "aves" },
+                                { "id": "golfinho",    "label": "Golfinho",    "image": "dolphin",   "answer": "mamiferos" },
+                                { "id": "tartaruga",   "label": "Tartaruga",   "image": "turtle",    "answer": "repteis",   "start": "mamiferos" },
+                                { "id": "avestruz",    "label": "Avestruz",    "image": "ostrich",   "answer": "aves" },
+                                { "id": "girafa",      "label": "Girafa",      "image": "giraffe",   "answer": "mamiferos" },
+                                { "id": "camaleao",    "label": "Camaleão",    "image": "chameleon", "answer": "repteis" },
+                                { "id": "arara",       "label": "Arara",       "image": "parrot",    "answer": "aves",      "start": "repteis" },
+                                { "id": "macaco",      "label": "Macaco",      "image": "monkey",    "answer": "mamiferos" },
+                                { "id": "cobra",       "label": "Cobra",       "image": "snake",     "answer": "repteis",   "start": "aves" }
+                            ],
+                            "submitLabel": "Confirmar organização",
+                            "messages": {
+                                "incomplete": "Ainda há animais na lista. Coloque todos nos setores.",
+                                "wrong": "Há animais no setor errado, marcados em vermelho. Mova-os para o setor certo ou devolva-os à lista.",
+                                "success": "Inspeção concluída! Todos os animais estão nos setores certos."
+                            }
+                        }
+                    }
+                ]
+            }
         ]
     }
 ]

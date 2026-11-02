@@ -1,0 +1,80 @@
+.feed-animal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 24px 12px;
+    box-sizing: border-box;
+}
+
+.feed-animal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.feed-animal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.feed-animal-buttons button {
+    min-width: 130px;
+    padding: 4px 18px;
+    border: 0;
+    border-radius: 4px;
+    background: #ffc400;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.feed-animal-buttons button:hover { filter: brightness(0.95); }
+
+.feed-animal-hint {
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.food-center { width: 100%; }
+
+.food-center .resource-center-header {
+    padding: 3px 9px;
+    gap: 9px;
+}
+
+.food-center .resource-center-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.food-center .resource-center-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.food-center .resource-center-body { padding: 10px 12px; }
+
+.feed-rules-signature {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.feed-rules-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+}

@@ -1,0 +1,15 @@
+.word-bar {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: 8px 10px;
+}
+
+.word-chip {
+    padding: 3px 12px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}

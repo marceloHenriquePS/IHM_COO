@@ -1,0 +1,20 @@
+.method-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.method-call-text {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.method-call .drop-slot {
+    min-width: 92px;
+    padding: 2px 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
