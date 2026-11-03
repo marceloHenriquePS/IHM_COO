@@ -1,26 +1,52 @@
-import { Button } from "@/shared";
+import { Button, Modal } from "@/shared";
 import { useNavigate } from "react-router-dom";
-import { useModal } from "@/shared/hooks/useModal";
-import { HelpModal } from "@/shared/components/HelpModal/HelpModal";
 import logo from "../assets/logo-coo.png";
 import './MainMenu.css';
+import { useState } from "react";
 
 export function MainMenu() {
     const navigate = useNavigate();
-    const help = useModal();
-    const about = useModal();
 
-    const handleStartBtn = () => {
-        navigate("/home");
-    };
+    const [aboutOpen, setAboutOpen] = useState(false);
+    // const [rateOpen, setRateOpen] = useState(false);
 
-    const handleOptionsBtn = () => {
-        help.open();
-    };
+    const handleStartBtn = () => { navigate("/home"); };
+    const handleAboutBtn = () => setAboutOpen(true);
+    // const handleRateBtn = () => setRateOpen(true);    
 
-    const handleAboutBtn = () => {
-        about.open();
-    };
+    const aboutContent = [
+        <>
+            <div className="about-content">
+                <h3>Conheça o Cidade COO</h3>
+
+                <p>
+                    O <b>Cidade COO</b> é um ambiente educacional interativo
+                    desenvolvido para auxiliar no aprendizado da <b>Programação Orientada a Objetos (POO).</b>
+                </p>
+
+                <br />
+
+                <p>
+                    Por meio de desafios e minijogos, o jogador explora
+                    conceitos fundamentais da orientação a objetos.
+                </p>
+
+                <h4>Objetivo</h4>
+
+                <p>
+                    Proporcionar uma experiência de aprendizado dinâmica
+                    e interativa, tornando o estudo da programação mais
+                    acessível e divertido.
+                </p>
+
+                <br />
+
+                <p><b>Autor: </b> Marcelo Henrique Pereira de Sousa</p>
+                <p><b>Professor: </b> Richarlyson D’Emery</p>
+                <p><b>Disciplina: </b> Interface Homem-Máquina</p>
+            </div>
+        </>
+    ]
 
     return (
         <div className="main-menu">
@@ -42,34 +68,33 @@ export function MainMenu() {
                 <div className="main-menu__buttons">
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="INICIAR" onClick={handleStartBtn}/>
+                        <Button label="INICIAR" onClick={handleStartBtn} />
                     </div>
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="OPÇÕES" onClick={handleOptionsBtn}/>
+                        <Button label="SOBRE" onClick={handleAboutBtn} />
                     </div>
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="SOBRE" onClick={handleAboutBtn}/>
+                        <Button label="AVALIE" onClick={() => console.log("Avalie")} />
                     </div>
                 </div>
-                
+
                 <span className="main-menu__closing-brace">{'}'}</span>
 
 
-            <p className="main-menu__console">
-                <span className="main-menu__console-method">System.out.println</span>
-                ("Aprenda Orientação a Objetos gerenciando sua cidade!");
-            </p>
+                <p className="main-menu__console">
+                    <span className="main-menu__console-method">System.out.println</span>
+                    ("Aprenda Orientação a Objetos gerenciando sua cidade!");
+                </p>
 
-            {help.isOpen && (
-                <HelpModal
-                    open={true}
-                    onClose={help.close}
-                />
-            )}
+                {aboutOpen && (
+                    <Modal open={aboutOpen} title="Sobre o Cidade COO" onClose={() => setAboutOpen(false)}>
+                        {aboutContent}
+                    </Modal>
+                )}
 
             </div>
 
