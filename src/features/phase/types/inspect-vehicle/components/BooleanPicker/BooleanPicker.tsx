@@ -1,7 +1,6 @@
 import "./BooleanPicker.css";
 
 interface BooleanPickerProps {
-    method: string;
     value: boolean | null;
     submitLabel: string;
     disabled?: boolean;
@@ -9,12 +8,10 @@ interface BooleanPickerProps {
     onSubmit: () => void;
 }
 
-export function BooleanPicker({
-    method, value, submitLabel, disabled, onChange, onSubmit,
-}: BooleanPickerProps) {
+export function BooleanPicker({ value, submitLabel, disabled, onChange, onSubmit }: BooleanPickerProps) {
     return (
         <div className="boolean-picker">
-            <span className="boolean-picker-call">{method}(</span>
+            <span className="boolean-picker-call">retornar: </span>
 
             <fieldset className="boolean-picker-options" disabled={disabled}>
                 <legend className="visually-hidden">Valor do parâmetro</legend>
@@ -39,8 +36,6 @@ export function BooleanPicker({
                     />
                 </label>
             </fieldset>
-
-            <span className="boolean-picker-call">)</span>
 
             <button type="button" className="boolean-picker-submit" onClick={onSubmit}>
                 {submitLabel}

@@ -54,7 +54,6 @@ export function InspectVehicle({
 
             <ResourceCenter icon={ICONS.box} className="diagnose-center">
                 <BooleanPicker
-                    method="estaPronto"
                     value={choice}
                     submitLabel={locked ? continueLabel : content.diagnoseLabel}
                     disabled={locked}

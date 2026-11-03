@@ -211,7 +211,7 @@
                     {
                         "type": "sequence-methods",
                         "instructions": [
-                            "Organize as ações da Javas Coffee e faça a cafeteria funcionar corretamente."
+                            "Organize as ações que a cafeteria Javas Coffee pode executar num dia de trabalho e faça a cafeteria funcionar corretamente."
                         ],
                         "content": {
                             "image": "javasCoffee",
@@ -467,7 +467,7 @@
                     {
                         "type": "inspect-vehicle",
                         "instructions": [
-                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. \n**Ex: veiculo.estaPronto();** | **true** = está pronto, **false** = não está pronto"
                         ],
                         "content": {
                             "vehicle": {
@@ -494,7 +494,7 @@
                     {
                         "type": "inspect-vehicle",
                         "instructions": [
-                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. \n**Ex: veiculo.estaPronto();** | **true** = está pronto, **false** = não está pronto"
                         ],
                         "content": {
                             "vehicle": {
@@ -521,7 +521,7 @@
                     {
                         "type": "inspect-vehicle",
                         "instructions": [
-                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. **Ex: veiculo.estaPronto(true);**"
+                            "Verifique o veículo e determine se ele está pronto para ser liberado. Precisamos que o **RETORNO** seja adequado para o diagnóstico perfeito. \n**Ex: veiculo.estaPronto();** | **true** = está pronto, **false** = não está pronto"
                         ],
                         "content": {
                             "vehicle": {
@@ -700,7 +700,7 @@
                     {
                         "type": "find-unprotected",
                         "instructions": [
-                            "Com o diagnóstico em mãos, vamos **PROTEGER** o atributo e garantir que o problema não aconteça mais, \nusando os **MODIFICADORES DE ACESSO**: **privado, público e protegido**"
+                            "Com o diagnóstico em mãos, vamos **PROTEGER** os atributos até os que já estavam protegidos \ngarantindo que o problema não aconteça mais, usando os **MODIFICADORES DE ACESSO**: **público e privado**"
                         ],
                         "content": {
                             "className": "Iluminação",
@@ -710,7 +710,6 @@
                             "title": "Acesso",
                             "options": [
                                 { "id": "public",    "label": "Público" },
-                                { "id": "protected", "label": "Protegido" },
                                 { "id": "private",   "label": "Privado" }
                             ],
                             "initial": "public",
@@ -1059,7 +1058,7 @@
                     {
                         "type": "find-unprotected",
                         "instructions": [
-                            "Agora feche a brecha. Use os **MODIFICADORES DE ACESSO** para garantir que ninguém mais altere a conta: **privado, público e protegido**"
+                            "Agora feche a brecha. Use os **MODIFICADORES DE ACESSO** para garantir que ninguém mais altere a conta: **público e privado**"
                         ],
                         "content": {
                             "className": "Conta TI",
@@ -1069,7 +1068,6 @@
                                 "title": "Acesso",
                                 "options": [
                                     { "id": "public",    "label": "Público" },
-                                    { "id": "protected", "label": "Protegido" },
                                     { "id": "private",   "label": "Privado" }
                                 ],
                                 "initial": "public",
@@ -1238,9 +1236,9 @@
                                         { "type": "int", "name": "Idade" },
                                         { "type": "double", "name": "Peso" },
                                         { "type": "String", "name": "Telefone" },
-                                        { "type": "String", "name": "especialidade" },
                                         { "type": "boolean", "name": "emMissão" },
-                                        { "type": "int", "name": "estacao" }
+                                        { "type": "int", "name": "incêndiosApagados" },
+                                        { "type": "int", "name": "numeroDeResgates" }
                                     ]
                                 },
                                 {
@@ -1309,7 +1307,7 @@
                             },
                             "children": [
                                 { "id": "policial",  "name": "Policial", "tone": "blue",  "answer": ["Patente", "Número distintivo", "Delegacia"] },
-                                { "id": "bombeiro",  "name": "Bombeiro", "tone": "red",   "answer": ["Especialidade", "Em missão", "Estação"] },
+                                { "id": "bombeiro",  "name": "Bombeiro", "tone": "red",   "answer": ["Incêndios Apagados", "Em missão", "Número Resgates"] },
                                 { "id": "medico",    "name": "Médico",   "tone": "green", "answer": ["CRM", "Especialidade", "Hospital"] }
                             ],
                             "attributes": [
@@ -1317,14 +1315,15 @@
                                 { "label": "Especialidade",     "type": "String",  "field": "especialidade" },
                                 { "label": "Hospital",          "type": "int",     "field": "hospital" },
                                 { "label": "Nome",              "type": "String",  "field": "nome" },
-                                { "label": "Estação",           "type": "int",     "field": "estacao" },
+                                { "label": "Incêndios Apagados",           "type": "int",     "field": "incendios" },
                                 { "label": "Patente",           "type": "String",  "field": "patente" },
                                 { "label": "Idade",             "type": "int",     "field": "idade" },
                                 { "label": "CRM",               "type": "String",  "field": "crm" },
                                 { "label": "Delegacia",         "type": "int",     "field": "delegacia" },
                                 { "label": "Em missão",         "type": "boolean", "field": "emMissao" },
                                 { "label": "Peso",              "type": "double",  "field": "peso" },
-                                { "label": "Número distintivo", "type": "String",  "field": "numeroDistintivo" }
+                                { "label": "Número distintivo", "type": "String",  "field": "numeroDistintivo" },
+                                { "label": "Número Resgates", "type": "String",  "field": "resgates" }
                             ],
                             "submitLabel": "Criar classes",
                             "messages": {

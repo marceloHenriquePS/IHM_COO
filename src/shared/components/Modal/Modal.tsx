@@ -33,9 +33,15 @@ export function Modal(props: ModalProps) {
 
     useEffect(() => {
         const dialog = ref.current;
-        if (dialog && open && !dialog.open) dialog.showModal();
-    }, [open]);
+        if (!dialog) return;
 
+        if (open && !dialog.open) {
+            dialog.showModal();
+        } else if (!open && dialog.open) {
+            dialog.close();
+        }
+    }, [open]);
+    
     const nextPage = () => {
         setCurrentPage((current) =>
             Math.min(current + 1, totalPages - 1)
