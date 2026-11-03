@@ -1,5 +1,5 @@
 // PhasePage.tsx
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { getPhase } from "@/shared/data/modules";
 import { useProgress } from "@/shared/hooks/useProgress";
@@ -69,16 +69,18 @@ function PhaseStep({ moduleId, phase, stepIndex }: PhaseStepProps) {
                 <FeedbackMessage feedback={feedback} />
             </div>
 
-            <Screen
-                step={step}
-                stepIndex={stepIndex}
-                locked={done}
-                continueLabel={isLast ? "Confirmar": "Avançar"}
-                onComplete={() => setDone(true)}
-                onContinue={handleContinue}
-                showFeedback={showFeedback}
-                clearFeedback={clearFeedback}
-            />
+            <Suspense fallback={<div>Carregando desafio...</div>}>
+                <Screen
+                    step={step}
+                    stepIndex={stepIndex}
+                    locked={done}
+                    continueLabel={isLast ? "Confirmar" : "Avançar"}
+                    onComplete={() => setDone(true)}
+                    onContinue={handleContinue}
+                    showFeedback={showFeedback}
+                    clearFeedback={clearFeedback}
+                />
+            </Suspense>
         </main>
     );
 }
