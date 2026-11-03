@@ -4,10 +4,11 @@ import { MODULES, getModuleById } from "@/shared/data/modules";
 interface Progress {
     moduleId: number;
     phaseId: number;
+    completed: boolean;
 }
 
 const STORAGE_KEY = "coo-progress";
-const INITIAL: Progress = { moduleId: 1, phaseId: 1 };
+const INITIAL: Progress = { moduleId: 1, phaseId: 1, completed: false };
 
 function load(): Progress {
     try {
@@ -46,25 +47,30 @@ export function useProgress() {
     }
 
     function isPhaseUnlocked(moduleId: number, phaseId: number) {
+        if (progress.completed) return true;
+
         if (moduleId < progress.moduleId) return true;
         if (moduleId === progress.moduleId) return phaseId <= progress.phaseId;
         return false;
     }
 
     function completePhase(moduleId: number, phaseId: number) {
+        if (current.completed) return;
         if (moduleId !== current.moduleId || phaseId !== current.phaseId) return;
 
         const phases = getModuleById(moduleId)?.phases ?? [];
 
         if (phaseId < phases.length) {
-            setProgress({ moduleId, phaseId: phaseId + 1 });
+            setProgress({...current, phaseId: phaseId + 1,});
             return;
         }
 
         const nextModule = MODULES.find((m) => m.id === moduleId + 1);
         if (nextModule) {
-            setProgress({ moduleId: nextModule.id, phaseId: 1 });
+            setProgress({...current, moduleId: nextModule.id, phaseId: 1 }); 
+            return;
         }
+        setProgress({...current, completed: true,});
     }
 
     function resetProgress() {

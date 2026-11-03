@@ -56,7 +56,7 @@ function PhaseStep({ moduleId, phase, stepIndex }: PhaseStepProps) {
     function handleContinue() {
         if (isLast) {
             completePhase(moduleId, phase.id);
-            navigate(`/modules/${moduleId}`);
+            navigate(`/home`);
             return;
         }
         setSearchParams({ step: String(stepIndex + 1) });

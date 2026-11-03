@@ -415,3 +415,10 @@ export function getModuleById(id: number): Module | undefined {
 export function getPhase(moduleId: number, phaseId: number): Phase | undefined {
     return getModuleById(moduleId)?.phases.find((phase) => phase.id === phaseId);
 };
+
+export function positionOf(moduleId: number, phaseId: number): number {
+    const before = MODULES
+        .filter((m) => m.id < moduleId)
+        .reduce((sum, m) => sum + m.phases.length, 0);
+    return before + phaseId;
+}
