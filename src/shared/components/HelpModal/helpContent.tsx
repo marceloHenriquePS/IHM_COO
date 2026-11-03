@@ -16,21 +16,43 @@ export const HELP: Partial<Record<HelpTopic, HelpPage[]>> = {
         {
             title: "Bem-vindo à cidade COO!",
             content: (
-                <p>
-                    Explore a cidade, conheça seus estabelecimentos e
-                    aprenda conceitos de programação através de atividades
-                    interativas.
-                </p>
-            ),
-        },
-        {
-            title: "Como começar",
-            content: (
-                <p>
-                    Escolha um <strong>módulo</strong> para iniciar sua jornada.
-                    Complete as fases para avançar e desbloquear
-                    novos desafios.
-                </p>
+                <>
+                    <p>
+                        Explore a cidade, conheça seus estabelecimentos e
+                        aprenda conceitos de programação através de atividades
+                        interativas.
+                    </p>
+
+                    <br />
+
+                    <h3>Dê Cor a Cidade</h3>
+
+                    <p>
+                        Nossa cidade está sem cor ultimamente, nos ajude a colorir a cidade.
+                        <br />
+                        Progrida entre as fases pinte a cidade conforme você avança.
+                    </p>
+
+                    <br />
+
+                    <h3>Como Começar</h3>
+
+                    <p>
+                        Escolha um <strong>módulo</strong> abaixo para iniciar sua jornada.
+                        Complete as fases para avançar e desbloquear
+                        novos desafios.
+                    </p>
+
+                    <br />
+
+                    <h3>Está com dúvida?</h3>
+
+                    <p>
+                        Use o botão de <b>ajuda</b> sempre que precisar, ele têm o ícone <b>?</b>.
+                        <br />
+                        Nele você encontrará sobre <b>como jogar as fases</b> e <b>conceitos de programação</b>.
+                    </p>
+                </>
             ),
         },
     ],
