@@ -2,7 +2,6 @@ import { Button } from "@/shared";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "@/shared/hooks/useModal";
 import { HelpModal } from "@/shared/components/HelpModal/HelpModal";
-import { AboutModal } from "@/features/about-modal"
 import logo from "../assets/logo-coo.png";
 import './MainMenu.css';
 
@@ -69,14 +68,6 @@ export function MainMenu() {
                 <HelpModal
                     open={true}
                     onClose={help.close}
-                />
-            )}
-
-            {about.isOpen && (
-                <AboutModal
-                    onClose={about.close}
-                    onNext={() => {}}
-                    onPrevious={() => {}}
                 />
             )}
 
