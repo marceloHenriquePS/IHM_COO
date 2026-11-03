@@ -5,14 +5,16 @@ type ButtonProps = {
     width?: string;
     className?: string;
     onClick?: () => void;
+    disabled?: boolean;
 };
 
-export function Button({label, width, className, onClick}: ButtonProps) {
+export function Button({label, width, className, onClick, disabled}: ButtonProps) {
     return (
         <button 
             className={`button ${className ?? ''}`}
             style={width ? {width} : undefined}
             onClick={onClick}
+            disabled={disabled}
             >
             {label}
         </button>

@@ -78,7 +78,7 @@ export function MainMenu() {
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="AVALIE" onClick={() => console.log("Avalie")} />
+                        <Button label="AVALIE" onClick={() => console.log("Avalie")} disabled/>
                     </div>
                 </div>
 
