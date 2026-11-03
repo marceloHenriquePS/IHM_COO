@@ -2,13 +2,17 @@
 import "./Header.css";
 import logo from "@/shared/assets/logo-coo.png";
 import homeIcon from "@/shared/assets/house-icon.png";
+import soundOffIcon from "@/shared/assets/sound-off-icon.png";
+import soundOnIcon from "@/shared/assets/sound-on-icon.png";
 
 interface HeaderProps {
     onHelpClick?: () => void;
     onHomeClick?: () => void;
+    muted?: boolean;
+    onToggleMute?: () => void;
 }
 
-export function Header({ onHelpClick, onHomeClick }: HeaderProps) {
+export function Header({ onHelpClick, onHomeClick, muted, onToggleMute }: HeaderProps) {
     return (
         <header className="app-header">
             <div className="header-brand">
@@ -20,6 +24,25 @@ export function Header({ onHelpClick, onHomeClick }: HeaderProps) {
             </div>
 
             <div className="header-actions">
+                {onToggleMute && (
+                    <button
+                        className="header-action"
+                        type="button"
+                        onClick={onToggleMute}
+                        aria-pressed={muted}
+                        aria-label={muted ? "Ativar música" : "Silenciar música"}
+                    >
+                        <span className="header-action-icon">
+                            <img
+                                src={muted ? soundOffIcon : soundOnIcon}
+                                alt=""
+                                className="header-action-image"
+                            />
+                        </span>
+                        <span>{muted ? "Som off" : "Som"}</span>
+                    </button>
+                )}
+
                 <button className="header-action" type="button" onClick={onHelpClick}>
                     <span className="header-action-icon">?</span>
                     <span>Ajuda</span>

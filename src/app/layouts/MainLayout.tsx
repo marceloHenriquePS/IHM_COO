@@ -4,11 +4,14 @@ import { Header } from "@/shared/components/Header/Header";
 import { getPhase } from "@/shared/data/modules";
 import { HelpModal } from "@/shared/components/HelpModal/HelpModal";
 import type { HelpTopic } from "@/shared/components/HelpModal/helpContent";
+import { useMusic } from "@/shared/audio/music";
 
 export function MainLayout() {
     const navigate = useNavigate();
 
     const [helpOpen, setHelpOpen] = useState(false);
+    const { muted, toggleMute } = useMusic();
+
 
     const match = useMatch("/modules/:moduleId/phases/:phaseId");
     const [params] = useSearchParams();
@@ -32,6 +35,8 @@ export function MainLayout() {
             <Header
                 onHomeClick={() => navigate("/home")}
                 onHelpClick={() => setHelpOpen(true)}
+                muted={muted}
+                onToggleMute={toggleMute}
             />
 
             <Outlet />

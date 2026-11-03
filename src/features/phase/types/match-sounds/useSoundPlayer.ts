@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { duckMusic } from "@/shared/audio/music";
+
 
 export function useSoundPlayer() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -7,6 +9,7 @@ export function useSoundPlayer() {
     const [sequence, setSequence] = useState(false);
 
     const stop = useCallback(() => {
+        duckMusic(false);
         runId.current++;
         audioRef.current?.pause();
         audioRef.current = null;
@@ -21,6 +24,7 @@ export function useSoundPlayer() {
             setPlaying(number);
             audio.onended = () => resolve();
             audio.onerror = () => resolve();
+            duckMusic(true);
             audio.play().catch(() => resolve());
         });
     }, []);
