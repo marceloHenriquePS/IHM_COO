@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "@/shared/components/Header/Header";
 import { HelpModal } from "@/shared/components/HelpModal/HelpModal";
 import { useMusic } from "@/shared/audio/music";
+import { useProgress } from "@/shared/hooks/useProgress";
 
 const HOME_HELP_KEY = "coo-home-help-seen";
 
@@ -21,6 +22,7 @@ export function HomeLayout() {
     });
 
     const { muted, toggleMute } = useMusic();
+    const { testMode, toggleTestMode } = useProgress();
 
     return (
         <>
@@ -29,6 +31,9 @@ export function HomeLayout() {
                 onHelpClick={() => setHelpOpen(true)}
                 muted={muted}
                 onToggleMute={toggleMute}
+                showTestMode
+                testMode={testMode}
+                onToggleTestMode={toggleTestMode}
             />
 
             <Outlet />

@@ -19,8 +19,14 @@ function load(): Progress {
     }
 }
 
+let testMode = false;
 let current: Progress = load();
 const listeners = new Set<() => void>();
+
+function toggleTestMode() {
+    testMode = !testMode;
+    listeners.forEach((listener) => listener())
+}
 
 function setProgress(next: Progress) {
     current = next;
@@ -38,23 +44,29 @@ function subscribe(listener: () => void) {
 }
 
 const getSnapshot = () => current;
+const getTestModeSnapshot = () => testMode;
 
 export function useProgress() {
+    const isTestMode = useSyncExternalStore(subscribe, getTestModeSnapshot);
     const progress = useSyncExternalStore(subscribe, getSnapshot);
 
     function isModuleUnlocked(moduleId: number) {
+        if (isTestMode) return true;
         return moduleId <= progress.moduleId;
     }
 
     function isPhaseUnlocked(moduleId: number, phaseId: number) {
-        if (progress.completed) return true;
+        if (isTestMode) return true;
 
+        if (progress.completed) return true;
         if (moduleId < progress.moduleId) return true;
         if (moduleId === progress.moduleId) return phaseId <= progress.phaseId;
+
         return false;
     }
 
     function completePhase(moduleId: number, phaseId: number) {
+        if (isTestMode) return;
         if (current.completed) return;
         if (moduleId !== current.moduleId || phaseId !== current.phaseId) return;
 
@@ -74,8 +86,9 @@ export function useProgress() {
     }
 
     function resetProgress() {
+        if (isTestMode) return;
         setProgress(INITIAL);
     }
 
-    return { progress, isModuleUnlocked, isPhaseUnlocked, completePhase, resetProgress };
+    return { progress, isModuleUnlocked, isPhaseUnlocked, completePhase, resetProgress, testMode: isTestMode, toggleTestMode };
 }

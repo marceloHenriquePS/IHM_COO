@@ -28,19 +28,19 @@ export const HELP: Partial<Record<HelpTopic, HelpPage[]>> = {
                     <h3>Dê Cor a Cidade</h3>
 
                     <p>
-                        Nossa cidade está sem cor ultimamente, nos ajude a colorir a cidade.
-                        <br />
-                        Progrida entre as fases pinte a cidade conforme você avança.
+                        Nossa cidade <b>está sem cor ultimamente</b>, nos ajude a colorir a cidade.
+                        Escolha um <strong>módulo</strong> abaixo para iniciar sua jornada.
+                        Progrida entre as fases e pinte a cidade conforme você avança.
                     </p>
 
                     <br />
 
-                    <h3>Como Começar</h3>
+                    <h3>MODO DE TESTES</h3>
 
                     <p>
-                        Escolha um <strong>módulo</strong> abaixo para iniciar sua jornada.
-                        Complete as fases para avançar e desbloquear
-                        novos desafios.
+                        Ao ativar, <b>todas as fases e módulos ficam liberados</b> para você explorar livremente. 
+                        <b> Seu progresso oficial não será alterado</b> enquanto estiver nesse modo.
+                        <b> A cidade não vai se colorir enquanto o modo estiver ativado.</b>
                     </p>
 
                     <br />
