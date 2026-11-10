@@ -8,10 +8,12 @@ export function MainMenu() {
     const navigate = useNavigate();
 
     const [aboutOpen, setAboutOpen] = useState(false);
+    const [creditsOpen, setCreditsOpen] = useState(false);
     // const [rateOpen, setRateOpen] = useState(false);
 
     const handleStartBtn = () => { navigate("/home"); };
     const handleAboutBtn = () => setAboutOpen(true);
+    const handleCreditsBtn = () => setCreditsOpen(true);
     // const handleRateBtn = () => setRateOpen(true);    
 
     const aboutContent = [
@@ -48,6 +50,52 @@ export function MainMenu() {
         </>
     ]
 
+    const creditsContent = [
+        <>
+            <div className="about-content">
+                <h3>Créditos do Cidade COO</h3>
+
+                <p>
+                    Este projeto utiliza recursos de áudio e outros materiais
+                    criados por diferentes autores.
+                </p>
+
+                <h4>Trilhas sonoras</h4>
+
+                <p><b>Park Vibes</b> — Filo Starquez</p>
+
+                <p><b>Coming Of Age</b> — Hazelwood</p>
+
+                <p><b>Warm Cup of Coffee</b> — Moavii</p>
+
+                <p><b>city</b> — massobeats</p>
+
+                <p><b>Dreaming After Work</b> — Lukrembo</p>
+
+                <h4>Fonte das músicas</h4>
+
+                <p>Todas as trilhas sonoras foram obtidas em:</p>
+
+                <p>
+                    <a
+                        href="https://freetouse.com/music"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Free To Use Music
+                    </a>
+                </p>
+
+                <br />
+
+                <p>
+                    Agradecemos aos criadores por disponibilizarem seus
+                    trabalhos e contribuírem para a experiência do jogo.
+                </p>
+            </div>
+        </>
+    ]
+
     return (
         <div className="main-menu">
 
@@ -78,7 +126,12 @@ export function MainMenu() {
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="AVALIE" onClick={() => console.log("Avalie")} disabled/>
+                        <Button label="CRÉDITOS" onClick={handleCreditsBtn} />
+                    </div>
+
+                    <div className="main-menu__button-row">
+                        <span className="main-menu__button-label">BUTTON: </span>
+                        <Button label="AVALIE" onClick={() => console.log("Avalie")} disabled />
                     </div>
                 </div>
 
@@ -93,6 +146,13 @@ export function MainMenu() {
                 {aboutOpen && (
                     <Modal open={aboutOpen} title="Sobre o Cidade COO" onClose={() => setAboutOpen(false)}>
                         {aboutContent}
+                    </Modal>
+                )}
+
+                {creditsContent && (
+                    <Modal open={creditsOpen} title="Créditos" onClose={() => setCreditsOpen(false)}
+                    >
+                        {creditsContent}
                     </Modal>
                 )}
 

@@ -1,0 +1,119 @@
+
+.screen-notice {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.screen-notice p {
+    margin: 0;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+.screen-notice-resolutions {
+    padding: 14px 16px;
+    background: #fff8df;
+    border: 1px solid #f2d77e;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.screen-notice-resolutions h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.screen-notice-resolutions ul {
+    margin: 0;
+    padding-left: 22px;
+    line-height: 1.8;
+}
+
+.screen-notice-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.screen-notice-icon {
+    flex-shrink: 0;
+    font-size: 24px;
+}
+
+.screen-notice-warning p {
+    font-size: 14px;
+}
+
+.screen-notice-button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #ffc400;
+    color: #252525;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.screen-notice-button:hover {
+    background: #e8b300;
+}
+
+@media (max-width: 600px) {
+    .screen-notice {
+        gap: 14px;
+    }
+
+    .screen-notice-resolutions {
+        padding: 12px;
+    }
+
+    .screen-notice-resolutions h3 {
+        font-size: 14px;
+    }
+
+    .screen-notice-warning {
+        gap: 8px;
+        padding: 11px;
+    }
+
+    .screen-notice-warning p {
+        font-size: 13px;
+    }
+
+    .screen-notice-button {
+        padding: 13px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .screen-notice {
+        gap: 12px;
+    }
+
+    .screen-notice-icon {
+        font-size: 20px;
+    }
+
+    .screen-notice-warning p {
+        font-size: 12px;
+    }
+
+    .screen-notice-resolutions ul {
+        font-size: 13px;
+    }
+}

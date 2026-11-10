@@ -10,9 +10,12 @@ interface HeaderProps {
     onHomeClick?: () => void;
     muted?: boolean;
     onToggleMute?: () => void;
+    showTestMode?: boolean;
+    testMode?: boolean;
+    onToggleTestMode?: () => void;
 }
 
-export function Header({ onHelpClick, onHomeClick, muted, onToggleMute }: HeaderProps) {
+export function Header({ onHelpClick, onHomeClick, muted, onToggleMute, showTestMode, testMode, onToggleTestMode }: HeaderProps) {
     return (
         <header className="app-header">
             <div className="header-brand">
@@ -24,6 +27,20 @@ export function Header({ onHelpClick, onHomeClick, muted, onToggleMute }: Header
             </div>
 
             <div className="header-actions">
+                {showTestMode && onToggleTestMode && (
+                    <button
+                        className={`header-action ${testMode ? "test-mode-active" : "test-mode-inactive"}`}
+                        type="button"
+                        onClick={onToggleTestMode}
+                        aria-pressed={testMode}
+                    >
+                        <span className="header-action-icon">
+                            {testMode ? "✓" : "X"}
+                        </span>
+                        <span>Modo Teste</span>
+                    </button>
+                )}
+
                 {onToggleMute && (
                     <button
                         className="header-action"
