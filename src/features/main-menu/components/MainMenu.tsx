@@ -9,12 +9,10 @@ export function MainMenu() {
 
     const [aboutOpen, setAboutOpen] = useState(false);
     const [creditsOpen, setCreditsOpen] = useState(false);
-    // const [rateOpen, setRateOpen] = useState(false);
 
     const handleStartBtn = () => { navigate("/home"); };
     const handleAboutBtn = () => setAboutOpen(true);
     const handleCreditsBtn = () => setCreditsOpen(true);
-    // const handleRateBtn = () => setRateOpen(true);    
 
     const aboutContent = [
         <>
@@ -96,6 +94,8 @@ export function MainMenu() {
         </>
     ]
 
+    const rateLink = "https://docs.google.com/forms/d/e/1FAIpQLScAMgdBjO6OaLv4Kiho52EUbbmHOgRXrHKpEUXqDCm5skPBeA/viewform?usp=dialog"
+
     return (
         <div className="main-menu">
 
@@ -131,7 +131,7 @@ export function MainMenu() {
 
                     <div className="main-menu__button-row">
                         <span className="main-menu__button-label">BUTTON: </span>
-                        <Button label="AVALIE" onClick={() => console.log("Avalie")} disabled />
+                        <Button label="AVALIE" onClick={() => window.open(rateLink, "_blank", "noopener,noreferrer")}/>
                     </div>
                 </div>
 
